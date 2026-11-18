@@ -1,0 +1,2347 @@
+{
+ "version": 1,
+ "questions": [
+  {
+   "id": "v001",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「毎朝、7時に 起きます。」\n「毎朝」の 読み方は どれですか。",
+   "choices": [
+    "めいあさ",
+    "まいあさ",
+    "まいちょう",
+    "まいにち"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "毎朝 (まいあさ) means \"every morning\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v002",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「駅の 前で 待って います。」\n「駅」の 読み方は どれですか。",
+   "choices": [
+    "いえ",
+    "みち",
+    "へや",
+    "えき"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "駅 (えき) means \"station\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v003",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「明日、病院に 行きます。」\n「病院」の 読み方は どれですか。",
+   "choices": [
+    "びょういん",
+    "びょうき",
+    "びよういん",
+    "ぴょういん"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "病院 (びょういん) means \"hospital\". Be careful: びよういん (美容院) means \"beauty salon\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v004",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「先週、友だちと 映画を 見ました。」\n「先週」の 読み方は どれですか。",
+   "choices": [
+    "さきしゅう",
+    "せんしゅう",
+    "らいしゅう",
+    "せんしゅ"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "先週 (せんしゅう) means \"last week\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v005",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「今日は 天気が いいです。」\n「天気」の 読み方は どれですか。",
+   "choices": [
+    "てんけ",
+    "てんき",
+    "げんき",
+    "でんき"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "天気 (てんき) means \"weather\". でんき (電気) is \"electricity/light\", げんき (元気) is \"healthy\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v006",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「きのう、デパートで くつを かいました。」\n「かいました」は 漢字で どう 書きますか。",
+   "choices": [
+    "貝いました",
+    "買いました",
+    "会いました",
+    "書いました"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "買う (かう) means \"to buy\". 書く is \"to write\", 会う is \"to meet\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v007",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「毎日 にほんごを べんきょうします。」\n「べんきょう」は 漢字で どう 書きますか。",
+   "choices": [
+    "便強",
+    "免強",
+    "勉強",
+    "勉協"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "勉強 (べんきょう) means \"study\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v008",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「やすみの 日は うちで ゆっくり します。」\n「やすみ」は 漢字で どう 書きますか。",
+   "choices": [
+    "林み",
+    "休み",
+    "体み",
+    "木み"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "休み (やすみ) means \"holiday / rest\". 体 (からだ) looks similar but means \"body\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v009",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「でんしゃで 会社に 行きます。」\n「でんしゃ」は 漢字で どう 書きますか。",
+   "choices": [
+    "雷車",
+    "電車",
+    "電社",
+    "電気"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "電車 (でんしゃ) means \"train\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v010",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「次の 角を みぎに まがって ください。」\n「みぎ」は 漢字で どう 書きますか。",
+   "choices": [
+    "北",
+    "右",
+    "石",
+    "左"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "右 (みぎ) means \"right\". 左 (ひだり) is \"left\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v011",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「のどが （　　）ので、水を 飲みました。」\n（　　）に 入る ことばは どれですか。",
+   "choices": [
+    "ひえた",
+    "あいた",
+    "すいた",
+    "かわいた"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "のどが かわく means \"to be thirsty\". おなかが すく means \"to be hungry\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v012",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「おなかが （　　）から、ごはんを 食べましょう。」\n（　　）に 入る ことばは どれですか。",
+   "choices": [
+    "あつい",
+    "みじかい",
+    "すいた",
+    "ねむい"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "おなかが すく means \"to be hungry\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v013",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「この 部屋は （　　）ですから、まどを 開けて ください。」\n（　　）に 入る ことばは どれですか。",
+   "choices": [
+    "あつい",
+    "しずか",
+    "くらい",
+    "さむい"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "You open the window because the room is hot (あつい)."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v014",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「雨が 降って いますから、（　　）を 持って 行きます。」\n（　　）に 入る ことばは どれですか。",
+   "choices": [
+    "かさ",
+    "はし",
+    "かぎ",
+    "とけい"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "かさ means \"umbrella\". You take it because it is raining."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v015",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「仕事の あとで、とても （　　）ので、すぐ 寝ました。」\n（　　）に 入る ことばは どれですか。",
+   "choices": [
+    "たのしい",
+    "わかい",
+    "つかれた",
+    "あかるい"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "つかれる means \"to get tired\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v016",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「毎日 電車で 会社に （　　）。」\n（　　）に 入る ことばは どれですか。",
+   "choices": [
+    "かよって います",
+    "あるいて います",
+    "すんで います",
+    "おりて います"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "かよう means \"to commute / go regularly\". 電車で…あるいて (walk) does not make sense."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v017",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「この シャツは 少し （　　）です。もっと 大きいのは ありますか。」\n（　　）に 入る ことばは どれですか。",
+   "choices": [
+    "小さい",
+    "高い",
+    "安い",
+    "大きい"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The shirt is too small (小さい), so the person asks for a bigger one."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v018",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「熱が ありますから、（　　）を 飲みます。」\n（　　）に 入る ことばは どれですか。",
+   "choices": [
+    "くつ",
+    "くすり",
+    "いす",
+    "かみ"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "くすり means \"medicine\". In Japanese you 飲む (drink) medicine."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v019",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「やさしい」の 使い方が 正しい 文は どれですか。",
+   "choices": [
+    "山田さんは とても やさしい 人です。",
+    "この 水は やさしいです。",
+    "今日は 天気が やさしいです。",
+    "この かばんは やさしいです。"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "やさしい means \"kind\" (for people) or \"easy\" (for tasks). It is not used for bags, weather or water."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v020",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「つける」の 使い方が 正しい 文は どれですか。",
+   "choices": [
+    "図書館で 本を つけます。",
+    "暗いので、部屋の 電気を つけます。",
+    "暑いので、ドアを つけます。",
+    "出かける 前に くつを つけます。"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "電気を つける means \"turn on the light\". Doors are あける, shoes are はく."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v021",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「おりる」の 使い方が 正しい 文は どれですか。",
+   "choices": [
+    "友だちに 手紙を おります。",
+    "毎朝 シャワーを おります。",
+    "次の 駅で 電車を おります。",
+    "2階から 3階に おります。"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "おりる means \"to get off / go down\". Going from 2F to 3F is のぼる/あがる."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v022",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「（　　）を 洗ってから、ごはんを 食べます。」\n（　　）に 入る ことばは どれですか。",
+   "choices": [
+    "手",
+    "時計",
+    "本",
+    "電話"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "手を 洗う means \"wash your hands\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v023",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「きのうは 日曜日でした。今日は （　　）です。」\n（　　）に 入る ことばは どれですか。",
+   "choices": [
+    "金曜日",
+    "火曜日",
+    "土曜日",
+    "月曜日"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The day after Sunday (日曜日) is Monday (月曜日)."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v024",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「この レストランは 料理が おいしくて、（　　）です。たくさん 食べても 1,000円です。」\n（　　）に 入る ことばは どれですか。",
+   "choices": [
+    "たかい",
+    "せまい",
+    "ふるい",
+    "やすい"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "やすい means \"cheap\". Eating a lot for 1,000 yen is cheap."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v025",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「この 荷物を 運んで ください。」\n「荷物」の 読み方は どれですか。",
+   "choices": [
+    "にぶつ",
+    "にもの",
+    "かもつ",
+    "にもつ"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "荷物 (にもつ) means \"luggage / package\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v026",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「安全に 気を つけて ください。」\n「安全」の 読み方は どれですか。",
+   "choices": [
+    "あんぜい",
+    "やすぜん",
+    "あんせん",
+    "あんぜん"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "安全 (あんぜん) means \"safety\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v027",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「来月、国へ 帰ります。」\n「来月」の 読み方は どれですか。",
+   "choices": [
+    "きげつ",
+    "らいげつ",
+    "らいがつ",
+    "らいつき"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "来月 (らいげつ) means \"next month\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v028",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「ここに なまえを 書いて ください。」\n「なまえ」は 漢字で どう 書きますか。",
+   "choices": [
+    "各前",
+    "石前",
+    "名後",
+    "名前"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "名前 (なまえ) means \"name\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v029",
+   "category": "vocab",
+   "level": "A2",
+   "text": "A「すみません、（　　）は どこですか。」\nB「あそこです。男性用は 右、女性用は 左です。」\n（　　）に 入る ことばは どれですか。",
+   "choices": [
+    "エレベーター",
+    "出口",
+    "受付",
+    "トイレ"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Separate rooms for men and women: トイレ (toilet)."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "v030",
+   "category": "vocab",
+   "level": "A2",
+   "text": "「しめる」の 使い方が 正しい 文は どれですか。",
+   "choices": [
+    "寝る 前に 電気を しめて ください。",
+    "テレビを しめて ください。",
+    "寒いですから、まどを しめて ください。",
+    "ここに 名前を しめて ください。"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "しめる means \"to close\" (doors, windows). Lights and TVs are けす (turn off)."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c001",
+   "category": "conv",
+   "level": "A2",
+   "text": "A「はじめまして。リナです。どうぞ よろしく お願いします。」\nB「（　　）。」",
+   "choices": [
+    "おつかれさまでした",
+    "ごちそうさまでした",
+    "こちらこそ、よろしく お願いします",
+    "いただきます"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "こちらこそ means \"same here\". It is the usual reply to よろしく お願いします."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c002",
+   "category": "conv",
+   "level": "A2",
+   "text": "ごはんを 食べる 前に、何と 言いますか。",
+   "choices": [
+    "いただきます",
+    "いってきます",
+    "ただいま",
+    "ごちそうさまでした"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "いただきます is said before eating. ごちそうさまでした is said after eating."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c003",
+   "category": "conv",
+   "level": "A2",
+   "text": "A「お先に 失礼します。」\nB「（　　）。」",
+   "choices": [
+    "おつかれさまでした",
+    "おはようございます",
+    "はじめまして",
+    "いらっしゃいませ"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "When a co-worker leaves first, reply おつかれさまでした."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c004",
+   "category": "conv",
+   "level": "A2",
+   "text": "A「すみません、5分 遅れて しまいました。」\nB「（　　）。でも、次は 気を つけて くださいね。」",
+   "choices": [
+    "大丈夫ですよ",
+    "いただきます",
+    "お元気で",
+    "おめでとうございます"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "大丈夫ですよ means \"It's OK\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c005",
+   "category": "conv",
+   "level": "A2",
+   "text": "「わたしは 毎朝 パン（　　）食べます。」",
+   "choices": [
+    "が",
+    "で",
+    "に",
+    "を"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The object of 食べる takes を."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c006",
+   "category": "conv",
+   "level": "A2",
+   "text": "「バス（　　）会社に 行きます。」",
+   "choices": [
+    "で",
+    "が",
+    "に",
+    "を"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "で marks the means of transport: バスで (by bus)."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c007",
+   "category": "conv",
+   "level": "A2",
+   "text": "「わたしの 部屋に テレビ（　　）あります。」",
+   "choices": [
+    "へ",
+    "で",
+    "が",
+    "を"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "～に ～が あります means \"there is ~ in ~\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c008",
+   "category": "conv",
+   "level": "A2",
+   "text": "「きのうは 雨が 降って いたので、どこにも （　　）。」",
+   "choices": [
+    "行きませんでした",
+    "行きます",
+    "行きたいです",
+    "行きました"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "どこにも is used with a negative verb: \"didn't go anywhere\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c009",
+   "category": "conv",
+   "level": "A2",
+   "text": "「ここは 禁煙です。たばこを （　　）ください。」",
+   "choices": [
+    "すわないで",
+    "すって",
+    "すう",
+    "すわない"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "禁煙 means \"no smoking\". ～ないで ください means \"please don't ~\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c010",
+   "category": "conv",
+   "level": "A2",
+   "text": "「日本語が 少し （　　）ように なりました。」",
+   "choices": [
+    "話して",
+    "話す",
+    "話した",
+    "話せる"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Potential form + ように なる means \"became able to ~\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c011",
+   "category": "conv",
+   "level": "A2",
+   "text": "「すみません、この 漢字の 読み方を （　　）くれませんか。」",
+   "choices": [
+    "教えて",
+    "教える",
+    "教えた",
+    "教え"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "て-form + くれませんか is a polite request."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c012",
+   "category": "conv",
+   "level": "A2",
+   "text": "「明日 雨が （　　）、サッカーは しません。」",
+   "choices": [
+    "降って",
+    "降ったら",
+    "降った",
+    "降る"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "～たら means \"if ~\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c013",
+   "category": "conv",
+   "level": "A2",
+   "text": "「この 書類は 今日中に 出さ（　　）なりません。」",
+   "choices": [
+    "なければ",
+    "ないで",
+    "なくても",
+    "ても"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "～なければ なりません means \"must ~\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c014",
+   "category": "conv",
+   "level": "A2",
+   "text": "「来年、日本へ 行こう（　　）思って います。」",
+   "choices": [
+    "に",
+    "を",
+    "で",
+    "と"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Volitional form + と 思って います means \"I'm planning to ~\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c015",
+   "category": "conv",
+   "level": "A2",
+   "text": "「先生、すみませんが、もう 一度 （　　）。」",
+   "choices": [
+    "言いたいです",
+    "言って いただけませんか",
+    "言って あげます",
+    "言いましょうか"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "～て いただけませんか is a very polite request."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c016",
+   "category": "conv",
+   "level": "A2",
+   "text": "A「この ケーキ、食べても いいですか。」\nB「（　　）。どうぞ。」",
+   "choices": [
+    "いいえ、だめです",
+    "すみません、ちょっと…",
+    "ええ、いいですよ",
+    "いいえ、食べません"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "B says どうぞ (please go ahead), so the answer is ええ、いいですよ."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c017",
+   "category": "conv",
+   "level": "A2",
+   "text": "客「すみません、この シャツ、（　　）。」\n店員「はい、あちらに 試着室が ございます。」",
+   "choices": [
+    "着て いました",
+    "着ましょう",
+    "着て みても いいですか",
+    "着た ことが あります"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "～ても いいですか asks for permission. The clerk points to the fitting room."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c018",
+   "category": "conv",
+   "level": "A2",
+   "text": "A「週末、いっしょに 映画を 見に 行きませんか。」\nB「（　　）。何時に 会いましょうか。」",
+   "choices": [
+    "行きません",
+    "いいですね",
+    "すみません、ちょっと…",
+    "けっこうです"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "B asks what time to meet, so B accepts: いいですね."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c019",
+   "category": "conv",
+   "level": "A2",
+   "text": "「熱が あるので、今日は 仕事を （　　）も いいですか。」",
+   "choices": [
+    "休んで",
+    "休む",
+    "休み",
+    "休んだ"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "て-form + も いいですか asks for permission."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c020",
+   "category": "conv",
+   "level": "A2",
+   "text": "「この 薬は ごはんを 食べた （　　）に 飲んで ください。」",
+   "choices": [
+    "ながら",
+    "ので",
+    "あと",
+    "まえ"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "た-form + あとで means \"after ~\". まえ needs the dictionary form (食べる まえ)."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c021",
+   "category": "conv",
+   "level": "A2",
+   "text": "「テレビを 見（　　）ごはんを 食べます。」",
+   "choices": [
+    "ながら",
+    "ます",
+    "ました",
+    "たい"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "ます-stem + ながら means \"while ~\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c022",
+   "category": "conv",
+   "level": "A2",
+   "text": "「田中さんは 山田さん（　　）背が 高いです。」",
+   "choices": [
+    "から",
+    "ほど",
+    "より",
+    "まで"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "AはBより～ means \"A is more ~ than B\". ほど is used with negatives."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c023",
+   "category": "conv",
+   "level": "A2",
+   "text": "「窓が 開いて （　　）。寒いですから、閉めましょう。」",
+   "choices": [
+    "みます",
+    "あります",
+    "います",
+    "おきます"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "開く is intransitive, so the state is 開いて います."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c024",
+   "category": "conv",
+   "level": "A2",
+   "text": "A「お国は どちらですか。」\nB「（　　）。」",
+   "choices": [
+    "25さいです",
+    "ジャカルタ駅です",
+    "3人です",
+    "インドネシアです"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "お国は どちらですか asks which country you are from."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c025",
+   "category": "conv",
+   "level": "A2",
+   "text": "上司「この 箱、倉庫に 運んで おいて ください。」\nわたし「（　　）。」",
+   "choices": [
+    "お大事に",
+    "はい、わかりました",
+    "いただきます",
+    "どういたしまして"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "はい、わかりました is the reply to an instruction at work."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c026",
+   "category": "conv",
+   "level": "A2",
+   "text": "A「かぜを ひいて しまって…。」\nB「そうですか。（　　）。」",
+   "choices": [
+    "ただいま",
+    "お大事に",
+    "おめでとうございます",
+    "いってらっしゃい"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "お大事に means \"take care (of your health)\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c027",
+   "category": "conv",
+   "level": "A2",
+   "text": "「先生が わたしに 日本語の 本を （　　）。」",
+   "choices": [
+    "さしあげました",
+    "あげました",
+    "くださいました",
+    "いただきました"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "When a superior (先生) gives something to me, use くださる."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c028",
+   "category": "conv",
+   "level": "A2",
+   "text": "「この 箱は 重い （　　）、一人で 持てません。」",
+   "choices": [
+    "ので",
+    "でも",
+    "のに",
+    "まで"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "ので gives a reason: \"because it is heavy\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c029",
+   "category": "conv",
+   "level": "A2",
+   "text": "「部屋を 出る ときは、電気を （　　）ください。」",
+   "choices": [
+    "消した",
+    "消す",
+    "消して",
+    "消えて"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "消す (transitive) → 消して ください \"please turn off\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "c030",
+   "category": "conv",
+   "level": "A2",
+   "text": "（電話で）\n「もしもし、ABC会社の リナです。田中さんは （　　）か。」",
+   "choices": [
+    "おります",
+    "いたします",
+    "まいります",
+    "いらっしゃいます"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "いらっしゃる is the respectful form of いる. おる is humble and used only for your own side."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l001",
+   "category": "listen",
+   "level": "A2",
+   "text": "男の人は 何を 買いますか。",
+   "script": [
+    {
+     "speaker": "F",
+     "text": "いらっしゃいませ。"
+    },
+    {
+     "speaker": "M",
+     "text": "すみません、りんごを 3つと、バナナを ください。"
+    },
+    {
+     "speaker": "F",
+     "text": "はい、りんご 3つと バナナですね。全部で 500円です。"
+    }
+   ],
+   "choices": [
+    "バナナだけ",
+    "りんご 5つ",
+    "りんご 3つだけ",
+    "りんご 3つと バナナ"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "He asks for three apples and bananas."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l002",
+   "category": "listen",
+   "level": "A2",
+   "text": "全部で いくらですか。",
+   "script": [
+    {
+     "speaker": "M",
+     "text": "この パンと 牛乳を ください。"
+    },
+    {
+     "speaker": "F",
+     "text": "パンが 200円、牛乳が 150円で、350円です。"
+    }
+   ],
+   "choices": [
+    "200円",
+    "150円",
+    "250円",
+    "350円"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "200 yen (bread) + 150 yen (milk) = 350 yen."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l003",
+   "category": "listen",
+   "level": "A2",
+   "text": "電車は 何番線に 来ますか。",
+   "script": [
+    {
+     "speaker": "N",
+     "text": "まもなく 2番線に 東京行きの 電車が まいります。危ないですから、黄色い 線の 内側まで お下がりください。"
+    }
+   ],
+   "choices": [
+    "1番線",
+    "2番線",
+    "3番線",
+    "4番線"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The announcement says 2番線 (platform 2)."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l004",
+   "category": "listen",
+   "level": "A2",
+   "text": "女の人は 最初に 何を しますか。",
+   "script": [
+    {
+     "speaker": "M",
+     "text": "リナさん、この 段ボールを 2階の 倉庫に 運んで ください。それから、1階の 掃除を お願いします。"
+    },
+    {
+     "speaker": "F",
+     "text": "はい、わかりました。"
+    }
+   ],
+   "choices": [
+    "2階を 掃除する",
+    "1階を 掃除する",
+    "箱を 1階に 運ぶ",
+    "箱を 2階に 運ぶ"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "First carry the boxes to the 2nd floor storeroom, then (それから) clean the 1st floor."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l005",
+   "category": "listen",
+   "level": "A2",
+   "text": "女の人は 明日 何時に 来ますか。",
+   "script": [
+    {
+     "speaker": "F",
+     "text": "明日の 会議は 何時からですか。"
+    },
+    {
+     "speaker": "M",
+     "text": "10時からです。でも、9時半に 来て、準備を 手伝って ください。"
+    }
+   ],
+   "choices": [
+    "10時半",
+    "10時",
+    "9時半",
+    "9時"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The meeting is at 10, but she is asked to come at 9:30 to help prepare."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l006",
+   "category": "listen",
+   "level": "A2",
+   "text": "女の人は 日曜日 何を しましたか。",
+   "script": [
+    {
+     "speaker": "M",
+     "text": "週末は 何を しましたか。"
+    },
+    {
+     "speaker": "F",
+     "text": "土曜日は 友だちと 買い物に 行きました。日曜日は うちで 料理を しました。"
+    }
+   ],
+   "choices": [
+    "仕事を した",
+    "うちで 料理を した",
+    "映画を 見た",
+    "友だちと 買い物に 行った"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Saturday: shopping. Sunday: cooking at home."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l007",
+   "category": "listen",
+   "level": "A2",
+   "text": "男の人は どこが 痛いですか。",
+   "script": [
+    {
+     "speaker": "F",
+     "text": "今日は どうしましたか。"
+    },
+    {
+     "speaker": "M",
+     "text": "きのうから 頭が 痛くて、熱も あります。"
+    }
+   ],
+   "choices": [
+    "頭",
+    "のど",
+    "足",
+    "おなか"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "頭が 痛い = he has a headache."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l008",
+   "category": "listen",
+   "level": "A2",
+   "text": "郵便局へ どう 行きますか。",
+   "script": [
+    {
+     "speaker": "M",
+     "text": "すみません、郵便局は どこですか。"
+    },
+    {
+     "speaker": "F",
+     "text": "この 道を まっすぐ 行って、2つ目の 角を 右に 曲がって ください。郵便局は 左に あります。"
+    }
+   ],
+   "choices": [
+    "まっすぐ 行って、1つ目の 角を 右に 曲がる",
+    "まっすぐ 行って、2つ目の 角を 右に 曲がる",
+    "まっすぐ 行って、2つ目の 角を 左に 曲がる",
+    "まっすぐ 行って、1つ目の 角を 左に 曲がる"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Go straight, turn right at the 2nd corner. The post office is on the left."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l009",
+   "category": "listen",
+   "level": "A2",
+   "text": "セールは 何階で して いますか。",
+   "script": [
+    {
+     "speaker": "N",
+     "text": "本日は ご来店 ありがとうございます。ただいま、3階の 食器売り場で セールを して おります。すべての 商品が 2割引きです。"
+    }
+   ],
+   "choices": [
+    "1階",
+    "4階",
+    "3階",
+    "2階"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The sale is at the tableware section on the 3rd floor."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l010",
+   "category": "listen",
+   "level": "A2",
+   "text": "女の人は 日本に 来て どのくらいですか。",
+   "script": [
+    {
+     "speaker": "M",
+     "text": "グエンさんは 日本に 来て どのくらいですか。"
+    },
+    {
+     "speaker": "F",
+     "text": "1年半です。来年の 3月で 2年に なります。"
+    }
+   ],
+   "choices": [
+    "2年",
+    "半年",
+    "3年",
+    "1年半"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "She has been in Japan for a year and a half; it will be 2 years next March."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l011",
+   "category": "listen",
+   "level": "A2",
+   "text": "男の人は どうして 遅れますか。",
+   "script": [
+    {
+     "speaker": "M",
+     "text": "もしもし、田中です。すみません、電車が 止まって いて、30分ぐらい 遅れます。"
+    },
+    {
+     "speaker": "F",
+     "text": "わかりました。気を つけて 来て ください。"
+    }
+   ],
+   "choices": [
+    "電車が 止まって いるから",
+    "病気だから",
+    "寝坊したから",
+    "道が わからないから"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "電車が 止まって いて = the train has stopped."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l012",
+   "category": "listen",
+   "level": "A2",
+   "text": "コーヒーは いつ 持って きますか。",
+   "script": [
+    {
+     "speaker": "F",
+     "text": "ご注文は お決まりですか。"
+    },
+    {
+     "speaker": "M",
+     "text": "カレーライスを 一つと、コーヒーを お願いします。コーヒーは 食後に お願いします。"
+    }
+   ],
+   "choices": [
+    "食事と いっしょに",
+    "食事の 前",
+    "持って こない",
+    "食事の あと"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "食後 means \"after the meal\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l013",
+   "category": "listen",
+   "level": "A2",
+   "text": "明日の 朝、何を しては いけませんか。",
+   "script": [
+    {
+     "speaker": "M",
+     "text": "明日は 健康診断が あります。朝ごはんは 食べないで 来て ください。水は 飲んでも いいです。"
+    }
+   ],
+   "choices": [
+    "会社に 来る",
+    "水を 飲む",
+    "早く 起きる",
+    "朝ごはんを 食べる"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Don't eat breakfast before the health check. Water is OK."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l014",
+   "category": "listen",
+   "level": "A2",
+   "text": "明日の 午後の 天気は どうですか。",
+   "script": [
+    {
+     "speaker": "N",
+     "text": "明日の 天気です。午前中は 晴れますが、午後から 雨が 降るでしょう。出かける ときは 傘を 持って 行って ください。"
+    }
+   ],
+   "choices": [
+    "くもり",
+    "雨",
+    "雪",
+    "晴れ"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Sunny in the morning, rain from the afternoon."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l015",
+   "category": "listen",
+   "level": "A2",
+   "text": "駅へ 行く バスは 何番ですか。",
+   "script": [
+    {
+     "speaker": "M",
+     "text": "すみません、この バスは 駅へ 行きますか。"
+    },
+    {
+     "speaker": "F",
+     "text": "いいえ、駅へ 行くのは 5番の バスですよ。この バスは 病院へ 行きます。"
+    }
+   ],
+   "choices": [
+    "9番",
+    "3番",
+    "15番",
+    "5番"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The No. 5 bus goes to the station. This bus goes to the hospital."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l016",
+   "category": "listen",
+   "level": "A2",
+   "text": "工場の 中で、何を しなければ なりませんか。",
+   "script": [
+    {
+     "speaker": "M",
+     "text": "工場の 中では、必ず ヘルメットを かぶって ください。それから、手袋も して ください。"
+    }
+   ],
+   "choices": [
+    "手袋だけ する",
+    "ヘルメットを かぶって、手袋を する",
+    "ヘルメットだけ かぶる",
+    "何も しなくても いい"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Both a helmet and gloves are required (それから = and also)."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l017",
+   "category": "listen",
+   "level": "A2",
+   "text": "缶は 何曜日に 出しますか。",
+   "script": [
+    {
+     "speaker": "F",
+     "text": "燃える ごみは 月曜日と 木曜日に 出して ください。缶と びんは 水曜日です。"
+    }
+   ],
+   "choices": [
+    "木曜日",
+    "月曜日",
+    "水曜日",
+    "金曜日"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Burnable garbage: Mon & Thu. Cans and bottles: Wednesday."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l018",
+   "category": "listen",
+   "level": "A2",
+   "text": "二人は いつ ご飯を 食べに 行きますか。",
+   "script": [
+    {
+     "speaker": "M",
+     "text": "今晩、いっしょに ご飯を 食べに 行きませんか。"
+    },
+    {
+     "speaker": "F",
+     "text": "行きたいですが、今晩は 日本語の 授業が あるんです。明日は どうですか。"
+    },
+    {
+     "speaker": "M",
+     "text": "いいですね。そう しましょう。"
+    }
+   ],
+   "choices": [
+    "今晩",
+    "来週",
+    "行かない",
+    "明日"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "She has class tonight and suggests tomorrow; he agrees."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l019",
+   "category": "listen",
+   "level": "A2",
+   "text": "店に ある 大きい サイズは 何センチですか。",
+   "script": [
+    {
+     "speaker": "F",
+     "text": "すみません、この くつ、もう 少し 大きい サイズは ありますか。"
+    },
+    {
+     "speaker": "M",
+     "text": "そちらは 24センチですね。25センチが ございます。"
+    }
+   ],
+   "choices": [
+    "24センチ",
+    "26センチ",
+    "25センチ",
+    "23センチ"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Her shoes are 24 cm; the shop has 25 cm."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l020",
+   "category": "listen",
+   "level": "A2",
+   "text": "男の人は 何を 出しますか。",
+   "script": [
+    {
+     "speaker": "M",
+     "text": "すみません、初めて 来たんですが。"
+    },
+    {
+     "speaker": "F",
+     "text": "では、この 紙に 名前と 住所を 書いて、保険証と いっしょに 出して ください。"
+    }
+   ],
+   "choices": [
+    "お金",
+    "紙と 保険証",
+    "保険証だけ",
+    "紙だけ"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Write your name and address on the paper and hand it in with your insurance card."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l021",
+   "category": "listen",
+   "level": "A2",
+   "text": "電車は 何時ごろ 動きますか。",
+   "script": [
+    {
+     "speaker": "N",
+     "text": "事故の ため、ただいま 電車が 止まって おります。運転再開は 午後 3時ごろの 予定です。"
+    }
+   ],
+   "choices": [
+    "午後 3時ごろ",
+    "午後 2時ごろ",
+    "午後 4時ごろ",
+    "午前 3時ごろ"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "運転再開 (service restart) is planned for around 3 p.m."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l022",
+   "category": "listen",
+   "level": "A2",
+   "text": "男の人は かばんを だれに もらいましたか。",
+   "script": [
+    {
+     "speaker": "F",
+     "text": "その かばん、すてきですね。"
+    },
+    {
+     "speaker": "M",
+     "text": "ありがとうございます。誕生日に 姉に もらいました。"
+    }
+   ],
+   "choices": [
+    "お兄さん",
+    "お姉さん",
+    "妹",
+    "友だち"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "姉 = older sister."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l023",
+   "category": "listen",
+   "level": "A2",
+   "text": "コピーは 何枚ですか。",
+   "script": [
+    {
+     "speaker": "M",
+     "text": "リナさん、コピーを 10枚 お願いします。あ、やっぱり 20枚に して ください。"
+    },
+    {
+     "speaker": "F",
+     "text": "はい、20枚ですね。"
+    }
+   ],
+   "choices": [
+    "30枚",
+    "20枚",
+    "10枚",
+    "12枚"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "He first says 10, then changes to 20 (やっぱり)."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l024",
+   "category": "listen",
+   "level": "A2",
+   "text": "家賃は いくらですか。",
+   "script": [
+    {
+     "speaker": "F",
+     "text": "この 部屋は 駅から 歩いて 5分です。家賃は 1か月 6万円です。"
+    },
+    {
+     "speaker": "M",
+     "text": "そうですか。部屋を 見ても いいですか。"
+    }
+   ],
+   "choices": [
+    "6千円",
+    "5千円",
+    "5万円",
+    "6万円"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "家賃 (rent) is 60,000 yen a month. 5分 is the walking time."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l025",
+   "category": "listen",
+   "level": "A2",
+   "text": "トイレは どこに ありますか。",
+   "script": [
+    {
+     "speaker": "M",
+     "text": "すみません、トイレは どこですか。"
+    },
+    {
+     "speaker": "F",
+     "text": "エレベーターの 横に ございます。"
+    }
+   ],
+   "choices": [
+    "エレベーターの 横",
+    "2階",
+    "入口の 横",
+    "エレベーターの 前"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "横 means \"beside\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l026",
+   "category": "listen",
+   "level": "A2",
+   "text": "山田さんは いつ 薬を 飲みますか。",
+   "script": [
+    {
+     "speaker": "F",
+     "text": "山田さん、お昼ご飯の 前に 薬を 飲みましょうね。"
+    },
+    {
+     "speaker": "M",
+     "text": "あ、そうでした。ありがとう。"
+    }
+   ],
+   "choices": [
+    "昼ご飯の あと",
+    "朝ご飯の 前",
+    "寝る 前",
+    "昼ご飯の 前"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "お昼ご飯の 前に = before lunch."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l027",
+   "category": "listen",
+   "level": "A2",
+   "text": "送別会は いつですか。",
+   "script": [
+    {
+     "speaker": "M",
+     "text": "来週の 金曜日に 送別会を します。場所は 駅前の レストランです。時間は 7時からです。"
+    }
+   ],
+   "choices": [
+    "今週の 金曜日の 7時から",
+    "来週の 木曜日の 7時から",
+    "来週の 金曜日の 7時から",
+    "来週の 金曜日の 8時から"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Next Friday (来週の 金曜日) from 7 o'clock."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l028",
+   "category": "listen",
+   "level": "A2",
+   "text": "女の人は お弁当の ほかに 何を もらいますか。",
+   "script": [
+    {
+     "speaker": "M",
+     "text": "こちらの お弁当、温めますか。"
+    },
+    {
+     "speaker": "F",
+     "text": "はい、お願いします。あと、お箸も ください。"
+    }
+   ],
+   "choices": [
+    "スプーン",
+    "ふくろ",
+    "お箸",
+    "飲み物"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "She asks for chopsticks (お箸)."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l029",
+   "category": "listen",
+   "level": "A2",
+   "text": "会議室は どこですか。",
+   "script": [
+    {
+     "speaker": "M",
+     "text": "すみません、会議室は どこですか。"
+    },
+    {
+     "speaker": "F",
+     "text": "4階です。エレベーターを 降りて、左側の 2番目の 部屋です。"
+    }
+   ],
+   "choices": [
+    "4階の 左側の 1番目の 部屋",
+    "4階の 左側の 2番目の 部屋",
+    "2階の 左側の 4番目の 部屋",
+    "4階の 右側の 2番目の 部屋"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "4th floor, get off the elevator, 2nd room on the left."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "l030",
+   "category": "listen",
+   "level": "A2",
+   "text": "まず 何を しますか。",
+   "script": [
+    {
+     "speaker": "N",
+     "text": "地震です。机の 下に 入って ください。揺れが 止まるまで、外に 出ないで ください。"
+    }
+   ],
+   "choices": [
+    "窓を 開ける",
+    "机の 下に 入る",
+    "エレベーターに 乗る",
+    "すぐ 外に 出る"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "In an earthquake, get under a desk and don't go outside until the shaking stops."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r001",
+   "category": "read",
+   "level": "A2",
+   "text": "店が 休みなのは いつですか。",
+   "passage": "【お知らせ】\n4月20日（土）は 店の 工事の ため、休みます。\n21日（日）からは いつもどおり 開いて います。",
+   "choices": [
+    "4月20日と 21日",
+    "毎週 土曜日",
+    "4月20日（土）",
+    "4月21日（日）"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The shop is closed only on April 20 for construction."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r002",
+   "category": "read",
+   "level": "A2",
+   "text": "明日の 練習に ついて、正しい ものは どれですか。",
+   "passage": "リナさん\n明日の 練習は 雨なので、体育館で します。時間は 同じで、2時からです。\n田中",
+   "choices": [
+    "体育館で 2時から する",
+    "公園で 2時から する",
+    "練習は ない",
+    "体育館で 3時から する"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Because of rain, practice is in the gym; the time is the same (2:00)."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r003",
+   "category": "read",
+   "level": "A2",
+   "text": "この 紙は どんな 意味ですか。",
+   "passage": "関係者以外 立入禁止",
+   "choices": [
+    "関係の ない 人は 入っては いけない",
+    "ここで 待って ください",
+    "だれでも 入っても いい",
+    "ここは 出口です"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "関係者以外 立入禁止 means \"Staff only / No entry for unauthorized persons\"."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r004",
+   "category": "read",
+   "level": "A2",
+   "text": "新聞は 何曜日に 出しますか。",
+   "passage": "【ごみの 出し方】\n月・木：燃える ごみ\n火：プラスチック\n水：缶・びん\n金：古紙（新聞・雑誌）",
+   "choices": [
+    "月曜日",
+    "金曜日",
+    "火曜日",
+    "水曜日"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "古紙 (old paper) such as newspapers goes out on Friday."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r005",
+   "category": "read",
+   "level": "A2",
+   "text": "カレーライスと 飲み物で いくらですか。",
+   "passage": "ランチメニュー（11:00～14:00）\nA ハンバーグ定食　900円\nB 焼き魚定食　850円\nC カレーライス　700円\n※ 飲み物は ＋100円",
+   "choices": [
+    "800円",
+    "1,000円",
+    "700円",
+    "900円"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Curry 700 yen + drink 100 yen = 800 yen."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r006",
+   "category": "read",
+   "level": "A2",
+   "text": "1日に 何錠 飲みますか。",
+   "passage": "【飲み方】\n1日 3回、食後に 2錠ずつ 飲んで ください。",
+   "choices": [
+    "2錠",
+    "5錠",
+    "3錠",
+    "6錠"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "2 tablets × 3 times a day = 6 tablets."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r007",
+   "category": "read",
+   "level": "A2",
+   "text": "グエンさんは 何を しなければ なりませんか。",
+   "passage": "グエンさんへ\n午後 3時に 山田様が いらっしゃいます。会議室を 準備して おいて ください。わたしは 4時ごろ 戻ります。\n佐藤",
+   "choices": [
+    "佐藤さんを 駅まで 迎えに 行く",
+    "会議室を 準備する",
+    "山田様に 電話する",
+    "4時に 会議室へ 行く"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "準備して おいて ください = please prepare it in advance."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r008",
+   "category": "read",
+   "level": "A2",
+   "text": "8時までに さくら駅に 着きたいです。いちばん 遅い 電車は 何時ですか。",
+   "passage": "みどり駅 → さくら駅\n発車時刻：7:05　7:25　7:45　8:05\n※ さくら駅まで 20分 かかります。",
+   "choices": [
+    "7:45",
+    "7:25",
+    "8:05",
+    "7:05"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "It takes 20 minutes. 7:25 arrives at 7:45. 7:45 arrives at 8:05 — too late."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r009",
+   "category": "read",
+   "level": "A2",
+   "text": "この 人は 友だちと 何を しましたか。",
+   "passage": "きのうは 休みでした。朝、一人で 公園を 散歩しました。それから、友だちと 駅の 近くの 店で ラーメンを 食べました。夜は 家で 日本語を 勉強しました。",
+   "choices": [
+    "日本語を 勉強した",
+    "公園を 散歩した",
+    "買い物を した",
+    "ラーメンを 食べた"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The walk and study were alone; with the friend, the writer ate ramen."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r010",
+   "category": "read",
+   "level": "A2",
+   "text": "自転車に 乗って いる 人は どう しますか。",
+   "passage": "この 先 工事中\n自転車は 降りて、押して ください。",
+   "choices": [
+    "自転車に 乗った まま 通る",
+    "自転車を ここに 置く",
+    "自転車を 降りて、押して 歩く",
+    "ここを 通っては いけない"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "降りて 押して ください = get off and push your bike."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r011",
+   "category": "read",
+   "level": "A2",
+   "text": "日曜日の 夜 7時に、この 店は どうですか。",
+   "passage": "営業時間\n平日　10:00～20:00\n土・日・祝日　10:00～18:00\n定休日：水曜日",
+   "choices": [
+    "日曜日は 一日中 休み",
+    "8時まで 開いて いる",
+    "開いて いる",
+    "閉まって いる"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "On weekends the shop closes at 18:00, so it is closed at 7 p.m."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r012",
+   "category": "read",
+   "level": "A2",
+   "text": "この アパートに ついて、正しい ものは どれですか。",
+   "passage": "さくらアパート\n駅から 徒歩 10分\n1K　家賃 5万2千円\nペット 不可",
+   "choices": [
+    "駅から 歩いて 10分",
+    "家賃は 2万5千円",
+    "犬と いっしょに 住める",
+    "駅から バスで 10分"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "徒歩 10分 = 10 minutes on foot. ペット不可 = no pets. Rent is 52,000 yen."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r013",
+   "category": "read",
+   "level": "A2",
+   "text": "マリアさんは どうして お礼を 言って いますか。",
+   "passage": "ジョンさん\n昨日は 手伝って くれて、ありがとう。おかげで 引っ越しが 早く 終わりました。今度、ご飯を ごちそうさせて ください。\nマリア",
+   "choices": [
+    "ジョンさんが プレゼントを くれたから",
+    "ジョンさんが ご飯を ごちそうして くれたから",
+    "ジョンさんが 引っ越しを 手伝って くれたから",
+    "ジョンさんが 部屋を 貸して くれたから"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "手伝って くれて ありがとう: thanks for helping with the move. The meal is something Maria will do later."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r014",
+   "category": "read",
+   "level": "A2",
+   "text": "使った カップは どう しますか。",
+   "passage": "【休憩室の ルール】\n・食事は 12時から 13時まで\n・使った カップは 自分で 洗う\n・最後に 出る 人は 電気を 消す",
+   "choices": [
+    "自分で 洗う",
+    "捨てる",
+    "そのまま 置いて おく",
+    "最後の 人が 洗う"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "使った カップは 自分で 洗う = wash your own cup."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r015",
+   "category": "read",
+   "level": "A2",
+   "text": "交流会に 参加したい 人は どう しますか。",
+   "passage": "日本語 交流会\n日時：5月12日（日）14:00～16:00\n場所：市民センター 2階\n参加費：無料\n申し込み：5月10日までに 電話で",
+   "choices": [
+    "当日 お金を はらう",
+    "申し込みは いらない",
+    "5月12日に 電話で 申し込む",
+    "5月10日までに 電話で 申し込む"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "申し込み：5月10日までに 電話で = apply by phone by May 10. It is free."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r016",
+   "category": "read",
+   "level": "A2",
+   "text": "この 病院に 土曜日の 午後 4時に 行けますか。",
+   "passage": "受付時間\n午前　9:00～12:00\n午後　15:00～18:00\n※ 土曜日は 午前だけ\n休診日：日曜・祝日",
+   "choices": [
+    "行ける",
+    "行ける。6時まで",
+    "行けない。土曜日は 休み",
+    "行けない。土曜日は 午前だけ"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "On Saturday the clinic is open in the morning only."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r017",
+   "category": "read",
+   "level": "A2",
+   "text": "宿題は いつ 出しますか。",
+   "passage": "来週の 月曜日は 祝日なので、授業は ありません。火曜日の 授業は いつもどおりです。宿題は 火曜日に 出して ください。",
+   "choices": [
+    "水曜日",
+    "月曜日",
+    "火曜日",
+    "出さなくて いい"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Monday is a holiday; submit the homework on Tuesday."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r018",
+   "category": "read",
+   "level": "A2",
+   "text": "お風呂で しては いけない ことは 何ですか。",
+   "passage": "【お風呂の 入り方】\nお湯に 入る 前に、体を 洗って ください。\nタオルを お湯に 入れないで ください。",
+   "choices": [
+    "タオルを 使う",
+    "お湯に 入る 前に 体を 洗う",
+    "お湯に 入る",
+    "タオルを お湯に 入れる"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "タオルを お湯に 入れないで ください = don't put towels in the bath water."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r019",
+   "category": "read",
+   "level": "A2",
+   "text": "荷物を もらうには どう しますか。",
+   "passage": "ご不在連絡票\nお荷物を お届けに 来ましたが、お留守でした。再配達を ご希望の 方は、下の 番号に お電話 ください。（受付：午後 9時まで）",
+   "choices": [
+    "隣の 人に もらう",
+    "郵便局へ 取りに 行く",
+    "何も しないで 待つ",
+    "電話を して、もう 一度 届けて もらう"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "再配達 = redelivery. Call the number (until 9 p.m.)."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r020",
+   "category": "read",
+   "level": "A2",
+   "text": "木曜日の 午後 6時に 働いて いるのは だれですか。",
+   "passage": "シフト表（6月 第1週）\nリナ：月・水・金　9:00～17:00\nグエン：火・木・土　13:00～21:00",
+   "choices": [
+    "リナさんと グエンさん",
+    "だれも いない",
+    "リナさん",
+    "グエンさん"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Nguyen works Tue/Thu/Sat 13:00–21:00."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r021",
+   "category": "read",
+   "level": "A2",
+   "text": "枚数を 選んだ あと、何を しますか。",
+   "passage": "【コピー機の 使い方】\n① 紙を 置く\n② 枚数を 選ぶ\n③ スタートボタンを 押す",
+   "choices": [
+    "カードを 入れる",
+    "電源を 切る",
+    "スタートボタンを 押す",
+    "紙を 置く"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Step ③ after choosing the number of copies is pressing Start."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r022",
+   "category": "read",
+   "level": "A2",
+   "text": "この 人は 今 どう 思って いますか。",
+   "passage": "わたしは 去年 日本に 来ました。最初は 日本語が わからなくて 大変でしたが、会社の 人が やさしく 教えて くれました。今は 仕事が 楽しいです。",
+   "choices": [
+    "会社の 人が こわい",
+    "日本語が わからなくて 大変だ",
+    "国へ 帰りたい",
+    "仕事が 楽しい"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "最初は 大変でしたが…今は 仕事が 楽しいです。The difficulty was in the past."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r023",
+   "category": "read",
+   "level": "A2",
+   "text": "この 紙は どんな 意味ですか。",
+   "passage": "【特売】たまご 1パック 98円\nお一人様 2点まで",
+   "choices": [
+    "2割引きで 買える",
+    "一人 2つまで 買える",
+    "二人で 一つ 買える",
+    "2時まで 買える"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "お一人様 2点まで = maximum two items per person."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r024",
+   "category": "read",
+   "level": "A2",
+   "text": "6月3日の 11時に 使えない ものは 何ですか。",
+   "passage": "【エレベーター 点検の お知らせ】\n6月3日（月）10:00～12:00 は エレベーターが 使えません。階段を ご利用 ください。",
+   "choices": [
+    "階段",
+    "入口",
+    "駐車場",
+    "エレベーター"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "点検 = inspection. The elevator cannot be used 10:00–12:00."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r025",
+   "category": "read",
+   "level": "A2",
+   "text": "りんごを 3個 買うと、いくらですか。",
+   "passage": "りんご\n1個　120円\n3個　300円",
+   "choices": [
+    "120円",
+    "300円",
+    "360円",
+    "240円"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "There is a set price: 3 for 300 yen."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r026",
+   "category": "read",
+   "level": "A2",
+   "text": "冷蔵庫の ケーキは だれの ものですか。",
+   "passage": "冷蔵庫の ケーキは 妹の 誕生日の ものです。食べないで ください。\n母",
+   "choices": [
+    "この メモを 読む 人",
+    "姉",
+    "母",
+    "妹"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The cake is for the younger sister's (妹) birthday."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r027",
+   "category": "read",
+   "level": "A2",
+   "text": "この アルバイトに ついて、正しい ものは どれですか。",
+   "passage": "アルバイト 募集\n仕事：レストランでの 皿洗い\n時給：1,100円\n時間：17:00～22:00（週3日から）\n日本語：少し 話せれば OK",
+   "choices": [
+    "1週間に 3日以上 働く",
+    "毎日 働かなければ ならない",
+    "日本語が 上手で なければ ならない",
+    "朝 働く"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "週3日から = from 3 days a week. Simple Japanese is OK. Hours are evening."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r028",
+   "category": "read",
+   "level": "A2",
+   "text": "大人 1人と 子ども 1人で、いくらですか。",
+   "passage": "料金\n大人　400円\n子ども　大人の 半分",
+   "choices": [
+    "600円",
+    "200円",
+    "800円",
+    "400円"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Adult 400 yen + child (half) 200 yen = 600 yen."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r029",
+   "category": "read",
+   "level": "A2",
+   "text": "面接は いつですか。",
+   "passage": "グエン 様\n来週の 面接は 水曜日の 10時の 予定でしたが、木曜日の 10時に 変更に なりました。場所は 変わりません。\nさくら株式会社 人事部",
+   "choices": [
+    "水曜日の 2時",
+    "木曜日の 2時",
+    "木曜日の 10時",
+    "水曜日の 10時"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "It was changed (変更) from Wednesday to Thursday, 10:00."
+   },
+   "reviewed": false
+  },
+  {
+   "id": "r030",
+   "category": "read",
+   "level": "A2",
+   "text": "電話で 話したい ときは、どこへ 行きますか。",
+   "passage": "【お願い】\n携帯電話は マナーモードに して ください。\n通話は 1階の ロビーで お願いします。",
+   "choices": [
+    "病室",
+    "1階の ロビー",
+    "2階の ロビー",
+    "外"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "通話 (phone calls) should be made in the 1st floor lobby."
+   },
+   "reviewed": false
+  }
+ ]
+}
