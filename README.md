@@ -13,10 +13,22 @@ JFT-Basic 対策アプリ。Flutter／Android のみ。
 - **課金（Phase 2）**：RevenueCat（`purchases_flutter`）を使う。Entitlement は `premium`。ペイウォールでは年額と月額を表示し、価格は Google Play の国別価格をそのまま出す。購入の復元にも対応する。API キーが無いと課金は無効になり、ペイウォールには「準備中」と表示する。Premium 状態は端末に保存するので、オフラインでも有効なまま。
 - **設定画面（Phase 2）**：UI 言語、ふりがなの ON/OFF、Premium の状態、購入の復元。
 - **UI 多言語（Phase 2）**：英語、インドネシア語、ネパール語、ミャンマー語、ベトナム語。英語以外は LLM による下訳で、設定画面に「機械翻訳を含む」と表示する。ネイティブ確認が済んだ言語は `kNativeCheckedLanguages`（`lib/app_services.dart`）に追加する。解説はまだ英語のみで、`explanation` に言語コード（`id`/`ne`/`my`/`vi`）を足せばその言語で表示される。
-- **ふりがな（Phase 2）**：問題データに `{漢字|かんじ}` と書く。ON にすると漢字の上に読みを表示し、OFF では漢字だけを表示する。TTS は読みを使うので発音が正確になる。漢字の読みと書き方の問題は `"noFurigana": true` にして、答えが見えないようにしている。**既存の問題にはまだふりがなを付けていない。**
+- **ふりがな（Phase 2）**：問題データに `{漢字|かんじ}` と書く。ON にすると漢字の上に読みを表示し、OFF では漢字だけを表示する。TTS には漢字のまま渡す（ひらがなだけだと単語の区切りやアクセントが不自然になるため）。漢字の読みと書き方の問題は `"noFurigana": true` にして、答えが見えないようにしている。既存の問題には `tool/furigana_draft.py` で**ふりがなの下書きを自動で付けてある**。校正のときに読みも確認すること。
 - イベント（`quiz_start` / `quiz_complete` / `review_start` / `review_complete` / `paywall_view` / `purchase`）は `lib/services/analytics.dart` でコンソールに出すだけ。Firebase はここに接続する。
 
+役割分担とタスク一覧は [`docs/TODO.md`](docs/TODO.md) にある。
+
 ## 問題の校正フロー（ルール：全問ネイティブ校正）
+**スプレッドシートで校正する（推奨）**
+```bash
+python3 tool/review_sheet.py export assets/questions.json review.csv   # 書き出し
+# Google スプレッドシートや Excel で修正し、ok 列に 1 を入れて CSV で保存
+python3 tool/review_sheet.py import assets/questions.json review.csv   # 取り込み
+```
+取り込むと、修正を反映し、`ok` を付けた問題を `reviewed: true` にし、`comment` 列の内容を一覧で出す。
+
+**ふりがなの下書き**：`python3 tool/furigana_draft.py assets/questions.json`（`pip install sudachipy sudachidict_core` が必要）。まだマークアップの無い文だけに付ける。
+
 1. `assets/questions.json` を校正し、OK の問題を `"reviewed": true` にする。
 2. **リリースビルドは `reviewed: true` の問題しか表示しない。** デバッグビルドでは下書きも表示し、画面に「DRAFT」と出る。
 3. `flutter test` で形式チェック（ID の重複、4 択、解説あり、聴解には台本、読解には本文、各分野 30 問以上）と未校正件数の表示を行う。
@@ -69,6 +81,9 @@ keyAlias=upload
 storeFile=/absolute/path/upload-keystore.jks
 ```
 鍵の作成：`keytool -genkey -v -keystore ~/upload-keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias upload`
+
+### アイコンとストア用画像
+`python3 tool/make_icons.py` で `android/app/src/main/res/mipmap-*` と `store/` に書き出す（Pillow と日本語フォントが必要）。ストア掲載文、プライバシーポリシー、データセーフティの回答案も `store/` にある。
 
 ### 要確認
 - Application ID は仮に `com.nihongoprep.jft_prep` にしている。Play への初回アップロード後は変更できないので、確定してから出すこと（`android/app/build.gradle.kts`）。

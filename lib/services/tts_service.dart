@@ -46,8 +46,9 @@ class TtsSpeaker implements Speaker {
         'F' => 1.2,
         _ => 1.0,
       });
-      // Speak the furigana readings so kanji are pronounced correctly.
-      await _tts.speak(readingText(line.text));
+      // Speak the kanji text: Japanese TTS needs kanji for natural word
+      // boundaries and pitch accent (kana-only input sounds unnatural).
+      await _tts.speak(plainText(line.text));
       await Future<void>.delayed(const Duration(milliseconds: 350));
     }
     return true;

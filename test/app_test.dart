@@ -91,6 +91,9 @@ Future<void> tapScrolling(WidgetTester tester, Key key) async {
     200,
     scrollable: find.byType(Scrollable).last,
   );
+  // Make the whole widget visible so the tap lands on it.
+  await tester.ensureVisible(find.byKey(key));
+  await tester.pumpAndSettle();
   await tester.tap(find.byKey(key));
   await tester.pumpAndSettle();
 }
