@@ -103,4 +103,49 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.textContaining('Mastered 0 / 0'), findsNWidgets(4));
   });
+
+  testWidgets('review lists mistakes and retrying resolves them',
+      (tester) async {
+    SharedPreferences.setMockInitialValues({
+      'premium': true,
+      'wrong_vocab': ['v001', 'v002', 'v003'],
+      'wrong_read': ['r001'],
+    });
+    final store = await ProgressStore.open();
+    await pumpApp(tester, store, FakeSpeaker());
+
+    // Badge on home shows the total number of mistakes.
+    expect(find.text('4'), findsOneWidget);
+    await tester.tap(find.byKey(const Key('open_review')));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('Script and Vocabulary (3)'), findsOneWidget);
+    expect(find.textContaining('Reading Comprehension (1)'), findsOneWidget);
+
+    await tester.tap(find.byKey(const Key('review_vocab')));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('Review:'), findsOneWidget);
+    final n = await playThrough(tester);
+    expect(n, 3); // exactly the mistakes, not a normal session
+
+    // Every retried question is either still wrong or newly mastered.
+    final stillWrong = store.wrong(Section.vocab);
+    final mastered = store.mastered(Section.vocab);
+    for (final id in ['v001', 'v002', 'v003']) {
+      expect(stillWrong.contains(id) != mastered.contains(id), isTrue,
+          reason: id);
+    }
+    expect(store.answeredCount(Section.vocab), 3);
+    expect(store.bestPercent(Section.vocab), -1); // review doesn't set best
+  });
+
+  testWidgets('summary shows accuracy after answering', (tester) async {
+    SharedPreferences.setMockInitialValues({
+      'answered_conv': 4,
+      'correct_conv': 3,
+    });
+    final store = await ProgressStore.open();
+    await pumpApp(tester, store, FakeSpeaker());
+    expect(find.text('75%'), findsOneWidget);
+    expect(find.textContaining('Accuracy: 75%'), findsOneWidget);
+  });
 }

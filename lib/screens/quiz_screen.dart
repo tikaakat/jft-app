@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:material_ui/material_ui.dart';
 
 import '../config.dart';
@@ -15,6 +17,7 @@ class QuizScreen extends StatefulWidget {
     required this.store,
     required this.speaker,
     required this.analytics,
+    this.reviewBuilder,
   });
 
   final Section category;
@@ -22,6 +25,12 @@ class QuizScreen extends StatefulWidget {
   final ProgressStore store;
   final Speaker speaker;
   final Analytics analytics;
+
+  /// Review mode: builds the question list (e.g. the current mistakes) for
+  /// each round. Review rounds don't update the best score or show the paywall.
+  final List<Question> Function()? reviewBuilder;
+
+  bool get isReview => reviewBuilder != null;
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
@@ -33,6 +42,7 @@ class _QuizScreenState extends State<QuizScreen> {
   int? _selected;
   int _correct = 0;
   bool _ttsUnavailable = false;
+  final _rng = Random();
 
   Question get _q => _questions[_index];
   bool get _answered => _selected != null;
@@ -44,11 +54,13 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 
   void _start() {
-    _questions = buildSession(widget.pool, premium: widget.store.isPremium);
+    _questions = widget.isReview
+        ? [for (final q in widget.reviewBuilder!()..shuffle()) q.shuffled(_rng)]
+        : buildSession(widget.pool, premium: widget.store.isPremium, rng: _rng);
     _index = 0;
     _selected = null;
     _correct = 0;
-    widget.analytics.log('quiz_start', {
+    widget.analytics.log(widget.isReview ? 'review_start' : 'quiz_start', {
       'category': widget.category.name,
       'count': _questions.length,
     });
@@ -97,14 +109,16 @@ class _QuizScreenState extends State<QuizScreen> {
 
   Future<void> _finish() async {
     final total = _questions.length;
-    final newBest =
+    final newBest = !widget.isReview &&
         await widget.store.recordSession(widget.category, _correct, total);
-    widget.analytics.log('quiz_complete', {
+    widget.analytics.log(widget.isReview ? 'review_complete' : 'quiz_complete', {
       'category': widget.category.name,
       'correct': _correct,
       'total': total,
     });
-    final locked = !widget.store.isPremium &&
+    final remaining = widget.isReview ? widget.reviewBuilder!().length : 0;
+    final locked = !widget.isReview &&
+        !widget.store.isPremium &&
         widget.pool.length > kFreeLimitPerCategory;
     if (locked) {
       widget.analytics.log('paywall_view', {'category': widget.category.name});
@@ -122,6 +136,10 @@ class _QuizScreenState extends State<QuizScreen> {
             Text('$_correct / $total correct',
                 style: Theme.of(ctx).textTheme.headlineSmall),
             if (newBest) const Text('New best score!'),
+            if (widget.isReview)
+              Text(remaining == 0
+                  ? 'No mistakes left in this section. Great job!'
+                  : '$remaining question(s) still to review.'),
             if (locked) ...[
               const SizedBox(height: 16),
               Text(
@@ -137,6 +155,7 @@ class _QuizScreenState extends State<QuizScreen> {
             onPressed: () => Navigator.pop(ctx, false),
             child: const Text('Home'),
           ),
+          if (!widget.isReview || remaining > 0)
           FilledButton(
             key: const Key('result_retry'),
             onPressed: () => Navigator.pop(ctx, true),
@@ -159,7 +178,9 @@ class _QuizScreenState extends State<QuizScreen> {
     final q = _q;
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.category.label),
+        title: Text(widget.isReview
+            ? 'Review: ${widget.category.label}'
+            : widget.category.label),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(4),
           child: LinearProgressIndicator(

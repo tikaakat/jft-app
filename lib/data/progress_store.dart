@@ -21,6 +21,10 @@ class ProgressStore {
   Set<String> wrong(Section c) =>
       (_prefs.getStringList('wrong_${c.name}') ?? const []).toSet();
 
+  /// Total answers given / correct answers in this section (for accuracy).
+  int answeredCount(Section c) => _prefs.getInt('answered_${c.name}') ?? 0;
+  int correctCount(Section c) => _prefs.getInt('correct_${c.name}') ?? 0;
+
   bool get isPremium => _prefs.getBool('premium') ?? false;
   Future<void> setPremium(bool v) => _prefs.setBool('premium', v);
 
@@ -34,6 +38,8 @@ class ProgressStore {
     } else {
       w.add(q.id);
     }
+    await _prefs.setInt('answered_${c.name}', answeredCount(c) + 1);
+    if (correct) await _prefs.setInt('correct_${c.name}', correctCount(c) + 1);
     await _prefs.setStringList('mastered_${c.name}', m.toList());
     await _prefs.setStringList('wrong_${c.name}', w.toList());
   }

@@ -7,6 +7,7 @@ import '../models/question.dart';
 import '../services/analytics.dart';
 import '../services/tts_service.dart';
 import 'quiz_screen.dart';
+import 'review_screen.dart';
 
 IconData categoryIcon(Section c) => switch (c) {
       Section.vocab => Icons.translate,
@@ -47,14 +48,78 @@ class _HomeScreenState extends State<HomeScreen> {
     if (mounted) setState(() {}); // refresh scores
   }
 
+  Future<void> _openReview() async {
+    await Navigator.of(context).push(MaterialPageRoute<void>(
+      builder: (_) => ReviewScreen(
+        bank: widget.bank,
+        store: widget.store,
+        speaker: widget.speaker,
+        analytics: widget.analytics,
+      ),
+    ));
+    if (mounted) setState(() {});
+  }
+
+  int _mistakeCount() => Section.values
+      .map((c) => mistakesOf(widget.bank, widget.store, c).length)
+      .fold(0, (a, b) => a + b);
+
+  Widget _summary() {
+    final theme = Theme.of(context);
+    var total = 0, mastered = 0, answered = 0, correct = 0;
+    for (final c in Section.values) {
+      final ids = widget.bank.of(c).map((q) => q.id).toSet();
+      total += ids.length;
+      mastered += widget.store.mastered(c).intersection(ids).length;
+      answered += widget.store.answeredCount(c);
+      correct += widget.store.correctCount(c);
+    }
+    final acc = answered == 0 ? '–' : '${(correct * 100 / answered).round()}%';
+    Widget stat(String value, String label) => Expanded(
+          child: Column(children: [
+            Text(value, style: theme.textTheme.titleLarge),
+            Text(label, style: theme.textTheme.bodySmall),
+          ]),
+        );
+    return Card(
+      key: const Key('summary'),
+      color: theme.colorScheme.primaryContainer,
+      margin: const EdgeInsets.only(bottom: 16),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+        child: Row(children: [
+          stat('$mastered / $total', 'Mastered'),
+          stat('$answered', 'Answered'),
+          stat(acc, 'Accuracy'),
+        ]),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final premium = widget.store.isPremium;
+    final mistakes = _mistakeCount();
     return Scaffold(
-      appBar: AppBar(title: const Text('JFT-Basic Prep')),
+      appBar: AppBar(
+        title: const Text('JFT-Basic Prep'),
+        actions: [
+          IconButton(
+            key: const Key('open_review'),
+            tooltip: 'Review mistakes',
+            onPressed: _openReview,
+            icon: Badge(
+              isLabelVisible: mistakes > 0,
+              label: Text('$mistakes'),
+              child: const Icon(Icons.replay),
+            ),
+          ),
+        ],
+      ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
+          _summary(),
           Text(
             premium
                 ? 'Premium: all questions unlocked'
@@ -74,6 +139,10 @@ class _HomeScreenState extends State<HomeScreen> {
     final ids = pool.map((q) => q.id).toSet();
     final done = widget.store.mastered(c).intersection(ids).length;
     final drafts = pool.where((q) => !q.reviewed).length;
+    final answered = widget.store.answeredCount(c);
+    final acc = answered == 0
+        ? null
+        : (widget.store.correctCount(c) * 100 / answered).round();
     final theme = Theme.of(context);
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
@@ -102,6 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       [
                         'Mastered $done / ${pool.length}',
                         best < 0 ? 'Best: –' : 'Best: $best%',
+                        if (acc != null) 'Accuracy: $acc%',
                         if (drafts > 0) 'Drafts: $drafts',
                       ].join('   ·   '),
                       style: theme.textTheme.bodySmall,

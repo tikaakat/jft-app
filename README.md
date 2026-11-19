@@ -2,13 +2,15 @@
 
 JFT-Basic 対策アプリ。Flutter／Android のみ。
 
-## 状態（Phase 1）
+## 状態（Phase 1.5）
 - 4 分野（文字と語彙／会話と表現／聴解／読解）、各 30 問、計 120 問。**全問が未校正の下書き（`"reviewed": false`）**。
 - 聴解は `flutter_tts` で台本を読み上げる。男性と女性は声の高さで区別する。
 - 選択肢は出題時にシャッフルする（`Question.shuffled`）。正解位置の均等性はテストで確認済み。
 - ベストスコア（%）、習得済みの問題、間違えた問題（Phase 1.5 の復習用）を `shared_preferences` に保存する。
 - 無料枠は各分野 `kFreeLimitPerCategory`（= 3）問。終了時に Premium の案内を出す（課金は Phase 2）。
-- イベント（`quiz_start` / `quiz_complete` / `paywall_view`）は `lib/services/analytics.dart` でコンソールに出すだけ。Firebase はここに接続する。
+- **復習（Phase 1.5）**：ホーム右上のボタン（間違えた数をバッジで表示）から開く。最後の解答が不正解だった問題を分野ごとに一覧で表示し、タップすると正解と解説を出す。「Retry」で間違えた問題だけを出題し、正解した問題は一覧から外れる。復習ではベストスコアを更新しない。
+- **進捗表示（Phase 1.5）**：ホーム上部に全体の習得数、回答数、正答率を表示する。分野カードにも正答率を出す。
+- イベント（`quiz_start` / `quiz_complete` / `review_start` / `review_complete` / `paywall_view`）は `lib/services/analytics.dart` でコンソールに出すだけ。Firebase はここに接続する。
 
 ## 問題の校正フロー（ルール：全問ネイティブ校正）
 1. `assets/questions.json` を校正し、OK の問題を `"reviewed": true` にする。
@@ -65,5 +67,5 @@ lib/
   logic/session.dart          出題セットの組み立て（無料と Premium）
   services/tts_service.dart   TTS（聴解）
   services/analytics.dart     計測
-  screens/                    ホームとクイズ
+  screens/                    ホーム、クイズ（復習モードを含む）、復習一覧
 ```
