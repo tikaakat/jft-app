@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
+import '../logic/ruby.dart';
 import '../models/question.dart';
 
 /// Reads listening scripts aloud. Abstract so widget tests can use a fake.
@@ -45,7 +46,8 @@ class TtsSpeaker implements Speaker {
         'F' => 1.2,
         _ => 1.0,
       });
-      await _tts.speak(line.text);
+      // Speak the furigana readings so kanji are pronounced correctly.
+      await _tts.speak(readingText(line.text));
       await Future<void>.delayed(const Duration(milliseconds: 350));
     }
     return true;

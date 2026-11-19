@@ -6,14 +6,14 @@ import 'package:jft_prep/logic/session.dart';
 import 'package:jft_prep/models/question.dart';
 
 Question q(String id, {int answer = 0}) => Question(
-      id: id,
-      category: Section.vocab,
-      level: 'A2',
-      text: 't',
-      choices: const ['a', 'b', 'c', 'd'],
-      answer: answer,
-      explanation: const {'en': 'e'},
-    );
+  id: id,
+  category: Section.vocab,
+  level: 'A2',
+  text: 't',
+  choices: const ['a', 'b', 'c', 'd'],
+  answer: answer,
+  explanation: const {'en': 'e'},
+);
 
 void main() {
   test('shuffle keeps the correct choice correct', () {
@@ -41,8 +41,9 @@ void main() {
     final pool = [for (var i = 0; i < 30; i++) q('q$i')];
     final s = buildSession(pool, premium: false, rng: Random(3));
     expect(s.length, kFreeLimitPerCategory);
-    expect(s.map((e) => e.id).toSet(),
-        {for (var i = 0; i < kFreeLimitPerCategory; i++) 'q$i'});
+    expect(s.map((e) => e.id).toSet(), {
+      for (var i = 0; i < kFreeLimitPerCategory; i++) 'q$i',
+    });
   });
 
   test('premium session draws kQuestionsPerSession distinct questions', () {

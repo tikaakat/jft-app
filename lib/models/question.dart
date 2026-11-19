@@ -12,9 +12,9 @@ enum Section {
   final String labelJa;
 
   static Section parse(String s) => Section.values.firstWhere(
-        (c) => c.name == s,
-        orElse: () => throw FormatException('Unknown category: $s'),
-      );
+    (c) => c.name == s,
+    orElse: () => throw FormatException('Unknown category: $s'),
+  );
 }
 
 /// One line of a listening script. `speaker` is M (male), F (female)
@@ -41,6 +41,7 @@ class Question {
     this.script = const [],
     this.audio,
     this.reviewed = false,
+    this.noFurigana = false,
   });
 
   final String id;
@@ -67,6 +68,10 @@ class Question {
 
   /// True once proofread by a native speaker.
   final bool reviewed;
+
+  /// Never show furigana (e.g. kanji reading questions, where it would
+  /// reveal the answer).
+  final bool noFurigana;
 
   String explanationFor(String lang) =>
       explanation[lang] ?? explanation['en'] ?? explanation.values.first;
@@ -96,6 +101,7 @@ class Question {
       answer: answer,
       explanation: exp,
       reviewed: j['reviewed'] as bool? ?? false,
+      noFurigana: j['noFurigana'] as bool? ?? false,
     );
   }
 
@@ -115,6 +121,7 @@ class Question {
       answer: order.indexOf(answer),
       explanation: explanation,
       reviewed: reviewed,
+      noFurigana: noFurigana,
     );
   }
 }

@@ -1,0 +1,171 @@
+{
+  "@@locale": "en",
+  "appTitle": "JFT-Basic Prep",
+  "sectionVocab": "Script and Vocabulary",
+  "sectionConv": "Conversation and Expression",
+  "sectionListen": "Listening Comprehension",
+  "sectionRead": "Reading Comprehension",
+  "premiumUnlocked": "Premium: all questions unlocked",
+  "freeLimit": "Free: {n} questions per section",
+  "@freeLimit": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "unlockAll": "Unlock all questions",
+  "statMastered": "Mastered",
+  "statAnswered": "Answered",
+  "statAccuracy": "Accuracy",
+  "masteredOf": "Mastered {done} / {total}",
+  "@masteredOf": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "bestScore": "Best: {pct}%",
+  "@bestScore": {
+    "placeholders": {
+      "pct": {
+        "type": "int"
+      }
+    }
+  },
+  "bestNone": "Best: –",
+  "accuracyValue": "Accuracy: {pct}%",
+  "@accuracyValue": {
+    "placeholders": {
+      "pct": {
+        "type": "int"
+      }
+    }
+  },
+  "draftsCount": "Drafts: {n}",
+  "@draftsCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "reviewMistakes": "Review mistakes",
+  "noMistakes": "No mistakes to review.\nKeep practicing!",
+  "retry": "Retry",
+  "answerIs": "Answer: {answer}",
+  "@answerIs": {
+    "placeholders": {
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  "close": "Close",
+  "questionOf": "Question {i} / {total}",
+  "@questionOf": {
+    "placeholders": {
+      "i": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "draftBadge": "DRAFT (not yet proofread)",
+  "playAudio": "Play audio",
+  "ttsUnavailable": "Japanese voice is not available. Install it in Android Settings > Text-to-speech output (Google Speech Services).",
+  "correct": "Correct!",
+  "incorrect": "Incorrect",
+  "script": "Script",
+  "next": "Next",
+  "finish": "Finish",
+  "result": "Result",
+  "scoreCorrect": "{correct} / {total} correct",
+  "@scoreCorrect": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "newBest": "New best score!",
+  "noMistakesLeft": "No mistakes left in this section. Great job!",
+  "remainingToReview": "{n} question(s) still to review.",
+  "@remainingToReview": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "freeFinished": "You have finished the free questions. Premium unlocks all {n} questions in this section.",
+  "@freeFinished": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "home": "Home",
+  "tryAgain": "Try again",
+  "seePremium": "See Premium",
+  "reviewTitle": "Review: {section}",
+  "@reviewTitle": {
+    "placeholders": {
+      "section": {
+        "type": "String"
+      }
+    }
+  },
+  "settings": "Settings",
+  "language": "Language",
+  "systemLanguage": "System default",
+  "premium": "Premium",
+  "premiumActive": "Active",
+  "premiumInactive": "Not subscribed",
+  "restorePurchases": "Restore purchases",
+  "restoreSuccess": "Premium restored.",
+  "restoreNone": "No active subscription found.",
+  "machineTranslation": "This language includes machine translation.",
+  "explanationLanguageNote": "Explanations are shown in English until translated.",
+  "paywallTitle": "JFT-Basic Prep Premium",
+  "paywallSubtitle": "Questions written and checked by native Japanese speakers",
+  "benefitAll": "All questions in all 4 sections",
+  "benefitNew": "New questions added regularly",
+  "benefitReview": "Review your mistakes without limits",
+  "yearly": "Yearly",
+  "monthly": "Monthly",
+  "pricePerYear": "{price} / year",
+  "@pricePerYear": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "pricePerMonth": "{price} / month",
+  "@pricePerMonth": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "subscribe": "Subscribe",
+  "cancelAnytime": "Auto-renews. Cancel anytime in Google Play.",
+  "billingUnavailable": "Purchases are not available yet. Please try again later.",
+  "purchaseSuccess": "Thank you! Premium is now active.",
+  "purchaseError": "Purchase failed. Please try again.",
+  "alreadyPremium": "You already have Premium.",
+  "furigana": "Show furigana",
+  "furiganaHint": "Hiragana readings above kanji"
+}

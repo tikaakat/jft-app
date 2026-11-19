@@ -16,6 +16,7 @@
    "explanation": {
     "en": "毎朝 (まいあさ) means \"every morning\"."
    },
+   "noFurigana": true,
    "reviewed": false
   },
   {
@@ -33,6 +34,7 @@
    "explanation": {
     "en": "駅 (えき) means \"station\"."
    },
+   "noFurigana": true,
    "reviewed": false
   },
   {
@@ -50,6 +52,7 @@
    "explanation": {
     "en": "病院 (びょういん) means \"hospital\". Be careful: びよういん (美容院) means \"beauty salon\"."
    },
+   "noFurigana": true,
    "reviewed": false
   },
   {
@@ -67,6 +70,7 @@
    "explanation": {
     "en": "先週 (せんしゅう) means \"last week\"."
    },
+   "noFurigana": true,
    "reviewed": false
   },
   {
@@ -84,6 +88,7 @@
    "explanation": {
     "en": "天気 (てんき) means \"weather\". でんき (電気) is \"electricity/light\", げんき (元気) is \"healthy\"."
    },
+   "noFurigana": true,
    "reviewed": false
   },
   {
@@ -101,6 +106,7 @@
    "explanation": {
     "en": "買う (かう) means \"to buy\". 書く is \"to write\", 会う is \"to meet\"."
    },
+   "noFurigana": true,
    "reviewed": false
   },
   {
@@ -118,6 +124,7 @@
    "explanation": {
     "en": "勉強 (べんきょう) means \"study\"."
    },
+   "noFurigana": true,
    "reviewed": false
   },
   {
@@ -135,6 +142,7 @@
    "explanation": {
     "en": "休み (やすみ) means \"holiday / rest\". 体 (からだ) looks similar but means \"body\"."
    },
+   "noFurigana": true,
    "reviewed": false
   },
   {
@@ -152,6 +160,7 @@
    "explanation": {
     "en": "電車 (でんしゃ) means \"train\"."
    },
+   "noFurigana": true,
    "reviewed": false
   },
   {
@@ -169,6 +178,7 @@
    "explanation": {
     "en": "右 (みぎ) means \"right\". 左 (ひだり) is \"left\"."
    },
+   "noFurigana": true,
    "reviewed": false
   },
   {
@@ -424,6 +434,7 @@
    "explanation": {
     "en": "荷物 (にもつ) means \"luggage / package\"."
    },
+   "noFurigana": true,
    "reviewed": false
   },
   {
@@ -441,6 +452,7 @@
    "explanation": {
     "en": "安全 (あんぜん) means \"safety\"."
    },
+   "noFurigana": true,
    "reviewed": false
   },
   {
@@ -458,6 +470,7 @@
    "explanation": {
     "en": "来月 (らいげつ) means \"next month\"."
    },
+   "noFurigana": true,
    "reviewed": false
   },
   {
@@ -475,6 +488,7 @@
    "explanation": {
     "en": "名前 (なまえ) means \"name\"."
    },
+   "noFurigana": true,
    "reviewed": false
   },
   {

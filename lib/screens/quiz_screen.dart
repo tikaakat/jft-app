@@ -2,29 +2,29 @@ import 'dart:math';
 
 import 'package:material_ui/material_ui.dart';
 
+import '../app_services.dart';
 import '../config.dart';
-import '../data/progress_store.dart';
+import '../l10n/app_localizations.dart';
 import '../logic/session.dart';
 import '../models/question.dart';
-import '../services/analytics.dart';
-import '../services/tts_service.dart';
+import 'common.dart';
+import 'ja_text.dart';
+import 'paywall_screen.dart';
+
+enum _After { home, retry, premium }
 
 class QuizScreen extends StatefulWidget {
   const QuizScreen({
     super.key,
     required this.category,
     required this.pool,
-    required this.store,
-    required this.speaker,
-    required this.analytics,
+    required this.services,
     this.reviewBuilder,
   });
 
   final Section category;
   final List<Question> pool;
-  final ProgressStore store;
-  final Speaker speaker;
-  final Analytics analytics;
+  final AppServices services;
 
   /// Review mode: builds the question list (e.g. the current mistakes) for
   /// each round. Review rounds don't update the best score or show the paywall.
@@ -44,6 +44,8 @@ class _QuizScreenState extends State<QuizScreen> {
   bool _ttsUnavailable = false;
   final _rng = Random();
 
+  AppServices get s => widget.services;
+  bool get _furigana => s.furiganaFor(_q);
   Question get _q => _questions[_index];
   bool get _answered => _selected != null;
 
@@ -55,12 +57,15 @@ class _QuizScreenState extends State<QuizScreen> {
 
   void _start() {
     _questions = widget.isReview
-        ? [for (final q in widget.reviewBuilder!()..shuffle()) q.shuffled(_rng)]
-        : buildSession(widget.pool, premium: widget.store.isPremium, rng: _rng);
+        ? [
+            for (final q in widget.reviewBuilder!()..shuffle(_rng))
+              q.shuffled(_rng),
+          ]
+        : buildSession(widget.pool, premium: s.isPremium, rng: _rng);
     _index = 0;
     _selected = null;
     _correct = 0;
-    widget.analytics.log(widget.isReview ? 'review_start' : 'quiz_start', {
+    s.analytics.log(widget.isReview ? 'review_start' : 'quiz_start', {
       'category': widget.category.name,
       'count': _questions.length,
     });
@@ -72,7 +77,7 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 
   Future<void> _play() async {
-    final ok = await widget.speaker.speakScript(_q.script);
+    final ok = await s.speaker.speakScript(_q.script);
     if (!ok && mounted && !_ttsUnavailable) {
       setState(() => _ttsUnavailable = true);
     }
@@ -80,7 +85,7 @@ class _QuizScreenState extends State<QuizScreen> {
 
   @override
   void dispose() {
-    widget.speaker.stop();
+    s.speaker.stop();
     super.dispose();
   }
 
@@ -91,11 +96,11 @@ class _QuizScreenState extends State<QuizScreen> {
       _selected = i;
       if (ok) _correct++;
     });
-    await widget.store.recordAnswer(_q, ok);
+    await s.store.recordAnswer(_q, ok);
   }
 
   Future<void> _next() async {
-    await widget.speaker.stop();
+    await s.speaker.stop();
     if (_index + 1 < _questions.length) {
       setState(() {
         _index++;
@@ -108,79 +113,99 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 
   Future<void> _finish() async {
+    final t = L10n.of(context);
     final total = _questions.length;
-    final newBest = !widget.isReview &&
-        await widget.store.recordSession(widget.category, _correct, total);
-    widget.analytics.log(widget.isReview ? 'review_complete' : 'quiz_complete', {
+    final newBest =
+        !widget.isReview &&
+        await s.store.recordSession(widget.category, _correct, total);
+    s.analytics.log(widget.isReview ? 'review_complete' : 'quiz_complete', {
       'category': widget.category.name,
       'correct': _correct,
       'total': total,
     });
     final remaining = widget.isReview ? widget.reviewBuilder!().length : 0;
-    final locked = !widget.isReview &&
-        !widget.store.isPremium &&
+    final locked =
+        !widget.isReview &&
+        !s.isPremium &&
         widget.pool.length > kFreeLimitPerCategory;
-    if (locked) {
-      widget.analytics.log('paywall_view', {'category': widget.category.name});
-    }
     if (!mounted) return;
-    final again = await showDialog<bool>(
+    final after = await showDialog<_After>(
       context: context,
       barrierDismissible: false,
       builder: (ctx) => AlertDialog(
-        title: const Text('Result'),
+        title: Text(t.result),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('$_correct / $total correct',
-                style: Theme.of(ctx).textTheme.headlineSmall),
-            if (newBest) const Text('New best score!'),
+            Text(
+              t.scoreCorrect(_correct, total),
+              style: Theme.of(ctx).textTheme.headlineSmall,
+            ),
+            if (newBest) Text(t.newBest),
             if (widget.isReview)
-              Text(remaining == 0
-                  ? 'No mistakes left in this section. Great job!'
-                  : '$remaining question(s) still to review.'),
+              Text(
+                remaining == 0
+                    ? t.noMistakesLeft
+                    : t.remainingToReview(remaining),
+              ),
             if (locked) ...[
               const SizedBox(height: 16),
-              Text(
-                'You have finished the free questions. Premium (coming soon) '
-                'unlocks all ${widget.pool.length} questions in this section.',
-              ),
+              Text(t.freeFinished(widget.pool.length)),
             ],
           ],
         ),
         actions: [
           TextButton(
             key: const Key('result_home'),
-            onPressed: () => Navigator.pop(ctx, false),
-            child: const Text('Home'),
+            onPressed: () => Navigator.pop(ctx, _After.home),
+            child: Text(t.home),
           ),
-          if (!widget.isReview || remaining > 0)
-          FilledButton(
-            key: const Key('result_retry'),
-            onPressed: () => Navigator.pop(ctx, true),
-            child: const Text('Try again'),
-          ),
+          if (locked)
+            FilledButton(
+              key: const Key('result_premium'),
+              onPressed: () => Navigator.pop(ctx, _After.premium),
+              child: Text(t.seePremium),
+            )
+          else if (!widget.isReview || remaining > 0)
+            FilledButton(
+              key: const Key('result_retry'),
+              onPressed: () => Navigator.pop(ctx, _After.retry),
+              child: Text(t.tryAgain),
+            ),
         ],
       ),
     );
     if (!mounted) return;
-    if (again == true) {
-      setState(_start);
-    } else {
-      Navigator.of(context).pop();
+    switch (after) {
+      case _After.retry:
+        setState(_start);
+      case _After.premium:
+        await Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (_) => PaywallScreen(services: s, source: 'quiz_end'),
+          ),
+        );
+        if (!mounted) return;
+        if (s.isPremium) {
+          setState(_start); // continue with the full question set
+        } else {
+          Navigator.of(context).pop();
+        }
+      case _After.home || null:
+        Navigator.of(context).pop();
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final t = L10n.of(context);
     final theme = Theme.of(context);
     final q = _q;
+    final label = sectionLabel(t, widget.category);
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.isReview
-            ? 'Review: ${widget.category.label}'
-            : widget.category.label),
+        title: Text(widget.isReview ? t.reviewTitle(label) : label),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(4),
           child: LinearProgressIndicator(
@@ -192,26 +217,35 @@ class _QuizScreenState extends State<QuizScreen> {
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            Text('Question ${_index + 1} / ${_questions.length}',
-                style: theme.textTheme.labelLarge),
+            Text(
+              t.questionOf(_index + 1, _questions.length),
+              style: theme.textTheme.labelLarge,
+            ),
             if (!q.reviewed)
-              Text('DRAFT (not yet proofread)',
-                  style: theme.textTheme.labelSmall
-                      ?.copyWith(color: theme.colorScheme.error)),
+              Text(
+                t.draftBadge,
+                style: theme.textTheme.labelSmall?.copyWith(
+                  color: theme.colorScheme.error,
+                ),
+              ),
             const SizedBox(height: 12),
-            if (q.category == Section.listen) _listenControls(),
+            if (q.category == Section.listen) _listenControls(t),
             if (q.passage != null) _passage(q.passage!),
-            Text(q.text, style: theme.textTheme.titleLarge),
+            JaText(
+              q.text,
+              style: theme.textTheme.titleLarge,
+              furigana: _furigana,
+            ),
             const SizedBox(height: 16),
             for (var i = 0; i < q.choices.length; i++) _choice(i),
-            if (_answered) ..._feedback(),
+            if (_answered) ..._feedback(t),
           ],
         ),
       ),
     );
   }
 
-  Widget _listenControls() {
+  Widget _listenControls(L10n t) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Column(
@@ -221,15 +255,12 @@ class _QuizScreenState extends State<QuizScreen> {
             key: const Key('play'),
             onPressed: _play,
             icon: const Icon(Icons.volume_up),
-            label: const Text('Play audio'),
+            label: Text(t.playAudio),
           ),
           if (_ttsUnavailable)
-            const Padding(
-              padding: EdgeInsets.only(top: 8),
-              child: Text(
-                'Japanese voice is not available. Install it in Android '
-                'Settings > Text-to-speech output (Google Speech Services).',
-              ),
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Text(t.ttsUnavailable),
             ),
         ],
       ),
@@ -242,7 +273,11 @@ class _QuizScreenState extends State<QuizScreen> {
       margin: const EdgeInsets.only(bottom: 16),
       child: Padding(
         padding: const EdgeInsets.all(16),
-        child: Text(text, style: const TextStyle(fontSize: 17, height: 1.6)),
+        child: JaText(
+          text,
+          style: const TextStyle(fontSize: 17, height: 1.6),
+          furigana: _furigana,
+        ),
       ),
     );
   }
@@ -272,32 +307,39 @@ class _QuizScreenState extends State<QuizScreen> {
           alignment: Alignment.centerLeft,
         ),
         onPressed: _answered ? null : () => _choose(i),
-        child: Text(_q.choices[i], style: const TextStyle(fontSize: 18)),
+        child: JaText(
+          _q.choices[i],
+          style: TextStyle(fontSize: 18, color: fg),
+          furigana: _furigana,
+        ),
       ),
     );
   }
 
-  List<Widget> _feedback() {
+  List<Widget> _feedback(L10n t) {
     final theme = Theme.of(context);
     final ok = _selected == _q.answer;
     return [
       const SizedBox(height: 8),
-      Text(ok ? 'Correct!' : 'Incorrect',
-          style: theme.textTheme.titleMedium?.copyWith(
-              color: ok ? Colors.green.shade700 : theme.colorScheme.error)),
+      Text(
+        ok ? t.correct : t.incorrect,
+        style: theme.textTheme.titleMedium?.copyWith(
+          color: ok ? Colors.green.shade700 : theme.colorScheme.error,
+        ),
+      ),
       const SizedBox(height: 8),
-      Text(_q.explanationFor('en')),
+      Text(_q.explanationFor(s.explanationLanguage(context))),
       if (_q.script.isNotEmpty) ...[
         const SizedBox(height: 12),
-        Text('Script', style: theme.textTheme.labelLarge),
+        Text(t.script, style: theme.textTheme.labelLarge),
         for (final l in _q.script)
-          Text('${l.speaker == 'N' ? '' : '${l.speaker}: '}${l.text}'),
+          JaText(scriptLineText(l), furigana: _furigana),
       ],
       const SizedBox(height: 16),
       FilledButton(
         key: const Key('next'),
         onPressed: _next,
-        child: Text(_index + 1 < _questions.length ? 'Next' : 'Finish'),
+        child: Text(_index + 1 < _questions.length ? t.next : t.finish),
       ),
     ];
   }

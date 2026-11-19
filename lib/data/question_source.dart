@@ -25,7 +25,9 @@ class AssetQuestionSource implements QuestionSource {
 /// `{"version": n, "questions": [...]}` (the shape a remote feed would use).
 List<Question> parseQuestions(String raw) {
   final decoded = jsonDecode(raw);
-  final list = decoded is List ? decoded : (decoded as Map)['questions'] as List;
+  final list = decoded is List
+      ? decoded
+      : (decoded as Map)['questions'] as List;
   return list.map((e) => Question.fromJson(e as Map<String, dynamic>)).toList();
 }
 
@@ -33,15 +35,17 @@ List<Question> parseQuestions(String raw) {
 /// release builds.
 class QuestionBank {
   QuestionBank(List<Question> all, {bool? includeDrafts})
-      : _byCategory = {
-          for (final c in Section.values)
-            c: all
-                .where((q) => q.category == c)
-                .where((q) =>
+    : _byCategory = {
+        for (final c in Section.values)
+          c: all
+              .where((q) => q.category == c)
+              .where(
+                (q) =>
                     q.reviewed ||
-                    (includeDrafts ?? (kDebugMode || kIncludeDraftsDefine)))
-                .toList(),
-        };
+                    (includeDrafts ?? (kDebugMode || kIncludeDraftsDefine)),
+              )
+              .toList(),
+      };
 
   final Map<Section, List<Question>> _byCategory;
 

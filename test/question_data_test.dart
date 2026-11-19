@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:jft_prep/data/question_source.dart';
+import 'package:jft_prep/logic/ruby.dart';
 import 'package:jft_prep/models/question.dart';
 
 /// Validates assets/questions.json. Run before every release.
@@ -23,6 +24,33 @@ void main() {
     }
   });
 
+  test('furigana markup is valid and choices stay distinct without it', () {
+    for (final q in qs) {
+      final texts = [
+        q.text,
+        if (q.passage != null) q.passage!,
+        ...q.choices,
+        ...q.script.map((l) => l.text),
+      ];
+      for (final t in texts) {
+        expect(isValidRuby(t), isTrue, reason: '${q.id}: $t');
+      }
+      expect(
+        q.choices.map(plainText).toSet().length,
+        q.choices.length,
+        reason: q.id,
+      );
+    }
+  });
+
+  test('kanji reading/writing questions never show furigana', () {
+    for (final q in qs.where(
+      (q) => q.text.contains('の 読み方は') || q.text.contains('漢字で どう 書きますか'),
+    )) {
+      expect(q.noFurigana, isTrue, reason: q.id);
+    }
+  });
+
   test('listening has a script, reading has a passage', () {
     for (final q in qs) {
       if (q.category == Section.listen) {
@@ -36,8 +64,11 @@ void main() {
 
   test('at least 30 questions per section (Phase 1 target)', () {
     for (final c in Section.values) {
-      expect(qs.where((q) => q.category == c).length,
-          greaterThanOrEqualTo(30), reason: c.name);
+      expect(
+        qs.where((q) => q.category == c).length,
+        greaterThanOrEqualTo(30),
+        reason: c.name,
+      );
     }
   });
 

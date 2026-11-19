@@ -2,7 +2,7 @@
 
 JFT-Basic 対策アプリ。Flutter／Android のみ。
 
-## 状態（Phase 1.5）
+## 状態（Phase 2：コード実装済み、課金の設定待ち）
 - 4 分野（文字と語彙／会話と表現／聴解／読解）、各 30 問、計 120 問。**全問が未校正の下書き（`"reviewed": false`）**。
 - 聴解は `flutter_tts` で台本を読み上げる。男性と女性は声の高さで区別する。
 - 選択肢は出題時にシャッフルする（`Question.shuffled`）。正解位置の均等性はテストで確認済み。
@@ -10,7 +10,11 @@ JFT-Basic 対策アプリ。Flutter／Android のみ。
 - 無料枠は各分野 `kFreeLimitPerCategory`（= 3）問。終了時に Premium の案内を出す（課金は Phase 2）。
 - **復習（Phase 1.5）**：ホーム右上のボタン（間違えた数をバッジで表示）から開く。最後の解答が不正解だった問題を分野ごとに一覧で表示し、タップすると正解と解説を出す。「Retry」で間違えた問題だけを出題し、正解した問題は一覧から外れる。復習ではベストスコアを更新しない。
 - **進捗表示（Phase 1.5）**：ホーム上部に全体の習得数、回答数、正答率を表示する。分野カードにも正答率を出す。
-- イベント（`quiz_start` / `quiz_complete` / `review_start` / `review_complete` / `paywall_view`）は `lib/services/analytics.dart` でコンソールに出すだけ。Firebase はここに接続する。
+- **課金（Phase 2）**：RevenueCat（`purchases_flutter`）を使う。Entitlement は `premium`。ペイウォールでは年額と月額を表示し、価格は Google Play の国別価格をそのまま出す。購入の復元にも対応する。API キーが無いと課金は無効になり、ペイウォールには「準備中」と表示する。Premium 状態は端末に保存するので、オフラインでも有効なまま。
+- **設定画面（Phase 2）**：UI 言語、ふりがなの ON/OFF、Premium の状態、購入の復元。
+- **UI 多言語（Phase 2）**：英語、インドネシア語、ネパール語、ミャンマー語、ベトナム語。英語以外は LLM による下訳で、設定画面に「機械翻訳を含む」と表示する。ネイティブ確認が済んだ言語は `kNativeCheckedLanguages`（`lib/app_services.dart`）に追加する。解説はまだ英語のみで、`explanation` に言語コード（`id`/`ne`/`my`/`vi`）を足せばその言語で表示される。
+- **ふりがな（Phase 2）**：問題データに `{漢字|かんじ}` と書く。ON にすると漢字の上に読みを表示し、OFF では漢字だけを表示する。TTS は読みを使うので発音が正確になる。漢字の読みと書き方の問題は `"noFurigana": true` にして、答えが見えないようにしている。**既存の問題にはまだふりがなを付けていない。**
+- イベント（`quiz_start` / `quiz_complete` / `review_start` / `review_complete` / `paywall_view` / `purchase`）は `lib/services/analytics.dart` でコンソールに出すだけ。Firebase はここに接続する。
 
 ## 問題の校正フロー（ルール：全問ネイティブ校正）
 1. `assets/questions.json` を校正し、OK の問題を `"reviewed": true` にする。
@@ -43,6 +47,19 @@ flutter build appbundle
 flutter build apk --release --dart-define=INCLUDE_DRAFTS=true --dart-define=UNLOCK_ALL=true
 ```
 
+### 課金の設定（RevenueCat）
+1. Play Console でサブスク商品を 2 つ作る（年額と月額）。国別価格もここで設定する。
+2. RevenueCat でプロジェクトを作り、Google Play アプリを登録する（サービスアカウントの JSON が必要）。
+3. Entitlement `premium` を作り、2 つの商品を紐付ける。Offering（current）には Package の Annual と Monthly を追加する。
+4. Android 用の公開 SDK キー（`goog_...`）を渡してビルドする。
+```bash
+flutter build appbundle --dart-define=RC_API_KEY=goog_xxxxxxxx
+```
+課金のテストは、Play Console の内部テストトラックにアップロードし、ライセンステスターのアカウントで行う。
+
+### UI 文言の編集
+`lib/l10n/app_*.arb` を編集して `flutter gen-l10n` を実行する（ビルド時にも自動で生成される）。`test/l10n_test.dart` で全言語のキーとプレースホルダーが揃っているかを検査する。
+
 ### リリース署名
 `android/key.properties` を作成する（git 管理外）。無い場合はデバッグ鍵で署名されるため、Play にはアップロードできない。
 ```
@@ -60,12 +77,16 @@ storeFile=/absolute/path/upload-keystore.jks
 ## 構成
 ```
 lib/
-  config.dart                 kFreeLimitPerCategory などの定数
+  config.dart                 kFreeLimitPerCategory、RC_API_KEY などの定数
+  app_services.dart           サービスの束ね、UI 言語、ふりがなの設定
+  l10n/                       UI 文言（ARB と生成コード）
   models/question.dart        Section（分野）、Question、シャッフル
   data/question_source.dart   QuestionSource（差し替え可能）、QuestionBank（下書きの除外）
   data/progress_store.dart    スコアと進捗の保存
   logic/session.dart          出題セットの組み立て（無料と Premium）
+  logic/ruby.dart             ふりがな記法の解析
   services/tts_service.dart   TTS（聴解）
+  services/purchase_service.dart  課金（RevenueCat）
   services/analytics.dart     計測
-  screens/                    ホーム、クイズ（復習モードを含む）、復習一覧
+  screens/                    ホーム、クイズ（復習モードを含む）、復習一覧、ペイウォール、設定
 ```

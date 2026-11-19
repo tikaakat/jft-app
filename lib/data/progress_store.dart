@@ -25,6 +25,17 @@ class ProgressStore {
   int answeredCount(Section c) => _prefs.getInt('answered_${c.name}') ?? 0;
   int correctCount(Section c) => _prefs.getInt('correct_${c.name}') ?? 0;
 
+  /// Selected UI language code, or null to follow the system.
+  String? get uiLanguage => _prefs.getString('ui_lang');
+  Future<void> setUiLanguage(String? code) => code == null
+      ? _prefs.remove('ui_lang')
+      : _prefs.setString('ui_lang', code);
+
+  /// Show furigana over kanji (default on for beginners).
+  bool get furigana => _prefs.getBool('furigana') ?? true;
+  Future<void> setFurigana(bool v) => _prefs.setBool('furigana', v);
+
+  /// Cached premium state (the source of truth is the billing service).
   bool get isPremium => _prefs.getBool('premium') ?? false;
   Future<void> setPremium(bool v) => _prefs.setBool('premium', v);
 

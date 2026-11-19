@@ -17,3 +17,11 @@ const bool kUnlockAll = bool.fromEnvironment('UNLOCK_ALL');
 /// proofread by a native speaker. They are shown in debug builds only,
 /// unless `--dart-define=INCLUDE_DRAFTS=true` is passed.
 const bool kIncludeDraftsDefine = bool.fromEnvironment('INCLUDE_DRAFTS');
+
+/// RevenueCat public Android SDK key ("goog_..."). Pass it at build time:
+/// `flutter build appbundle --dart-define=RC_API_KEY=goog_xxx`.
+/// When empty, billing is disabled and the paywall says "not available yet".
+const String kRevenueCatApiKey = String.fromEnvironment('RC_API_KEY');
+
+/// RevenueCat entitlement that unlocks all content.
+const String kEntitlementId = 'premium';
