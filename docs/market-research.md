@@ -49,3 +49,36 @@
 - IRODORI：https://pp.jpf.go.jp/irodori/faq/ ／ JFT-Basic の学習ヒント：https://www.jpf.go.jp/jft-basic/e/support/index.html
 - 競合：https://jftguru.com/ ／ https://jftguru.com/consultancy-plans ／ https://play.google.com/store/apps/details?id=com.srmkstudio.studypass.jft ／ https://play.google.com/store/apps/details?id=jp.s2mr.jftbasic ／ https://play.google.com/store/apps/details?id=jp.homely.jftgo&hl=en_US ／ https://play.google.com/store/apps/details?id=jftpass.com&hl=en_US
 - Migii の価格：https://appshunter.io/ios/app/1463267540
+
+---
+
+# 追加調査（2026-11-20）：分野別の需要と競合
+
+## Google 検索の月間検索数（キーワードプランナー、2025年11月〜2026年10月）
+広告を出していないアカウントでは数値が幅で表示される：50＝10〜100、500＝100〜1,000、5000＝1,000〜1万、50000＝1万〜10万。
+
+| キーワード | インドネシア | ネパール | ミャンマー | ベトナム | フィリピン |
+|---|---|---|---|---|---|
+| jft basic | 1千〜1万 | 1千〜1万 | 100〜1千 | 100〜1千 | 100〜1千 |
+| jft basic a2 | 1千〜1万 | 〜100 | 〜100 | 100〜1千 | 〜100 |
+| jlpt n4 | 1千〜1万 | 〜100 | 〜100 | 100〜1千 | 100〜1千 |
+| ssw kaigo | **1千〜1万** | 〜100 | 〜100 | 〜100 | 〜100 |
+| ssw pertanian（農業） | **1千〜1万** | 〜100 | — | 〜100 | 0 |
+| ssw pengolahan makanan（飲食料品製造） | **1千〜1万** | 〜100 | 0 | 〜100 | 〜100 |
+| ssw restoran / gaishoku（外食） | 100〜1千 | 〜100 | 〜100 | 〜100 | 〜100 |
+| ssw konstruksi / manufaktur | 100〜1千 | 〜100 | 〜100 | 〜100 | 〜100 |
+| tokutei ginou | 1千〜1万 | 〜100 | 〜100 | 100〜1千 | 〜100 |
+| specified skilled worker test | 〜100 | 100〜1千 | 1万〜10万（減少傾向） | 100〜1千 | 〜100 |
+
+**読み取れること**
+- 分野別の検索は**ほぼインドネシアに集中**している。ネパールは JFT だけ。
+- インドネシアでは、介護、農業、飲食料品製造の 3 分野が JFT と同じ規模の帯に入っている。外食、建設、製造は 1 桁少ない。
+
+## インドネシアの Play ストアでの専用アプリ（2026-11-20 時点）
+| 分野 | 専用アプリ | 所感 |
+|---|---|---|
+| 介護 | Soal SSW Kaigo（海外の個人）、Ujian Kaigo SSW - Sakutore（Decryption）、Kaigo Tokutei（Japan ICT Learning） | 3 本。いちばん混んでいる |
+| 農業 | Tes Keterampilan Pertanian 1（RUMAHSAKU、評価なし）、SSW2 農業（CAPNUTLAB、日本語、評価なし） | **弱いものが 2 本だけ** |
+| 飲食料品製造 | 特定技能試験シリーズ（Push on、日本語の画面） | **1 本だけ。インドネシア語のものは無い** |
+
+どの分野の検索でも、SSW Goukaku（インドネシアの会社、4.8）と Aplikasi Latihan Soal SSW という分野をまたいだ総合アプリが上位に出る。これが本当の競合になる可能性があり、中身の確認が必要。
