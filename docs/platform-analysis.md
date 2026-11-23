@@ -1,0 +1,104 @@
+# どこで戦うか：プラットフォームの網羅的な比較（2026-11-23）
+
+## 0. 前提
+- 制約：発信と営業はしない。集客は「お客さんが自分で探しに来る場所」だけに頼る。
+- ゴール：経済的自立（MRR 50 万円以上）。そのため、規模と支払い意欲の両方が要る。
+- 方法：
+  - 各プラットフォームの基礎データ（利用者の数、アプリの数、手数料）を集める。
+  - 主要な 4 つ（Shopify、Wix、WordPress、Chrome）は、実際のストアで、困りごと別に上位アプリのレビュー数、インストール数、利用者数を取得して比べた。
+
+## 1. 基礎データ
+| プラットフォーム | 利用者（お客さん） | アプリの数 | 手数料（開発者の取り分） | 出典の確かさ |
+|---|---|---|---|---|
+| Shopify | 世界で約 500〜680 万店舗 | 1 万本以上 | 条件付きで売上の一定額まで手数料 0% | 第三者の集計 |
+| Wix | ネットショップ約 300 万、有料プランの契約 611 万件 | 約 600 本 | 1 年目 100%、2 年目以降 80% | 公式と第三者の集計 |
+| WordPress | 世界中の Web サイトの多く。プラグインは無料が基本 | 約 7〜7.8 万本（無料） | 自前で課金（手数料は決済会社の分だけ） | 第三者の集計 |
+| Chrome 拡張機能 | Chrome の利用者 数十億人 | 11〜27 万本。**9 割は利用者 1,000 人未満** | 自前で課金（ストアの決済は廃止済み） | 第三者の集計 |
+| BigCommerce | 稼働中の店舗 約 4.1 万（大企業 5,000 以上）。B2B に強い | 1,000〜1,200 本 | 条件あり | 第三者の集計 |
+| Ecwid | 稼働中の店舗 15〜22 万（**減少傾向**） | 約 345 本 | 条件あり | 第三者の集計 |
+| Atlassian（Jira など） | 企業向け。累計の売上は 60 億ドル超 | 6,000 本以上、提供者 2,000 社以上 | **生涯 100 万ドルまで手数料 0%**（Forge、2026年から） | 公式 |
+| monday.com | 約 24.5 万社 | 500〜850 本 | 条件あり | 公式 |
+| HubSpot | 中小企業向けの営業・マーケティングツール | 2,000 本以上、有効インストール 250 万 | 条件あり | 公式 |
+| Google Workspace | 企業や個人の非常に多くの利用者 | 不明 | 自前で課金も可 | 公式の規約 |
+| Salesforce AppExchange | 企業向け | 約 5,700 本 | 条件あり | 第三者の集計 |
+| Canva／Figma | デザイン利用者 | Canva 約 430 本（2024年末） | 有料化の仕組みが未整備、または不安定 | 公式と掲示板 |
+| スマホアプリ（Play／App Store） | 非常に多い | 非常に多い | 15〜30% | 今回の調査（試験対策アプリ） |
+
+## 2. 実際のストアでの比較（困りごと別）
+### Shopify（70 分野）
+ほぼ全分野で、上位はレビュー数千件、評価は平均 4.8〜4.96。**どこも飽和**。
+
+### Wix（同じ 70 分野）
+Shopify で需要が証明された機能の多くが手薄。ただし、Wix の標準機能で済むものは除く。
+| 分野 | Wix（上位 12 本のレビュー合計） | Shopify | Wix の標準機能 |
+|---|---|---|---|
+| 数量に応じた段階価格 | 79 | 17,290 | **無い**（公式サイトで機能の要望を受付中） |
+| 卸売（B2B） | 36 | 7,025 | **無い** |
+| 見積もりの依頼 | 316（首位の評価 3.1） | 2,264 | 無い |
+| 返品の管理 | 18（首位の評価 1.1） | 3,689 | 無い |
+| サイズ表 | 83（首位の評価 2.8） | 2,825 | 無い |
+| 再入荷のお知らせ／ほしい物リスト／CSV の一括編集 | 71／3／46 | 20,586／3,894／9,218 | **ある（見送り）** |
+
+### WordPress（60 分野、公式 API で取得）
+- どの分野も、検索結果は数百〜1 万本。上位は数百万インストールの大手（Yoast、Contact Form 7、Wordfence、WooCommerce など）。
+- 手薄なのは「WooCommerce の段階価格」（上位 12 本の合計 8.2 万インストール、首位 2 万）、「卸売」（合計 18.6 万）、「予約」（首位 9 万）くらい。
+- 無料が当たり前の文化で、有料版は自前のサイトで売る必要がある。サポートや他のプラグインとの相性の問題で、手間も大きい。**新規参入には不向き**。
+
+### Chrome 拡張機能（10 分野、上位 5〜6 本の詳細）
+- 一般向け（Gmail、YouTube の要約）：上位は 100 万〜300 万人。**飽和**。
+- **業務向けの細かい分野**（Amazon や Etsy の売り手、Salesforce、不動産、採用担当）：首位でも数千〜10 万人。評価 2.0〜4.0 や、更新が止まったものが多い。**手薄**。
+- ただし課金は自前（Stripe など）。ストア内の検索での集客は弱く、Google 検索に頼る部分が大きい。
+
+## 3. 採点（0〜3 点 × 重み。満点 39 点）
+重み：自然流入 ×3、支払い意欲 ×3、空き具合 ×2、規模 ×2、開発と運用の軽さ ×1、手数料 ×1、横展開 ×1
+**「空き具合」が 0 点のプラットフォームは、合計点に関係なく不採用**（後発が埋もれるため）。
+
+| プラットフォーム | 流入 | 支払い | 空き | 規模 | 軽さ | 手数料 | 横展開 | **合計** | 判定 |
+|---|---|---|---|---|---|---|---|---|---|
+| **Wix** | 2 | 2 | 3 | 2 | 3 | 3 | 2 | **30** | **◎ 1 年目の主戦場** |
+| Atlassian | 3 | 3 | 1 | 2 | 1 | 3 | 1 | 29 | ○ 2 年目以降の候補（企業向け。大手が強く、セキュリティの要件が重い） |
+| BigCommerce | 2 | 3 | 2 | 1 | 2 | 2 | 3 | 28 | ○ **Wix の次の展開先**（B2B に強く、単価が高い） |
+| monday.com | 2 | 3 | 2 | 1 | 2 | 2 | 1 | 26 | △ 候補として保留 |
+| HubSpot | 2 | 3 | 1 | 2 | 2 | 2 | 1 | 26 | △ |
+| Google Workspace | 2 | 2 | 1 | 3 | 2 | 3 | 1 | 26 | △ |
+| Ecwid | 2 | 1 | 3 | 1 | 2 | 2 | 3 | 24 | △ 店舗数が減少中。横展開先の一つ |
+| Chrome 拡張機能 | 1 | 2 | 1 | 3 | 2 | 2 | 1 | 22 | △ 業務向けの細かい分野は手薄。集客が弱い |
+| Shopify | 3 | 3 | **0** | 3 | 2 | 3 | 2 | 31 | **× 不採用（飽和）** |
+| WordPress | 2 | 1 | **0** | 3 | 1 | 3 | 1 | 20 | **× 不採用（飽和、無料文化）** |
+| スマホアプリ | 1 | 1 | **0** | 3 | 1 | 1 | 1 | 15 | **× 不採用（量産業者で飽和）** |
+| Canva／Figma | — | — | — | — | — | — | — | — | 保留（有料化の仕組みが不安定） |
+
+## 4. 結論：Wix で B2B（卸売）機能の首位を取り、同じ機能をほかのプラットフォームへ横展開する
+- **1 年目**：Wix に B2B 機能（段階価格、顧客のグループ別の価格、最低注文数、見積もり）を出し、首位を取る。
+- **横展開**：同じ機能を BigCommerce（B2B に強く単価が高い）と Ecwid に出す。退職ゲートの条件「1 つのプラットフォームに 70% 以上依存しない」を満たす道にもなる。
+- **2 年目以降**：Atlassian や monday.com など企業向けのアプリストアを、今回と同じ方法で調べて、本命の候補にする。
+
+### 規模の見積もり（仮定を置いた概算）
+- Wix の約 300 万店舗のうち、卸売や大口の取引をする店を 1〜3% とすると、3〜9 万店舗。
+- その 1〜2% に月 10〜20 ドルで使ってもらえれば、月 3,000〜3.6 万ドル。
+- 経済的自立に必要な MRR 50 万円（約 3,300 ドル）は、この範囲の下限にあたる。**届きうる規模**。
+
+### ゲート 0（技術）：合格
+- Wix には、アプリが独自の割引条件（例：「卸売のグループの会員だけ」）を定義できる仕組み（Custom Discount Triggers）と、割引ルールを作る API がある。
+- 既存の卸売アプリも、顧客のグループ分けと最低注文数を実現している。
+- 確認が残る点：価格の表示を卸売の価格に切り替える方法（割引はカートで反映されるが、商品ページの表示をどうするか）、最低注文数を購入画面で検証する仕組み。いずれも開発の初日に試作して確かめる。
+
+## 5. 正直なリスク
+1. **Wix にも量産業者が来ている**：卸売のアプリは新しいものが 8 本以上。勝者が決まる前に、品質、サポート、レビューで首位を取る競争になる。
+2. **Wix の店主は小規模な事業者が多く、単価は Shopify より低め**。
+3. 数字の多くは第三者の集計で、誤差がある。
+4. 規模の見積もりは仮定の積み上げにすぎない。**ゲート A・B の実際の数字で検証する**。
+
+## 出典
+- Shopify・Wix・Chrome の数字は、各ストアを 2026-11-23 にブラウザで表示して取得。WordPress は公式 API（api.wordpress.org）で取得。
+- Wix の標準機能：https://support.wix.com/en/article/wix-stores-notifying-customers-when-products-are-back-in-stock ／ https://support.wix.com/en/article/wix-stores-exporting-and-importing-your-products ／ https://support.wix.com/en/article/wix-stores-request-quantity-based-price-discounts
+- Wix の割引の仕組み：https://dev.wix.com/docs/rest/business-solutions/e-commerce/custom-discount-triggers-integration-spi ／ https://dev.wix.com/docs/rest/api-reference/wix-e-commerce/discount-rules/introduction
+- Wix の収益の取り分：https://dev.wix.com/docs/build-apps/launch-your-app/pricing-and-billing/about-monetizing-your-app
+- WordPress のプラグイン数：https://wpexposure.com/research/wordpress-statistics/
+- Chrome 拡張機能の統計：https://exstats.com/blog/state-of-browser-extensions-q2-2026 ／ https://konabayev.com/blog/extension-monetization-statistics-2026/
+- Atlassian の手数料：https://community.developer.atlassian.com/t/marketplace-revenue-share-updates-2026/91727 ／ アプリ数と売上：https://www.getint.io/blog/atlassian-marketplace-how-to-scale-a-platform-and-ecosystem-to-10b
+- monday.com：https://monday.com/appdeveloper
+- HubSpot：https://community.hubspot.com/t/2-000-apps-2-5m-active-installs/140697
+- Canva：https://www.canva.dev/blog/developers/canva-developers-wrapped-2024/
+- BigCommerce の店舗数：https://redstagfulfillment.com/how-many-bigcommerce-stores-are-there/ ／ Ecwid の店舗数：https://storeleads.app/reports/ecwid
+- Salesforce AppExchange：https://dev.to/doriansabitov/state-of-appexchange-salesforce-apps-market-2025-29pg
