@@ -148,3 +148,19 @@
 - 広げ方：同じ Wix の店主向けに、見積もり、サイズ表、返品などを足す。その後、ほかの手薄なプラットフォーム（BigCommerce、Ecwid など）にも同じ機能を出す。
 
 出典：Wix 標準機能の確認（再入荷のお知らせ https://support.wix.com/en/article/wix-stores-notifying-customers-when-products-are-back-in-stock 、CSV の入出力 https://support.wix.com/en/article/wix-stores-exporting-and-importing-your-products 、段階価格の機能要望 https://support.wix.com/en/article/wix-stores-request-quantity-based-price-discounts ）、収益の取り分 https://dev.wix.com/docs/build-apps/launch-your-app/pricing-and-billing/about-monetizing-your-app 、Wix の決算（有料プランの契約数）https://www.fool.com/earnings/call-transcripts/2026/03/04/wixcom-wix-q4-2025-earnings-call-transcript/
+
+---
+
+# 種の検証（2026-11-23）
+## 種 1：新規事業がうまくいかない → 保留
+- 困りごとは大きい（新規事業に挑む企業 7 割、成果が出るのは 2 割）。
+- 日本の検索数は 10 語の合計で月 1,300 回程度。「市場規模 調べ方」「新規事業 フレームワーク」が月 100〜1,000 回、ほかは月 10〜100 回。
+- 広告の単価は 1 クリック 189〜3,085 円と高い。お金はあるが、コンサルティング会社が営業で売っている市場。**検索で集客する道具としては規模が足りない**。
+
+## 種 2：パパのつながり → 「人が集まる場（集客の資産）を先に作る」形で検証する
+- 背景：男性の育休取得率は 2024 年度 40.5%、2025 年度 50.9%。2025 年 4 月から、企業に男性の育休取得率の公表が義務化された（対象企業の範囲は要確認）。育児で孤独を感じた父親は 3 割強（花まる教育研究所の小規模な調査）。
+- 既存：パパ育コミュ（延べ約 1,000 人）、NPO ファザーリング・ジャパン、theダディ!（2026 年 4 月開始予定の SNS 型）。**決定的な勝者はいない**。
+- 発信が「楽しければ可」になったので、**量産業者が真似できない「人の集まり」を資産にする**道が開けた。
+- 収益の重ね方（集まってから）：企業の協賛、企業の男性育休の支援プログラム（福利厚生）、有料の会員、イベント、アプリ。
+- **アプリを作る前に、0 円の実験で「人が集まり、続くか」と「あなたが楽しいか」を測る**。
+
