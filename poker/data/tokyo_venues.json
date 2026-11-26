@@ -423,7 +423,6 @@
    "features": [
     "late_night",
     "rental",
-    "satellite",
     "tournament"
    ],
    "tables": 4,
