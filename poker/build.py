@@ -19,6 +19,7 @@ STATUS = {
     "official": ("公式発表", "s-official"),
     "third_party": ("第三者情報", "s-third"),
     "expected": ("見込み", "s-expected"),
+    "conflict": ("要確認：中止の情報あり", "s-third"),
 }
 
 CSS = """
