@@ -16,8 +16,10 @@ function b64(s) {
 
 function wrap(s, n = 76) { return s.replace(new RegExp(`(.{${n}})`, "g"), "$1\r\n"); }
 
-function back(url, status) {
-  return Response.redirect(new URL(`/contact/?sent=${status}`, url).toString(), 303);
+function back(url, status, reason) {
+  const u = new URL(`/contact/?sent=${status}`, url);
+  if (reason) u.searchParams.set("r", reason.slice(0, 120)); // 原因の切り分け用（一時的）
+  return Response.redirect(u.toString(), 303);
 }
 
 async function handleContact(request, env) {
@@ -36,7 +38,8 @@ async function handleContact(request, env) {
   const contact = (f.get("contact") || "").toString().trim().slice(0, MAX.contact);
   const agree = f.get("agree");
   if (!KINDS.includes(kind) || !body || !agree) return back(url, "invalid");
-  if (!env.TO_ADDRESS || !env.MAILER) return back(url, "error");
+  if (!env.TO_ADDRESS) return back(url, "error", "no TO_ADDRESS");
+  if (!env.MAILER) return back(url, "error", "no MAILER binding");
   const subject = `【ポーカー旅】${kind}：${target || "（対象の記載なし）"}`.slice(0, 120);
   const text = [
     `種類：${kind}`, `対象：${target}`, "", "内容：", body, "", `出典：${source}`, `連絡先：${contact || "（なし）"}`, "",
@@ -57,7 +60,8 @@ async function handleContact(request, env) {
   try {
     await env.MAILER.send(new EmailMessage(FROM, env.TO_ADDRESS, raw));
   } catch (e) {
-    return back(url, "error");
+    console.error("send failed", e && e.message);
+    return back(url, "error", "send: " + (e && e.message || "unknown"));
   }
   return back(url, "ok");
 }
