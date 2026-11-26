@@ -30,7 +30,7 @@ CSS = """
 :root[data-theme=dark]{--bg:#141416;--fg:#ececee;--muted:#a1a1a8;--line:#2c2c30;--card:#1c1c1f;--accent:#4fd1a5;--ok:#4fd1a5;--warn:#e3b341;--info:#8da2fb;color-scheme:dark}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
 font:16px/1.75 system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif}
-header,main,footer{max-width:820px;margin:0 auto;padding:0 16px}
+header,main,footer{max-width:1040px;margin:0 auto;padding:0 16px}
 header{display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding-top:16px;padding-bottom:8px;border-bottom:1px solid var(--line)}
 header .logo{font-weight:700;color:var(--fg);text-decoration:none;margin-right:auto}
 header nav a{color:var(--muted);text-decoration:none;margin-left:12px;font-size:14px}
@@ -51,6 +51,32 @@ footer{margin-top:48px;padding-top:16px;padding-bottom:32px;border-top:1px solid
 .venue dt{color:var(--muted)}.venue dd{margin:0}.tags{display:flex;gap:6px;flex-wrap:wrap}
 .filters{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.filters label{font-size:14px;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--card)}
 .filters select{font:inherit;font-size:14px;padding:4px 8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--fg)}
+
+.lead{font-size:1.05rem}.muted{color:var(--muted)}.small{font-size:13px}.h-small{font-size:1rem;border:0;margin:1.4em 0 .6em;padding:0}
+.crumb{font-size:13px;color:var(--muted);margin:12px 0 0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}.stats div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+.stats b{display:block;font-size:1.7rem;line-height:1.2;font-variant-numeric:tabular-nums;color:var(--accent)}.stats span{font-size:13px;color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px}@media(max-width:640px){.two{grid-template-columns:1fr}}
+.bars{list-style:none;padding:0;margin:0;display:grid;gap:6px}.bars li{display:grid;grid-template-columns:minmax(0,11em) 1fr 2.5em;gap:8px;align-items:center;font-size:13px}
+.bl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.bt{background:var(--line);border-radius:4px;height:10px;overflow:hidden}.bf{display:block;height:100%;background:var(--accent);border-radius:4px}.bn{text-align:right;font-variant-numeric:tabular-nums}
+.finder{background:var(--bg);border-bottom:1px solid var(--line);padding:4px 0 8px;margin-top:20px}
+.pchips{display:flex;flex-wrap:wrap;gap:6px}.pchip{font:inherit;font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}
+.pchip[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:600}.pchip:focus-visible,.btn:focus-visible,.linkbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.frow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:8px}.frow select{font:inherit;font-size:14px;padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--fg)}
+.tog{font-size:14px}.linkbtn{font:inherit;font-size:13px;background:none;border:0;color:var(--accent);cursor:pointer;text-decoration:underline}
+.fcount{margin:6px 0 0;font-size:14px;font-weight:600}
+.group h2 span{font-size:.85rem;font-weight:400;margin-left:4px}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.v{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.v[hidden],.group[hidden]{display:none}
+.v-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}.v-head h3{margin:0;font-size:1rem;line-height:1.4;overflow-wrap:anywhere}
+.kind{flex:none;font-size:11px;padding:2px 8px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}.k-ok{color:var(--ok)}.k-chk{color:var(--warn)}
+.v-loc{margin:0;font-size:13px;color:var(--muted);overflow-wrap:anywhere}
+.chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:4px}.chips li{font-size:12px;padding:2px 8px;border-radius:6px;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--fg)}
+.v-actions{display:flex;gap:8px;flex-wrap:wrap}.btn{font-size:13px;padding:5px 12px;border-radius:8px;border:1px solid var(--accent);color:var(--accent);text-decoration:none}
+details summary{cursor:pointer;font-size:13px;color:var(--muted)}details dl{display:grid;grid-template-columns:5.5em 1fr;gap:2px 8px;font-size:13px;margin:8px 0}details dt{color:var(--muted)}details dd{margin:0;overflow-wrap:anywhere}
+.note{margin-top:32px}
+@media(min-width:900px){.finder{position:sticky;top:0;z-index:5}}
 ul.task{list-style:none;padding-left:0}ul.task li::before{content:"☐ ";color:var(--accent)}
 """
 
@@ -187,32 +213,84 @@ def main():
 
 
 WARDS = {"千代田区":"chiyoda","中央区":"chuo","港区":"minato","新宿区":"shinjuku","文京区":"bunkyo","台東区":"taito","墨田区":"sumida","江東区":"koto","品川区":"shinagawa","目黒区":"meguro","大田区":"ota","世田谷区":"setagaya","渋谷区":"shibuya","中野区":"nakano","杉並区":"suginami","豊島区":"toshima","北区":"kita","荒川区":"arakawa","板橋区":"itabashi","練馬区":"nerima","足立区":"adachi","葛飾区":"katsushika","江戸川区":"edogawa"}
-VSTATUS = {"store_listing": "店舗の掲載情報で確認", "press": "記事などで確認（公式で要確認）", "google": "Google マップで営業中を確認（詳しい情報は確認中）"}
+VSTATUS = {"store_listing": "店舗の掲載情報", "press": "記事など", "google": "Google マップ"}
+AREAS = [
+    ("shinjuku-area", "新宿・高田馬場", ["新宿区"]),
+    ("shibuya-area", "渋谷・恵比寿・目黒", ["渋谷区", "目黒区"]),
+    ("minato-area", "六本木・赤坂・新橋", ["港区"]),
+    ("central-area", "銀座・日本橋・秋葉原・神田", ["中央区", "千代田区"]),
+    ("ikebukuro-area", "池袋・大塚・巣鴨", ["豊島区", "文京区"]),
+    ("east-area", "上野・浅草・錦糸町", ["台東区", "墨田区", "江東区", "荒川区"]),
+    ("north-area", "北千住・赤羽・葛西ほか", ["足立区", "北区", "葛飾区", "江戸川区", "板橋区"]),
+    ("south-area", "品川・五反田・蒲田", ["品川区", "大田区"]),
+    ("setagaya-area", "下北沢・三軒茶屋", ["世田谷区"]),
+    ("west-area", "中野・高円寺・荻窪・練馬", ["中野区", "杉並区", "練馬区"]),
+]
+WARD_AREA = {w: (aid, an) for aid, an, ws in AREAS for w in ws}
+FEATS = [
+    ("lesson", "初心者講習あり", "はじめてでも安心"),
+    ("tournament", "トーナメントあり", "トーナメントに出たい"),
+    ("ring", "リングゲームあり", "リングゲームで遊びたい"),
+    ("satellite", "大会の予選・提携あり", "大きな大会を目指したい"),
+    ("drink_free", "飲み放題あり", "飲み放題で遊びたい"),
+    ("nonsmoking", "全席禁煙", "たばこの煙が苦手"),
+    ("late_night", "深夜営業", "仕事帰りに遅くまで"),
+    ("rental", "貸切・貸卓あり", "仲間内で貸し切りたい"),
+    ("women_student", "女性・学生割引", "女性・学生の割引"),
+]
+FEAT_LABEL = {k: l for k, l, _ in FEATS}
+KIND_SHORT = {"ポーカー専門": "ポーカー専門店", "カジノバー（ポーカーを含む）": "カジノバー", "ポーカーも遊べるバー": "ポーカーも遊べるバー", "レンタルスペース": "レンタルスペース", "要確認": "ポーカーの有無を確認中"}
 
 
 def venue_card(v):
-    kind = "ポーカーの有無を確認中" if v["kind"] == "要確認" else v["kind"]
-    tags = [f'<span class="badge {"s-third" if v["kind"] == "要確認" else "s-official"}">{html.escape(kind)}</span>']
-    if v.get("nonsmoking"): tags.append('<span class="badge s-expected">全席禁煙</span>')
-    if v.get("late_night"): tags.append('<span class="badge s-third">深夜営業</span>')
-    rows = [("場所", v.get("address")), ("行き方", v.get("access")), ("営業時間", v.get("hours")), ("定休日", v.get("closed")), ("たばこ", v.get("smoking"))]
-    dl = "".join(f"<dt>{k}</dt><dd>{html.escape(val)}</dd>" for k, val in rows if val)
-    note = f'<p class="checked">{html.escape(v["note"])}</p>' if v.get("note") else ""
+    kind = KIND_SHORT.get(v["kind"], v["kind"])
+    area = WARD_AREA.get(v["ward"], ("", v["ward"]))
+    loc = v.get("address") or f'{v["ward"]}（詳しい住所は地図で確認）'
+    chips = "".join(f'<li>{FEAT_LABEL[f]}</li>' for f, _, _ in FEATS if f in v.get("features", []))
+    chips = f'<ul class="chips">{chips}</ul>' if chips else '<p class="muted small">特徴はまだ確認できていません</p>'
+    meta = []
+    if v.get("hours"): meta.append(("営業時間", v["hours"]))
+    if v.get("closed"): meta.append(("定休日", v["closed"]))
+    if v.get("access"): meta.append(("行き方", v["access"]))
+    if v.get("smoking"): meta.append(("たばこ", v["smoking"]))
+    if v.get("tables"): meta.append(("卓の数", f'{v["tables"]} 卓（公式サイトの記載）'))
     NOLINK = ("ggpoker",)  # オンラインポーカーとの提携を公表している店の公式サイトにはリンクしない
-    off = f' <a href="{html.escape(v["official"])}" rel="noopener">公式サイト</a>' if v.get("official") and not any(k in v["official"].lower() for k in NOLINK) else ""
-    gm = f' <a href="https://www.google.com/maps/place/?q=place_id:{v["google_place_id"]}" rel="nofollow noopener">Google マップで場所を見る</a>' if v.get("google_place_id") else ""
-    srclink = "" if v["status"] == "google" else f'（<a href="{html.escape(v["source"])}" rel="nofollow noopener">出典</a>、{v["checked_on"]}）'
-    src = f'<p class="checked">{VSTATUS[v["status"]]}{srclink}{off}{gm}</p>'
-    return (f'<article class="venue" data-kind="{html.escape(v["kind"])}" data-ns="{int(bool(v.get("nonsmoking")))}" data-late="{int(bool(v.get("late_night")))}">'
-            f'<h3>{html.escape(v["name"])}</h3><div class="tags">{"".join(tags)}</div><dl>{dl}</dl>{note}{src}</article>')
+    btns = []
+    if v.get("google_place_id"): btns.append(f'<a class="btn" href="https://www.google.com/maps/place/?q=place_id:{v["google_place_id"]}" rel="nofollow noopener">地図を開く</a>')
+    if v.get("official") and not any(k in v["official"].lower() for k in NOLINK): btns.append(f'<a class="btn" href="{html.escape(v["official"])}" rel="noopener">公式サイト</a>')
+    srcs = [f'店の情報：{VSTATUS[v["status"]]}' + ("" if v["status"] == "google" else f'（<a href="{html.escape(v["source"])}" rel="nofollow noopener">出典</a>）') + f'、{v["checked_on"]}確認']
+    if v.get("features_checked_on"): srcs.append(f'特徴：公式サイトの記載から読み取り、{v["features_checked_on"]}確認（記載が見つからない項目は表示していません）')
+    if v.get("note"): srcs.append(html.escape(v["note"]))
+    dl = "".join(f"<dt>{k}</dt><dd>{html.escape(x)}</dd>" for k, x in meta)
+    details = f'<details><summary>詳しい情報と出典</summary>{"<dl>" + dl + "</dl>" if dl else ""}<p class="muted small">{"<br>".join(srcs)}</p></details>'
+    return (f'<article class="v" data-kind="{html.escape(v["kind"])}" data-area="{area[0]}" data-f="{" ".join(v.get("features", []))}">'
+            f'<div class="v-head"><h3>{html.escape(v["name"])}</h3><span class="kind k-{"chk" if v["kind"] == "要確認" else "ok"}">{kind}</span></div>'
+            f'<p class="v-loc">{html.escape(area[1])}・{html.escape(loc)}</p>{chips}'
+            f'<div class="v-actions">{"".join(btns)}</div>{details}</article>')
 
 
-FILTER_JS = """<div class="filters"><select id="fk"><option value="">すべての種類</option><option>ポーカー専門</option><option>カジノバー（ポーカーを含む）</option><option>ポーカーも遊べるバー</option><option>レンタルスペース</option><option value="要確認">ポーカーの有無を確認中</option></select>
-<label><input type="checkbox" id="fns"> 全席禁煙</label><label><input type="checkbox" id="flate"> 深夜営業（翌1時以降）</label></div><p class="checked" id="fcount"></p>
-<script>(function(){const k=document.getElementById('fk'),n=document.getElementById('fns'),l=document.getElementById('flate'),c=document.getElementById('fcount');
-function f(){let s=0;document.querySelectorAll('.venue').forEach(v=>{const ok=(!k.value||v.dataset.kind===k.value)&&(!n.checked||v.dataset.ns==='1')&&(!l.checked||v.dataset.late==='1');v.style.display=ok?'':'none';if(ok)s++});c.textContent=s+' 店を表示中';
-document.querySelectorAll('section.ward').forEach(w=>{w.style.display=[...w.querySelectorAll('.venue')].some(v=>v.style.display!=='none')?'':'none'})}
-[k,n,l].forEach(e=>e.addEventListener('change',f));document.addEventListener('DOMContentLoaded',f);})();</script>"""
+def filter_ui(show_area=True):
+    chips = "".join(f'<button type="button" class="pchip" data-f="{k}" aria-pressed="false">{p}</button>' for k, _, p in FEATS)
+    areas = "".join(f'<option value="{aid}">{an}</option>' for aid, an, _ in AREAS)
+    area_sel = f'<select id="farea" aria-label="エリア"><option value="">すべてのエリア</option>{areas}</select>' if show_area else ""
+    return f"""<section class="finder" aria-label="店を探す"><h2 class="h-small">目的から探す</h2><div class="pchips">{chips}</div>
+<div class="frow">{area_sel}<label class="tog"><input type="checkbox" id="fpro"> ポーカー専門店だけ</label><button type="button" id="freset" class="linkbtn">条件をクリア</button></div>
+<p class="fcount" id="fcount" aria-live="polite"></p></section>
+<script>(function(){{function f(){{const on=[...document.querySelectorAll('.pchip[aria-pressed=true]')].map(b=>b.dataset.f);
+const a=document.getElementById('farea'),pro=document.getElementById('fpro');let n=0;
+document.querySelectorAll('.v').forEach(v=>{{const fs=v.dataset.f.split(' ');const ok=on.every(x=>fs.includes(x))&&(!a||!a.value||v.dataset.area===a.value)&&(!pro.checked||v.dataset.kind==='ポーカー専門');v.hidden=!ok;if(ok)n++}});
+document.querySelectorAll('.group').forEach(g=>{{g.hidden=![...g.querySelectorAll('.v')].some(v=>!v.hidden)}});
+document.getElementById('fcount').textContent=n+' 店が見つかりました'+(on.length?'（'+on.length+' つの条件）':'');}}
+document.querySelectorAll('.pchip').forEach(b=>b.addEventListener('click',()=>{{b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true');f()}}));
+const a=document.getElementById('farea');if(a)a.addEventListener('change',f);document.getElementById('fpro').addEventListener('change',f);
+document.getElementById('freset').addEventListener('click',()=>{{document.querySelectorAll('.pchip').forEach(b=>b.setAttribute('aria-pressed','false'));if(a)a.value='';document.getElementById('fpro').checked=false;f()}});
+document.addEventListener('DOMContentLoaded',f);if(document.readyState!=='loading')f();}})();</script>"""
+
+
+def bars(items, total):
+    mx = max(n for _, n, _ in items) or 1
+    rows = "".join(f'<li><span class="bl">{html.escape(l)}</span><span class="bt"><span class="bf" style="width:{n / mx * 100:.1f}%"></span></span><span class="bn">{n}</span></li>' for l, n, _ in items)
+    return f'<ul class="bars">{rows}</ul>'
 
 
 def venue_jsonld(vs):
@@ -225,24 +303,32 @@ def venue_jsonld(vs):
 def tokyo_pages(paths):
     d = json.loads((ROOT / "data/tokyo_venues.json").read_text())
     vs = [v for v in d["venues"] if v["in_23wards"]]
-    by = {}
     KORDER = {"ポーカー専門": 0, "カジノバー（ポーカーを含む）": 1, "ポーカーも遊べるバー": 2, "レンタルスペース": 3, "要確認": 4}
-    for v in sorted(vs, key=lambda v: (KORDER.get(v["kind"], 9), v["name"])): by.setdefault(v["ward"], []).append(v)
-    order = [w for w in WARDS if w in by]
-    links = " ".join(f'<a href="/tokyo/{WARDS[w]}/">{w}（{len(by[w])}）</a>' for w in order)
-    secs = "".join(f'<section class="ward"><h2><a href="/tokyo/{WARDS[w]}/">{w}</a></h2>{"".join(venue_card(v) for v in by[w])}</section>' for w in order)
+    vs.sort(key=lambda v: (KORDER.get(v["kind"], 9), -len(v.get("features", [])), v["name"]))
+    by_area = {aid: [v for v in vs if WARD_AREA.get(v["ward"], ("",))[0] == aid] for aid, _, _ in AREAS}
+    pro = sum(1 for v in vs if v["kind"] == "ポーカー専門")
+    area_items = sorted([(an, len(by_area[aid]), aid) for aid, an, _ in AREAS], key=lambda x: -x[1])
+    feat_items = [(l, sum(1 for v in vs if k in v.get("features", [])), k) for k, l, _ in FEATS]
+    groups = "".join(f'<section class="group" id="{aid}"><h2>{an}<span class="muted">（{len(by_area[aid])} 店）</span></h2>'
+                     f'<p class="muted small">{"・".join(f"<a href=\"/tokyo/{WARDS[w]}/\">{w}</a>" for w in ws if w in WARDS)}</p>'
+                     f'<div class="vgrid">{"".join(venue_card(v) for v in by_area[aid])}</div></section>' for aid, an, ws in AREAS if by_area[aid])
     lead_names = "、".join(html.escape(l["name"]) for l in d["leads"] if l.get("in_23wards"))
-    body = f"""<h1>東京 23 区のポーカー店</h1>
-<p>アミューズメントポーカーの店を区ごとにまとめています。住所と営業時間は、店が自分で掲載している情報や記事で確認し、出典と確認日を付けています。住所をまだ載せていない店は、Google マップで営業中であることを確認済みで、場所は地図のリンクから見られます。来店前に、店の公式情報で最新の営業状況を確認してください。</p>
-<p class="checked">掲載 {len(vs)} 店（確認日：{d['checked_on']}）。<a href=\"/owners/\">店主の方は、掲載内容の訂正や追加を無料で受け付けます</a>。</p>
-<p>{links}</p>{FILTER_JS}{secs}
-<h2>確認中の店</h2><p class="checked">次の店は、名前を把握していますが、住所や営業状況をまだ確認できていません：{lead_names}</p>"""
-    paths.append(page("/tokyo/", "東京 23 区のポーカー店一覧", f"東京 23 区のアミューズメントポーカーの店 {len(vs)} 店を区ごとに掲載。種類、全席禁煙、深夜営業で絞り込めます。出典と確認日付き。", body))
-    for w in order:
-        b = f"""<h1>{w}のポーカー店</h1><p class="checked">掲載 {len(by[w])} 店（確認日：{d['checked_on']}）</p>
-<p>{w}にあるアミューズメントポーカーの店です。住所と営業時間は出典付きで載せています。来店前に、店の公式情報で最新の営業状況を確認してください。</p>
-{FILTER_JS}<section class="ward">{"".join(venue_card(v) for v in by[w])}</section><p><a href="/tokyo/">東京 23 区の一覧へ戻る</a></p>"""
-        paths.append(page(f"/tokyo/{WARDS[w]}/", f"{w}のポーカー店一覧（{len(by[w])}店）", f"{w}のアミューズメントポーカーの店 {len(by[w])} 店。住所、行き方、営業時間、禁煙かどうかを出典付きで掲載。", b, venue_jsonld(by[w])))
+    body = f"""<h1>東京のポーカー店ガイド</h1>
+<p class="lead">東京 23 区のアミューズメントポーカーの店を、<strong>ポーカーならではの特徴</strong>（初心者講習、トーナメントとリングゲーム、大きな大会の予選、飲み放題、禁煙）で探せるようにまとめました。特徴は各店の公式サイトの記載から確認しています。</p>
+<div class="stats"><div><b>{len(vs)}</b><span>掲載している店</span></div><div><b>{pro}</b><span>ポーカー専門店</span></div><div><b>{sum(1 for v in vs if v.get("features"))}</b><span>特徴を確認できた店</span></div></div>
+<div class="two"><section><h2 class="h-small">どこに集まっているか</h2>{bars(area_items, len(vs))}</section>
+<section><h2 class="h-small">特徴ごとの店の数</h2>{bars(feat_items, len(vs))}</section></div>
+{filter_ui()}{groups}
+<section class="note"><h2 class="h-small">このページについて</h2><p class="muted small">確認日：{d['checked_on']}。店の場所と営業状況は、店が掲載している情報、記事、Google マップで確認しています。来店前に、店の公式情報で最新の営業状況を確認してください。確認中の店：{lead_names}。<a href="/owners/">店主の方は、掲載内容の訂正や追加を無料で受け付けます</a>。</p></section>"""
+    paths.append(page("/tokyo/", "東京のポーカー店ガイド", f"東京 23 区のアミューズメントポーカーの店 {len(vs)} 店を、初心者講習、トーナメント、リングゲーム、大会の予選、飲み放題、禁煙などの特徴で探せます。", body))
+    by = {}
+    for v in vs: by.setdefault(v["ward"], []).append(v)
+    for w in [w for w in WARDS if w in by]:
+        fi = [(l, sum(1 for v in by[w] if k in v.get("features", [])), k) for k, l, _ in FEATS]
+        b = f"""<p class="crumb"><a href="/tokyo/">東京のポーカー店ガイド</a> › {w}</p><h1>{w}のポーカー店</h1>
+<p class="lead">{w}にあるアミューズメントポーカーの店 {len(by[w])} 店を、初心者講習やトーナメントなどの特徴で探せます。</p>
+{filter_ui(show_area=False)}<section class="group"><div class="vgrid">{"".join(venue_card(v) for v in by[w])}</div></section>"""
+        paths.append(page(f"/tokyo/{WARDS[w]}/", f"{w}のポーカー店（{len(by[w])}店）", f"{w}のアミューズメントポーカーの店 {len(by[w])} 店。初心者講習、トーナメント、リングゲーム、飲み放題、禁煙などの特徴と場所。", b, venue_jsonld(by[w])))
 
 
 def guide_cards():
