@@ -1,5 +1,5 @@
 """ガイドの Markdown と大会の JSON から、静的なサイトを poker/site/ に生成する。"""
-import html, json, re, shutil
+import hashlib, html, json, re, shutil
 from pathlib import Path
 import markdown
 
@@ -125,7 +125,13 @@ details summary{cursor:pointer;font-size:13px;color:var(--muted)}details dl{disp
 .v{scroll-margin-top:12px}.v:target{outline:2px solid var(--warn)}
 
 @media(min-width:900px){.finder{position:sticky;top:0;z-index:5}}
-ul.task{list-style:none;padding-left:0}ul.task li::before{content:"☐ ";color:var(--accent)}
+ul.task{list-style:none;padding-left:0}ul.task li{margin:2px 0}
+.ck{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border-radius:10px;cursor:pointer}.ck:hover{background:var(--card)}
+.ck input{flex:none;width:20px;height:20px;margin-top:4px;accent-color:var(--accent)}.ck input:checked+span{color:var(--muted);text-decoration:line-through;text-decoration-color:color-mix(in srgb,var(--muted) 60%,transparent)}
+.ckbar{position:sticky;top:0;z-index:4;display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.ckprog{flex:1 1 140px;height:8px;border-radius:4px;background:var(--line);overflow:hidden}.ckprog span{display:block;height:100%;width:0;background:var(--accent);transition:width .2s}
+#cktext{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums}
+.memo textarea{width:100%;font:inherit;font-size:15px;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--fg)}
 """
 
 
@@ -210,13 +216,30 @@ def parse_md(p):
     return meta, body
 
 
+CHECK_BAR = """<div class="ckbar" id="ckbar"><div class="ckprog"><span id="ckfill"></span></div><span id="cktext">0 / 0 完了</span>
+<button type="button" class="linkbtn" id="ckreset">印をすべて外す</button></div><p class="muted small">項目を押すと印が付きます。印とメモは<strong>この端末のブラウザにだけ</strong>保存され、サーバーには送られません。</p>"""
+MEMO = """<section class="memo"><h2>自分用メモ</h2><p class="muted small">予約番号、便名、ホテルの住所、大会のリンクなど。この端末のブラウザにだけ保存されます。<strong>パスワードやカード番号は書かないでください</strong>（パスワードは、端末のパスワード管理アプリに保存するのが安全です）。</p>
+<textarea id="memo" rows="6" placeholder="例：1/22 成田 → 済州 便名 ○○、ホテル ○○、APT 済州 Day1 は 1/24 12:00"></textarea><p class="muted small" id="memost"></p></section>"""
+CHECK_JS = """<script>(function(){var P='pt:'+location.pathname,st={};try{st=JSON.parse(localStorage.getItem(P+':ck')||'{}')}catch(e){}
+var bs=[].slice.call(document.querySelectorAll('.ck input'));function up(){var n=bs.filter(function(b){return b.checked}).length;
+document.getElementById('cktext').textContent=n+' / '+bs.length+' 完了';document.getElementById('ckfill').style.width=(bs.length?n/bs.length*100:0)+'%';}
+bs.forEach(function(b){b.checked=!!st[b.dataset.k];b.addEventListener('change',function(){st[b.dataset.k]=b.checked;try{localStorage.setItem(P+':ck',JSON.stringify(st))}catch(e){}up()})});
+document.getElementById('ckreset').addEventListener('click',function(){bs.forEach(function(b){b.checked=false});st={};try{localStorage.removeItem(P+':ck')}catch(e){}up()});up();
+var m=document.getElementById('memo'),ms=document.getElementById('memost');try{m.value=localStorage.getItem(P+':memo')||''}catch(e){}
+var t;m.addEventListener('input',function(){clearTimeout(t);t=setTimeout(function(){try{localStorage.setItem(P+':memo',m.value);ms.textContent='保存しました（この端末のみ）'}catch(e){ms.textContent='このブラウザでは保存できません'}},400)});})();</script>"""
+
+
 def render_md(body, evs):
     def repl(m):
         sub = [e for e in evs if region_of(e) == m.group(1)]
         return events_table(sub, show_region=False) if sub else "<p>掲載できる大会はまだありません。</p>"
     out = markdown.markdown(body, extensions=["tables"])
-    out = re.sub(r"<li>\[ \] ", "<li>", out)
-    out = re.sub(r"<ul>(\s*<li>)", r'<ul class="task">\1', out) if "[ ]" in body else out
+    def chk(m):
+        txt = re.sub(r"<[^>]+>", "", m.group(1)).strip()
+        key = hashlib.sha1(txt.encode()).hexdigest()[:10]
+        return f'<li><label class="ck"><input type="checkbox" data-k="{key}"><span>{m.group(1)}</span></label></li>'
+    out = re.sub(r"<li>\[ \] (.*?)</li>", chk, out, flags=re.S)
+    out = re.sub(r"<ul>(\s*<li><label class=\"ck\">)", r'<ul class="task">\1', out)
     return re.sub(r"<p>\{\{events:(\w\w)\}\}</p>", repl, out)
 
 
@@ -260,6 +283,8 @@ def main():
         html_body = render_md(body, evs)
         if meta.get("checked"):
             html_body = html_body.replace("</h1>", f"</h1><p class=\"checked\">最終確認日：{meta['checked']}</p>", 1)
+        if 'class="ck"' in html_body:
+            html_body = html_body.replace("</h1>", "</h1>" + CHECK_BAR, 1) + MEMO + CHECK_JS
         paths.append(page(f"/guide/{p.stem}/", meta["title"], meta["description"], html_body, jsonld(sub)))
 
     tokyo_pages(paths)
