@@ -5,15 +5,15 @@ import markdown
 
 ROOT = Path(__file__).parent
 OUT = ROOT / "site"
-SITE_NAME = "ポーカーマップ（仮）"
-BASE_URL = "https://example.com"  # ドメイン取得後に差し替える
+SITE_NAME = "ポーカー旅"
+BASE_URL = "https://pokertabi.com"
 
 REGIONS = {
     "KR": ("韓国（済州・仁川）", "korea"),
     "TW": ("台湾（台北）", "taiwan"),
     "PH": ("フィリピン（マニラ）", "philippines"),
     "MO": ("マカオ", "macau"),
-    "US": ("ラスベガス（WSOP）", "lasvegas"),
+    "US": ("ラスベガス", "lasvegas"),
 }
 STATUS = {
     "official": ("公式発表", "s-official"),
@@ -23,18 +23,40 @@ STATUS = {
 }
 
 CSS = """
-:root{--bg:#fbfaf7;--fg:#1d1d1f;--muted:#6b6b70;--line:#e3e1dc;--card:#fff;--accent:#0b6e4f;
---ok:#0b6e4f;--warn:#9a6700;--info:#3b5bdb}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141416;--fg:#ececee;--muted:#a1a1a8;
---line:#2c2c30;--card:#1c1c1f;--accent:#4fd1a5;--ok:#4fd1a5;--warn:#e3b341;--info:#8da2fb;color-scheme:dark}}
-:root[data-theme=dark]{--bg:#141416;--fg:#ececee;--muted:#a1a1a8;--line:#2c2c30;--card:#1c1c1f;--accent:#4fd1a5;--ok:#4fd1a5;--warn:#e3b341;--info:#8da2fb;color-scheme:dark}
+:root{--bg:#f3f5f2;--fg:#14201a;--muted:#5b6a62;--line:#dbe2dc;--card:#fff;--accent:#0c6a4b;--gold:#9c7118;
+--ok:#0c6a4b;--warn:#a05a00;--info:#3552b0;--felt:#0d5a41;--onfelt:#f4f0e3;--display:"Zen Kaku Gothic New",system-ui,"Hiragino Sans",sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0b1310;--fg:#e7eee9;--muted:#98a79f;--line:#21302a;--card:#111c17;--accent:#4cc89c;--gold:#d8b058;
+--ok:#4cc89c;--warn:#e2a54b;--info:#91a7ff;--felt:#0e3a2c;--onfelt:#f4f0e3;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#0b1310;--fg:#e7eee9;--muted:#98a79f;--line:#21302a;--card:#111c17;--accent:#4cc89c;--gold:#d8b058;--ok:#4cc89c;--warn:#e2a54b;--info:#91a7ff;--felt:#0e3a2c;--onfelt:#f4f0e3;color-scheme:dark}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
 font:16px/1.75 system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif}
-header,main,footer{max-width:1040px;margin:0 auto;padding:0 16px}
-header{display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding-top:16px;padding-bottom:8px;border-bottom:1px solid var(--line)}
-header .logo{font-weight:700;color:var(--fg);text-decoration:none;margin-right:auto}
-header nav a{color:var(--muted);text-decoration:none;margin-left:12px;font-size:14px}
-a{color:var(--accent)}h1{font-size:1.6rem;line-height:1.4}h2{font-size:1.2rem;margin-top:2em;border-bottom:1px solid var(--line);padding-bottom:4px}
+header,main,footer{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.topbar{border-bottom:1px solid var(--line);background:var(--bg)}
+header{display:flex;gap:8px 20px;align-items:center;flex-wrap:wrap;padding-top:14px;padding-bottom:12px}
+header .logo{display:flex;align-items:center;gap:8px;font:700 1.25rem/1 var(--display);color:var(--fg);text-decoration:none;margin-right:auto;letter-spacing:.02em}
+header .logo svg{width:28px;height:28px}
+header nav{display:flex;gap:4px 16px;flex-wrap:wrap}header nav a{color:var(--fg);text-decoration:none;font-size:14px;opacity:.75}header nav a:hover{opacity:1;color:var(--accent)}
+a{color:var(--accent)}h1,h2,h3{font-family:var(--display);text-wrap:balance}h1{font-size:1.75rem;line-height:1.35;letter-spacing:.01em}
+h2{font-size:1.25rem;margin-top:2em;padding-bottom:6px;border-bottom:2px solid var(--line)}
+.hero{background:radial-gradient(120% 140% at 85% 0%,color-mix(in srgb,var(--felt) 70%,#2a7a5c) 0%,var(--felt) 55%,color-mix(in srgb,var(--felt) 80%,#000) 100%);color:var(--onfelt)}
+.hero-in{max-width:1040px;margin:0 auto;padding:40px max(16px,env(safe-area-inset-right,0px)) 36px max(16px,env(safe-area-inset-left,0px));display:grid;gap:14px}
+.hero .eyebrow{font-size:13px;letter-spacing:.12em;color:color-mix(in srgb,var(--onfelt) 75%,var(--gold))}
+.hero h1{font-size:clamp(1.7rem,4.5vw,2.6rem);margin:0;color:var(--onfelt)}
+.hero p{margin:0;max-width:38em;opacity:.9}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}.cta a{padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px}
+.cta .pri{background:var(--onfelt);color:var(--felt)}.cta .sec{border:1px solid color-mix(in srgb,var(--onfelt) 55%,transparent);color:var(--onfelt)}
+.suits{font-size:14px;letter-spacing:.4em;opacity:.55}
+.evcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin-top:12px}
+.ev{display:grid;grid-template-columns:auto 1fr;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;text-decoration:none;color:var(--fg);min-width:0}
+.ev:hover{border-color:var(--accent)}
+.ev .date{display:grid;place-items:center;align-content:center;width:58px;height:62px;border-radius:10px;background:color-mix(in srgb,var(--accent) 10%,var(--card));color:var(--accent);font-family:var(--display);line-height:1.1}
+.ev .date b{font-size:1.35rem}.ev .date span{font-size:11px}
+.ev h3{font-size:.95rem;margin:0 0 2px;line-height:1.4;overflow-wrap:anywhere}.ev p{margin:0;font-size:12.5px;color:var(--muted)}
+.ctag{display:inline-block;font-size:11px;padding:0 7px;border-radius:5px;background:color-mix(in srgb,var(--gold) 16%,transparent);color:var(--fg);margin-right:4px}
+.dests{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:12px}
+.dest{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;text-decoration:none;color:var(--fg)}
+.dest:hover{border-color:var(--accent)}.dest b{display:block;font-family:var(--display);font-size:1.05rem}.dest span{font-size:12.5px;color:var(--muted)}
+.dest.jp{background:color-mix(in srgb,var(--accent) 8%,var(--card))}
 blockquote{margin:1em 0;padding:8px 14px;border-left:4px solid var(--accent);background:var(--card);color:var(--muted)}
 .checked{color:var(--muted);font-size:14px}
 .tbl{width:100%;overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}
@@ -153,15 +175,15 @@ def jsonld(evs):
     return '<script type="application/ld+json">' + json.dumps(items, ensure_ascii=False) + "</script>"
 
 
-def page(path, title, desc, body, extra_head=""):
+def page(path, title, desc, body, extra_head="", hero=""):
     full = f"{title} | {SITE_NAME}" if title != SITE_NAME else title
     doc = f"""<!doctype html><html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{html.escape(full)}</title><meta name="description" content="{html.escape(desc)}">
+<title>{html.escape(full)}</title><meta name="claude:viewport-fit-sides" content="cover"><meta name="description" content="{html.escape(desc)}">
 <link rel="canonical" href="{BASE_URL}{path}">
 <meta property="og:title" content="{html.escape(full)}"><meta property="og:description" content="{html.escape(desc)}">
-<meta property="og:type" content="website"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%E2%99%A0%3C/text%3E%3C/svg%3E"><style>{CSS}</style>{extra_head}</head><body>
-<header><a class="logo" href="/">{SITE_NAME}</a><nav><a href="/">海外の大会</a><a href="/guide/">遠征ガイド</a><a href="/tokyo/">東京の店</a><a href="/about/">編集方針</a></nav></header>
+<meta property="og:type" content="website"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&display=swap"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%E2%99%A0%3C/text%3E%3C/svg%3E"><style>{CSS}</style>{extra_head}</head><body>
+<div class="topbar"><header><a class="logo" href="/"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="var(--felt)"/><circle cx="16" cy="16" r="12" fill="none" stroke="var(--gold)" stroke-width="1.2" stroke-dasharray="3 2.2"/><path d="M16 8c-3 3.6-6 5.6-6 8.4a3.2 3.2 0 0 0 5.2 2.5L14.4 23h3.2l-.8-4.1a3.2 3.2 0 0 0 5.2-2.5C22 13.6 19 11.6 16 8z" fill="var(--onfelt)"/></svg>{SITE_NAME}</a><nav><a href="/">世界の大会</a><a href="/guide/">遠征ガイド</a><a href="/tokyo/">日本の店</a><a href="/about/">編集方針</a></nav></header></div>{hero}
 <main>{body}</main>
 <footer>掲載内容は確認日時点のものです。参加や支払いの前に、必ず主催者と政府の公式情報を確認してください。
 このサイトはオンラインポーカー・オンラインカジノを案内しません。<a href="/owners/">店主の方へ</a><br>© {SITE_NAME}</footer></body></html>"""
@@ -193,13 +215,26 @@ def main():
     checked, evs = load_events()
     paths = []
 
-    body = f"""<h1>海外のポーカー大会の日程と、遠征で損をしないためのガイド</h1>
-<p>アジア（韓国、台湾、フィリピン、マカオ）とラスベガスで開かれるライブのポーカー大会を、日本から参加する人向けにまとめています。
-おすすめや感想ではなく、公式情報の出典と確認日を付けて、<strong>誰がやっても同じ結果になる手順</strong>を載せます。</p>
-<p class="checked">大会情報の最終確認日：{checked}</p>
-<h2>今後の大会</h2>{events_table(evs)}
-<h2>遠征ガイド</h2>{guide_cards()}"""
-    paths.append(page("/", SITE_NAME, "アジアとラスベガスのポーカー大会の日程と、日本から参加するときの入国手続き、お金、税金のチェックリスト。出典と確認日付き。", body, jsonld(evs)))
+    today = "2026-11-26"
+    upcoming = [e for e in evs if (e.get("end") or e["start"]) >= today[:len(e.get("end") or e["start"])]]
+    CN = {"KR": "韓国", "TW": "台湾", "PH": "フィリピン", "MO": "マカオ", "US": "アメリカ"}
+    def evcard(e):
+        st = e["start"].split("-"); md = (f'<b>{int(st[2])}</b><span>{int(st[1])}月</span>' if len(st) == 3 else f'<b>{int(st[1])}月</b><span>ごろ</span>')
+        label, cls = STATUS[e["status"]]
+        return (f'<a class="ev" href="/guide/{REGIONS[e["country"]][1]}/"><div class="date">{md}</div><div><h3>{html.escape(e["name"])}</h3>'
+                f'<p><span class="ctag">{CN[e["country"]]}</span>{html.escape(e.get("city") or "")}{"・〜" + str(int(e["end"][5:7])) + "/" + str(int(e["end"][8:10])) if e.get("end") and len(e["end"]) == 10 else ""}</p><p><span class="badge {cls}">{label}</span></p></div></a>')
+    dests = "".join(f'<a class="dest" href="/guide/{slug}/"><b>{name}</b><span>大会 {sum(1 for e in upcoming if e["country"] == code)} 件・入国とお金</span></a>' for code, (name, slug) in REGIONS.items())
+    tokyo_n = len([v for v in json.loads((ROOT / "data/tokyo_venues.json").read_text())["venues"] if v["in_23wards"]])
+    dests += f'<a class="dest jp" href="/tokyo/"><b>日本</b><span>東京の店 {tokyo_n} 店</span></a>'
+    hero = f"""<section class="hero"><div class="hero-in"><span class="eyebrow">WORLD POKER TRAVEL GUIDE</span>
+<h1>世界のポーカー大会へ、<br>損をしない旅を。</h1>
+<p>アジアとラスベガスの大会日程と、入国・お金・税金の手順。すべて公式情報の出典と確認日付きです。</p>
+<div class="cta"><a class="pri" href="#events">次の大会を見る</a><a class="sec" href="/guide/common/">遠征の準備リスト</a></div>
+<span class="suits" aria-hidden="true">♠ ♥ ♦ ♣</span></div></section>"""
+    body = f"""<h2 id="events">次の大会</h2><div class="evcards">{"".join(evcard(e) for e in upcoming[:8])}</div>
+<h2>行き先から選ぶ</h2><div class="dests">{dests}</div>
+<h2>これからの大会の一覧</h2><p class="checked">確認日 {checked}。「公式発表」以外は、参加前に必ず主催者の発表を確認してください。</p>{events_table(upcoming)}"""
+    paths.append(page("/", SITE_NAME, "世界のポーカー大会の日程と、日本から遠征するときの入国手続き、お金、税金のチェックリスト。アジアとラスベガスを中心に、出典と確認日付きで掲載。", body, jsonld(evs), hero))
 
     paths.append(page("/guide/", "遠征ガイド", "海外のポーカー大会に日本から参加するための、共通チェックリストと地域別ガイドの一覧。",
                       "<h1>遠征ガイド</h1><p>まず共通チェックリストを読み、次に行き先の地域のページを確認してください。</p>" + guide_cards()))
