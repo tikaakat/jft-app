@@ -12,7 +12,7 @@ checked: 2026-11-26
 
 ## 会場とカジノ
 - 入場できる年齢は 21 歳以上（出典：[Wikipedia: Gambling age](https://en.wikipedia.org/wiki/Gambling_age)。会場の公式案内で確認すること）。入場にはパスポートが必要。
-- 主な会場：PokerStars LIVE Manila（大会の日程は[公式](https://www.pokerstarslivemanila.com/tournaments/)）。
+- 主な会場：PokerStars LIVE Manila。
 
 ## お金
 - 通貨：フィリピン・ペソ（PHP）。Manila Megastack 25 のメインの参加費は PHP 45,000。

@@ -2565,21 +2565,6 @@
    "geo_source": "国土地理院 住所検索"
   },
   {
-   "name": "CASINO(カジノ)",
-   "kind": "カジノバー（ポーカーを含む）",
-   "ward": "港区",
-   "in_23wards": true,
-   "google_place_id": "ChIJI8NADRmLGGARs6IcDoljzGw",
-   "google_status": "OPERATIONAL",
-   "google_checked_on": "2026-11-26",
-   "official": "http://casinohair.tokyo/",
-   "status": "google",
-   "checked_on": "2026-11-26",
-   "source": "https://www.google.com/maps/place/?q=place_id:ChIJI8NADRmLGGARs6IcDoljzGw",
-   "features": [],
-   "features_checked_on": "2026-11-26"
-  },
-  {
    "name": "Extreme Bar BACKDOOR 六本木",
    "kind": "ポーカーも遊べるバー",
    "ward": "港区",

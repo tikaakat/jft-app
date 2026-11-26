@@ -9,12 +9,21 @@ SITE_NAME = "ポーカー旅"
 BASE_URL = "https://pokertabi.com"
 
 REGIONS = {
-    "KR": ("韓国（済州・仁川）", "korea"),
-    "TW": ("台湾（台北）", "taiwan"),
-    "PH": ("フィリピン（マニラ）", "philippines"),
+    "KR": ("韓国", "korea"),
+    "TW": ("台湾", "taiwan"),
+    "PH": ("フィリピン", "philippines"),
     "MO": ("マカオ", "macau"),
-    "US": ("ラスベガス", "lasvegas"),
+    "US": ("アメリカ", "lasvegas"),
+    "EU": ("ヨーロッパ", "europe"),
 }
+COUNTRY = {"KR": ("韓国", "KR"), "TW": ("台湾", "TW"), "PH": ("フィリピン", "PH"), "MO": ("マカオ", "MO"), "US": ("アメリカ", "US"),
+           "FR": ("フランス", "EU"), "MC": ("モナコ", "EU"), "ES": ("スペイン", "EU"), "MT": ("マルタ", "EU"), "CZ": ("チェコ", "EU"),
+           "KH": ("カンボジア", None), "BS": ("バハマ", None)}
+
+
+def region_of(e): return COUNTRY[e["country"]][1]
+def guide_href(e): return f"/guide/{REGIONS[region_of(e)][1]}/" if region_of(e) else "/guide/common/"
+# 主催者がオンラインポーカーやオンラインカジノも運営している場合があるため、大会の出典は名前と確認日だけを示し、リンクはしない
 STATUS = {
     "official": ("公式発表", "s-official"),
     "third_party": ("第三者情報", "s-third"),
@@ -53,9 +62,12 @@ h2{font-size:1.25rem;margin-top:2em;padding-bottom:6px;border-bottom:2px solid v
 .ev .date b{font-size:1.35rem}.ev .date span{font-size:11px}
 .ev h3{font-size:.95rem;margin:0 0 2px;line-height:1.4;overflow-wrap:anywhere}.ev p{margin:0;font-size:12.5px;color:var(--muted)}
 .ctag{display:inline-block;font-size:11px;padding:0 7px;border-radius:5px;background:color-mix(in srgb,var(--gold) 16%,transparent);color:var(--fg);margin-right:4px}
-.dests{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:12px}
+.dests{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:10px;margin-top:12px}
 .dest{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;text-decoration:none;color:var(--fg)}
 .dest:hover{border-color:var(--accent)}.dest b{display:block;font-family:var(--display);font-size:1.05rem}.dest span{font-size:12.5px;color:var(--muted)}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0 4px;align-items:stretch}.trust div{border-left:3px solid var(--gold);padding:4px 0 4px 12px}
+.trust b{display:block;font-family:var(--display);font-size:.98rem}.trust span{font-size:12.5px;color:var(--muted)}.trust a{grid-column:1/-1;font-size:13px}
+@media(max-width:640px){.trust{grid-template-columns:1fr}}
 .dest.jp{background:color-mix(in srgb,var(--accent) 8%,var(--card))}
 blockquote{margin:1em 0;padding:8px 14px;border-left:4px solid var(--accent);background:var(--card);color:var(--muted)}
 .checked{color:var(--muted);font-size:14px}
@@ -140,7 +152,7 @@ def events_table(evs, show_region=True):
     rows = []
     for e in evs:
         label, cls = STATUS[e["status"]]
-        region = REGIONS[e["country"]][0]
+        region = COUNTRY[e["country"]][0]
         venue = " / ".join(x for x in [e.get("city"), e.get("venue")] if x)
         buyin = e.get("main_buyin") or "—"
         memo = f"<br><small>{html.escape(e['memo'])}</small>" if e.get("memo") else ""
@@ -148,9 +160,9 @@ def events_table(evs, show_region=True):
             "<tr>"
             f"<td>{fmt_date(e)}</td>"
             f"<td><strong>{html.escape(e['name'])}</strong>{memo}</td>"
-            + (f"<td><a href=\"/guide/{REGIONS[e['country']][1]}/\">{region}</a></td>" if show_region else "")
+            + (f"<td><a href=\"{guide_href(e)}\">{region}</a></td>" if show_region else "")
             + f"<td>{html.escape(venue)}</td><td>{html.escape(buyin)}</td>"
-            f"<td><span class=\"badge {cls}\">{label}</span> <a href=\"{html.escape(e['source'])}\" rel=\"nofollow noopener\">出典</a></td>"
+            f"<td><span class=\"badge {cls}\">{label}</span><br><small class=\"muted\">出典：{html.escape(e.get('source_name', ''))}</small></td>"
             "</tr>")
     head = "<tr><th>日程</th><th>大会</th>" + ("<th>地域</th>" if show_region else "") + "<th>場所</th><th>メインの参加費</th><th>確かさ</th></tr>"
     return f'<div class="tbl"><table><thead>{head}</thead><tbody>{"".join(rows)}</tbody></table></div>'
@@ -168,7 +180,6 @@ def jsonld(evs):
             "eventStatus": "https://schema.org/EventScheduled",
             "location": {"@type": "Place", "name": e.get("venue") or e["city"],
                          "address": {"@type": "PostalAddress", "addressLocality": e["city"], "addressCountry": e["country"]}},
-            "url": e["source"],
         })
     if not items:
         return ""
@@ -183,10 +194,10 @@ def page(path, title, desc, body, extra_head="", hero=""):
 <link rel="canonical" href="{BASE_URL}{path}">
 <meta property="og:title" content="{html.escape(full)}"><meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:type" content="website"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&display=swap"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%E2%99%A0%3C/text%3E%3C/svg%3E"><style>{CSS}</style>{extra_head}</head><body>
-<div class="topbar"><header><a class="logo" href="/"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="var(--felt)"/><circle cx="16" cy="16" r="12" fill="none" stroke="var(--gold)" stroke-width="1.2" stroke-dasharray="3 2.2"/><path d="M16 8c-3 3.6-6 5.6-6 8.4a3.2 3.2 0 0 0 5.2 2.5L14.4 23h3.2l-.8-4.1a3.2 3.2 0 0 0 5.2-2.5C22 13.6 19 11.6 16 8z" fill="var(--onfelt)"/></svg>{SITE_NAME}</a><nav><a href="/">世界の大会</a><a href="/guide/">遠征ガイド</a><a href="/tokyo/">日本の店</a><a href="/about/">編集方針</a></nav></header></div>{hero}
+<div class="topbar"><header><a class="logo" href="/"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="var(--felt)"/><circle cx="16" cy="16" r="12" fill="none" stroke="var(--gold)" stroke-width="1.2" stroke-dasharray="3 2.2"/><path d="M16 8c-3 3.6-6 5.6-6 8.4a3.2 3.2 0 0 0 5.2 2.5L14.4 23h3.2l-.8-4.1a3.2 3.2 0 0 0 5.2-2.5C22 13.6 19 11.6 16 8z" fill="var(--onfelt)"/></svg>{SITE_NAME}</a><nav><a href="/">世界の大会</a><a href="/guide/">遠征ガイド</a><a href="/tokyo/">日本の店</a><a href="/legal/">法律と掲載ルール</a></nav></header></div>{hero}
 <main>{body}</main>
 <footer>掲載内容は確認日時点のものです。参加や支払いの前に、必ず主催者と政府の公式情報を確認してください。
-このサイトはオンラインポーカー・オンラインカジノを案内しません。<a href="/owners/">店主の方へ</a><br>© {SITE_NAME}</footer></body></html>"""
+このサイトはオンラインポーカー・オンラインカジノを案内しません（<a href="/legal/">法律と掲載ルール</a>）。<a href="/about/">編集方針</a>・<a href="/owners/">店主の方へ</a><br>© {SITE_NAME}</footer></body></html>"""
     dest = OUT / path.strip("/") / "index.html" if path != "/" else OUT / "index.html"
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(doc)
@@ -201,7 +212,7 @@ def parse_md(p):
 
 def render_md(body, evs):
     def repl(m):
-        sub = [e for e in evs if e["country"] == m.group(1)]
+        sub = [e for e in evs if region_of(e) == m.group(1)]
         return events_table(sub, show_region=False) if sub else "<p>掲載できる大会はまだありません。</p>"
     out = markdown.markdown(body, extensions=["tables"])
     out = re.sub(r"<li>\[ \] ", "<li>", out)
@@ -221,9 +232,9 @@ def main():
     def evcard(e):
         st = e["start"].split("-"); md = (f'<b>{int(st[2])}</b><span>{int(st[1])}月</span>' if len(st) == 3 else f'<b>{int(st[1])}月</b><span>ごろ</span>')
         label, cls = STATUS[e["status"]]
-        return (f'<a class="ev" href="/guide/{REGIONS[e["country"]][1]}/"><div class="date">{md}</div><div><h3>{html.escape(e["name"])}</h3>'
-                f'<p><span class="ctag">{CN[e["country"]]}</span>{html.escape(e.get("city") or "")}{"・〜" + str(int(e["end"][5:7])) + "/" + str(int(e["end"][8:10])) if e.get("end") and len(e["end"]) == 10 else ""}</p><p><span class="badge {cls}">{label}</span></p></div></a>')
-    dests = "".join(f'<a class="dest" href="/guide/{slug}/"><b>{name}</b><span>大会 {sum(1 for e in upcoming if e["country"] == code)} 件・入国とお金</span></a>' for code, (name, slug) in REGIONS.items())
+        return (f'<a class="ev" href="{guide_href(e)}"><div class="date">{md}</div><div><h3>{html.escape(e["name"])}</h3>'
+                f'<p><span class="ctag">{COUNTRY[e["country"]][0]}</span>{html.escape(e.get("city") or "")}{"・〜" + str(int(e["end"][5:7])) + "/" + str(int(e["end"][8:10])) if e.get("end") and len(e["end"]) == 10 else ""}</p><p><span class="badge {cls}">{label}</span></p></div></a>')
+    dests = "".join(f'<a class="dest" href="/guide/{slug}/"><b>{name}</b><span>大会 {sum(1 for e in upcoming if region_of(e) == code)} 件・入国とお金</span></a>' for code, (name, slug) in REGIONS.items())
     tokyo_n = len([v for v in json.loads((ROOT / "data/tokyo_venues.json").read_text())["venues"] if v["in_23wards"]])
     dests += f'<a class="dest jp" href="/tokyo/"><b>日本</b><span>東京の店 {tokyo_n} 店</span></a>'
     hero = f"""<section class="hero"><div class="hero-in"><span class="eyebrow">WORLD POKER TRAVEL GUIDE</span>
@@ -231,7 +242,11 @@ def main():
 <p>アジアとラスベガスの大会日程と、入国・お金・税金の手順。すべて公式情報の出典と確認日付きです。</p>
 <div class="cta"><a class="pri" href="#events">次の大会を見る</a><a class="sec" href="/guide/common/">遠征の準備リスト</a></div>
 <span class="suits" aria-hidden="true">♠ ♥ ♦ ♣</span></div></section>"""
-    body = f"""<h2 id="events">次の大会</h2><div class="evcards">{"".join(evcard(e) for e in upcoming[:8])}</div>
+    trust = """<section class="trust" aria-label="このサイトの約束"><div><b>オンラインカジノは案内しません</b><span>オンライン予選も載せず、運営会社のサイトにもリンクしません</span></div>
+<div><b>グレーなものは載せません</b><span>換金や、国内で現金の賞金が出る大会は対象外</span></div>
+<div><b>すべてに出典と確認日</b><span>公式発表・第三者情報・見込みを区別して表示</span></div>
+<a href="/legal/">日本とアメリカの法律と、掲載のルール →</a></section>"""
+    body = trust + f"""<h2 id="events">次の大会</h2><div class="evcards">{"".join(evcard(e) for e in upcoming[:8])}</div>
 <h2>行き先から選ぶ</h2><div class="dests">{dests}</div>
 <h2>これからの大会の一覧</h2><p class="checked">確認日 {checked}。「公式発表」以外は、参加前に必ず主催者の発表を確認してください。</p>{events_table(upcoming)}"""
     paths.append(page("/", SITE_NAME, "世界のポーカー大会の日程と、日本から遠征するときの入国手続き、お金、税金のチェックリスト。アジアとラスベガスを中心に、出典と確認日付きで掲載。", body, jsonld(evs), hero))
@@ -241,13 +256,16 @@ def main():
 
     for p in sorted((ROOT / "content/guide").glob("*.md")):
         meta, body = parse_md(p)
-        sub = [e for e in evs if e["country"] == meta.get("region")]
+        sub = [e for e in evs if region_of(e) == meta.get("region")]
         html_body = render_md(body, evs)
         if meta.get("checked"):
             html_body = html_body.replace("</h1>", f"</h1><p class=\"checked\">最終確認日：{meta['checked']}</p>", 1)
         paths.append(page(f"/guide/{p.stem}/", meta["title"], meta["description"], html_body, jsonld(sub)))
 
     tokyo_pages(paths)
+    meta, body = parse_md(ROOT / "content/legal.md")
+    lb = render_md(body, evs).replace("</h1>", f"</h1><p class=\"checked\">最終確認日：{meta['checked']}</p>", 1)
+    paths.append(page("/legal/", meta["title"], meta["description"], lb))
     meta, body = parse_md(ROOT / "content/owners.md")
     paths.append(page("/owners/", meta["title"], meta["description"], render_md(body, evs)))
     meta, body = parse_md(ROOT / "content/about.md")
@@ -303,7 +321,7 @@ def venue_card(v):
     if v.get("access"): meta.append(("行き方", v["access"]))
     if v.get("smoking"): meta.append(("たばこ", v["smoking"]))
     if v.get("tables"): meta.append(("卓の数", f'{v["tables"]} 卓（公式サイトの記載）'))
-    NOLINK = ("ggpoker",)  # オンラインポーカーとの提携を公表している店の公式サイトにはリンクしない
+    NOLINK = ("ggpoker", "kklive", "pokerfans")  # オンラインポーカーとのつながりがある、またはその疑いがある店の公式サイトにはリンクしない
     btns = []
     if v.get("google_place_id"): btns.append(f'<a class="btn" href="https://www.google.com/maps/place/?q=place_id:{v["google_place_id"]}" rel="nofollow noopener">地図を開く</a>')
     if v.get("official") and not any(k in v["official"].lower() for k in NOLINK): btns.append(f'<a class="btn" href="{html.escape(v["official"])}" rel="noopener">公式サイト</a>')
