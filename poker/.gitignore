@@ -1,2 +1,4 @@
 site/
 preview/
+.wrangler/
+node_modules/

@@ -131,6 +131,12 @@ ul.task{list-style:none;padding-left:0}ul.task li{margin:2px 0}
 .ckbar{position:sticky;top:0;z-index:4;display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
 .ckprog{flex:1 1 140px;height:8px;border-radius:4px;background:var(--line);overflow:hidden}.ckprog span{display:block;height:100%;width:0;background:var(--accent);transition:width .2s}
 #cktext{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums}
+.cform{display:grid;gap:6px;max-width:640px;margin-top:16px}.cform label{font-size:14px;font-weight:600;margin-top:10px}
+.cform input,.cform select,.cform textarea{font:inherit;font-size:15px;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--fg);width:100%}
+.cform .agree{display:flex;gap:8px;align-items:center;font-weight:400}.cform .agree input{width:auto}
+.submit{margin-top:12px;font:inherit;font-weight:700;padding:12px;border:0;border-radius:10px;background:var(--accent);color:var(--bg);cursor:pointer}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.sent{padding:12px 14px;border-radius:10px;margin:12px 0;font-weight:600}.sent.ok{background:color-mix(in srgb,var(--ok) 15%,var(--card))}.sent.invalid,.sent.error{background:color-mix(in srgb,var(--warn) 18%,var(--card))}
 .memo textarea{width:100%;font:inherit;font-size:15px;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--fg)}
 """
 
@@ -203,7 +209,7 @@ def page(path, title, desc, body, extra_head="", hero=""):
 <div class="topbar"><header><a class="logo" href="/"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="var(--felt)"/><circle cx="16" cy="16" r="12" fill="none" stroke="var(--gold)" stroke-width="1.2" stroke-dasharray="3 2.2"/><path d="M16 8c-3 3.6-6 5.6-6 8.4a3.2 3.2 0 0 0 5.2 2.5L14.4 23h3.2l-.8-4.1a3.2 3.2 0 0 0 5.2-2.5C22 13.6 19 11.6 16 8z" fill="var(--onfelt)"/></svg>{SITE_NAME}</a><nav><a href="/">世界の大会</a><a href="/guide/">遠征ガイド</a><a href="/tokyo/">日本の店</a><a href="/legal/">法律と掲載ルール</a></nav></header></div>{hero}
 <main>{body}</main>
 <footer>掲載内容は確認日時点のものです。参加や支払いの前に、必ず主催者と政府の公式情報を確認してください。
-このサイトはオンラインポーカー・オンラインカジノを案内しません（<a href="/legal/">法律と掲載ルール</a>）。<a href="/about/">編集方針</a>・<a href="/owners/">店主の方へ</a><br>© {SITE_NAME}</footer></body></html>"""
+このサイトはオンラインポーカー・オンラインカジノを案内しません（<a href="/legal/">法律と掲載ルール</a>）。<a href="/about/">編集方針</a>・<a href="/owners/">店主の方へ</a>・<a href="/contact/">お問い合わせ・通報</a>・<a href="/privacy/">個人情報の扱い</a><br>© {SITE_NAME}</footer></body></html>"""
     dest = OUT / path.strip("/") / "index.html" if path != "/" else OUT / "index.html"
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(doc)
@@ -227,6 +233,27 @@ bs.forEach(function(b){b.checked=!!st[b.dataset.k];b.addEventListener('change',f
 document.getElementById('ckreset').addEventListener('click',function(){bs.forEach(function(b){b.checked=false});st={};try{localStorage.removeItem(P+':ck')}catch(e){}up()});up();
 var m=document.getElementById('memo'),ms=document.getElementById('memost');try{m.value=localStorage.getItem(P+':memo')||''}catch(e){}
 var t;m.addEventListener('input',function(){clearTimeout(t);t=setTimeout(function(){try{localStorage.setItem(P+':memo',m.value);ms.textContent='保存しました（この端末のみ）'}catch(e){ms.textContent='このブラウザでは保存できません'}},400)});})();</script>"""
+
+
+CONTACT_HTML = """<h1>お問い合わせ・訂正・通報</h1>
+<p class="lead">掲載内容の訂正、追加、削除と、違法・グレーの疑いの通報を受け付けます。店主の方からの掲載・訂正は無料です。</p>
+<div id="sentmsg" class="sent" hidden></div>
+<form class="cform" method="post" action="/api/contact">
+<label for="kind">種類</label><select id="kind" name="kind" required>
+<option value="">選んでください</option><option>掲載内容の訂正</option><option>掲載の追加</option><option>掲載の削除</option><option>違法・グレーの疑いの通報</option><option>その他</option></select>
+<label for="target">対象（店名、大会名、ページの URL など）</label><input id="target" name="target" maxlength="200" placeholder="例：○○ポーカー 渋谷店">
+<label for="body">内容</label><textarea id="body" name="body" rows="7" maxlength="3000" required placeholder="例：営業時間が 18:00〜24:00 に変わりました"></textarea>
+<label for="source">出典（公式サイト、公式 SNS の URL など）</label><input id="source" name="source" maxlength="500" placeholder="https://">
+<label for="contact">連絡先（任意。返信が必要な場合のみ）</label><input id="contact" name="contact" maxlength="200" placeholder="メールアドレスなど">
+<div class="hp" aria-hidden="true"><label for="website">ウェブサイト</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+<input type="hidden" name="ts" id="ts">
+<label class="agree"><input type="checkbox" name="agree" id="agree" required> <span><a href="/privacy/">個人情報の扱い</a>に同意します</span></label>
+<button type="submit" class="submit">送信する</button>
+<p class="muted small">送られた内容は運営者が確認し、出典と照らし合わせて対応します。すべてに返信できるとは限りません。パスワードやカード番号は書かないでください。</p>
+</form>
+<script>(function(){document.getElementById('ts').value=Date.now();var q=new URLSearchParams(location.search).get('sent');if(!q)return;
+var m=document.getElementById('sentmsg');m.hidden=false;m.className='sent '+q;
+m.textContent=q==='ok'?'送信しました。ありがとうございます。内容を確認して対応します。':q==='invalid'?'送信できませんでした。種類、内容、同意の欄を確認してください。':'送信できませんでした。時間をおいてもう一度お試しください。';})();</script>"""
 
 
 def render_md(body, evs):
@@ -291,6 +318,9 @@ def main():
     meta, body = parse_md(ROOT / "content/legal.md")
     lb = render_md(body, evs).replace("</h1>", f"</h1><p class=\"checked\">最終確認日：{meta['checked']}</p>", 1)
     paths.append(page("/legal/", meta["title"], meta["description"], lb))
+    meta, body = parse_md(ROOT / "content/privacy.md")
+    paths.append(page("/privacy/", meta["title"], meta["description"], render_md(body, evs)))
+    paths.append(page("/contact/", "お問い合わせ・訂正・通報", "掲載内容の訂正、追加、削除と、違法・グレーの疑いの通報を受け付けるフォーム。", CONTACT_HTML))
     meta, body = parse_md(ROOT / "content/owners.md")
     paths.append(page("/owners/", meta["title"], meta["description"], render_md(body, evs)))
     meta, body = parse_md(ROOT / "content/about.md")
