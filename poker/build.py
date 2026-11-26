@@ -22,6 +22,21 @@ COUNTRY = {"KR": ("韓国", "KR"), "TW": ("台湾", "TW"), "PH": ("フィリピ�
 
 
 def region_of(e): return COUNTRY[e["country"]][1]
+
+
+def event_slug(e):
+    b = re.sub(r"[^a-z0-9]+", "-", e["name"].lower()).strip("-")
+    return b if re.search(r"20\d\d", b) else f'{b}-{e["start"][:4]}'
+
+
+REGION_BRIEF = {
+    "KR": ["日本国籍の短期滞在はビザ不要。電子渡航認証（K-ETA）は 2027 年末まで免除と報じられているが、その場合は電子入国申告書（e-Arrival Card）が必要", "会場の多くは外国人専用カジノ。入場はパスポートが必要で、19 歳以上", "通貨は韓国ウォン（KRW）"],
+    "TW": ["日本国籍の短期滞在はビザ不要。オンライン入国カード（TWAC）の登録が必須（無料）", "大会はポーカーの専用会場で開かれることが多い。入場条件は会場の案内で確認", "通貨は新台湾ドル（TWD）"],
+    "PH": ["日本国籍は 30 日以内ならビザ不要。到着の 72 時間前から eTravel の登録が必要（無料。料金を取る偽サイトに注意）", "カジノの入場は 21 歳以上、パスポートが必要", "通貨はフィリピン・ペソ（PHP）"],
+    "MO": ["日本国籍の短期滞在はビザ不要。香港経由なら香港の入境条件も確認", "カジノの入場は 21 歳以上", "通貨はマカオ・パタカ（MOP）。参加費は香港ドル（HKD）表示が多い"],
+    "US": ["電子渡航認証（ESTA）が必要（40.62 ドル）", "カジノの入場は 21 歳以上。1 万ドル相当以上の現金の持ち込み・持ち出しは申告が必要", "賞金からは原則 30% が源泉徴収される。日本の居住者は手続き（ITIN と W-8BEN）で源泉徴収されない扱いになり得る"],
+    "EU": ["シェンゲン協定の地域は、180 日のうち 90 日までビザ不要。電子渡航認証（ETIAS）は導入予定のため、出発前に確認", "会場の入場はパスポートが必要。年齢条件は会場で確認", "通貨はユーロ（EUR）"],
+}
 def guide_href(e): return f"/guide/{REGIONS[region_of(e)][1]}/" if region_of(e) else "/guide/common/"
 # 主催者がオンラインポーカーやオンラインカジノも運営している場合があるため、大会の出典は名前と確認日だけを示し、リンクはしない
 STATUS = {
@@ -65,6 +80,9 @@ h2{font-size:1.25rem;margin-top:2em;padding-bottom:6px;border-bottom:2px solid v
 .dests{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:10px;margin-top:12px}
 .dest{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;text-decoration:none;color:var(--fg)}
 .dest:hover{border-color:var(--accent)}.dest b{display:block;font-family:var(--display);font-size:1.05rem}.dest span{font-size:12.5px;color:var(--muted)}
+.areachips{display:flex;flex-wrap:wrap;gap:6px}.areachip{font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--fg);text-decoration:none}.areachip:hover{border-color:var(--accent)}.areachip .cnt{margin-left:6px;font-size:11px;opacity:.7}
+.evsum{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-top:12px}.evsum dl{display:grid;grid-template-columns:7.5em 1fr;gap:6px 12px;margin:0 0 10px}.evsum dt{color:var(--muted);font-size:14px}.evsum dd{margin:0;font-weight:600}
+.evlink{color:var(--fg);text-decoration:none}.evlink:hover{color:var(--accent)}
 .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0 4px;align-items:stretch}.trust div{border-left:3px solid var(--gold);padding:4px 0 4px 12px}
 .trust b{display:block;font-family:var(--display);font-size:.98rem}.trust span{font-size:12.5px;color:var(--muted)}.trust a{grid-column:1/-1;font-size:13px}
 @media(max-width:640px){.trust{grid-template-columns:1fr}}
@@ -171,7 +189,7 @@ def events_table(evs, show_region=True):
         rows.append(
             "<tr>"
             f"<td>{fmt_date(e)}</td>"
-            f"<td><strong>{html.escape(e['name'])}</strong>{memo}</td>"
+            f"<td><a class=\"evlink\" href=\"/events/{event_slug(e)}/\"><strong>{html.escape(e['name'])}</strong></a>{memo}</td>"
             + (f"<td><a href=\"{guide_href(e)}\">{region}</a></td>" if show_region else "")
             + f"<td>{html.escape(venue)}</td><td>{html.escape(buyin)}</td>"
             f"<td><span class=\"badge {cls}\">{label}</span><br><small class=\"muted\">出典：{html.escape(e.get('source_name', ''))}</small></td>"
@@ -282,7 +300,7 @@ def main():
     def evcard(e):
         st = e["start"].split("-"); md = (f'<b>{int(st[2])}</b><span>{int(st[1])}月</span>' if len(st) == 3 else f'<b>{int(st[1])}月</b><span>ごろ</span>')
         label, cls = STATUS[e["status"]]
-        return (f'<a class="ev" href="{guide_href(e)}"><div class="date">{md}</div><div><h3>{html.escape(e["name"])}</h3>'
+        return (f'<a class="ev" href="/events/{event_slug(e)}/"><div class="date">{md}</div><div><h3>{html.escape(e["name"])}</h3>'
                 f'<p><span class="ctag">{COUNTRY[e["country"]][0]}</span>{html.escape(e.get("city") or "")}{"・〜" + str(int(e["end"][5:7])) + "/" + str(int(e["end"][8:10])) if e.get("end") and len(e["end"]) == 10 else ""}</p><p><span class="badge {cls}">{label}</span></p></div></a>')
     dests = "".join(f'<a class="dest" href="/guide/{slug}/"><b>{name}</b><span>大会 {sum(1 for e in upcoming if region_of(e) == code)} 件・入国とお金</span></a>' for code, (name, slug) in REGIONS.items())
     tokyo_n = len([v for v in json.loads((ROOT / "data/tokyo_venues.json").read_text())["venues"] if v["in_23wards"]])
@@ -290,7 +308,7 @@ def main():
     hero = f"""<section class="hero"><div class="hero-in"><span class="eyebrow">WORLD POKER TRAVEL GUIDE</span>
 <h1>世界のポーカー大会へ、<br>損をしない旅を。</h1>
 <p>アジアとラスベガスの大会日程と、入国・お金・税金の手順。すべて公式情報の出典と確認日付きです。</p>
-<div class="cta"><a class="pri" href="#events">次の大会を見る</a><a class="sec" href="/guide/common/">遠征の準備リスト</a></div>
+<div class="cta"><a class="pri" href="#events">次の大会を見る</a><a class="sec" href="/guide/first-time/">初めての海外大会</a><a class="sec" href="/guide/common/">準備リスト</a></div>
 <span class="suits" aria-hidden="true">♠ ♥ ♦ ♣</span></div></section>"""
     trust = """<section class="trust" aria-label="このサイトの約束"><div><b>オンラインカジノは案内しません</b><span>オンライン予選も載せず、運営会社のサイトにもリンクしません</span></div>
 <div><b>グレーなものは載せません</b><span>換金や、国内で現金の賞金が出る大会は対象外</span></div>
@@ -298,6 +316,7 @@ def main():
 <a href="/legal/">日本とアメリカの法律と、掲載のルール →</a></section>"""
     body = trust + f"""<h2 id="events">次の大会</h2><div class="evcards">{"".join(evcard(e) for e in upcoming[:8])}</div>
 <h2>行き先から選ぶ</h2><div class="dests">{dests}</div>
+<h2>手順で調べる</h2>{guide_cards()}
 <h2>これからの大会の一覧</h2><p class="checked">確認日 {checked}。「公式発表」以外は、参加前に必ず主催者の発表を確認してください。</p>{events_table(upcoming)}"""
     paths.append(page("/", SITE_NAME, "世界のポーカー大会の日程と、日本から遠征するときの入国手続き、お金、税金のチェックリスト。アジアとラスベガスを中心に、出典と確認日付きで掲載。", body, jsonld(evs), hero))
 
@@ -314,6 +333,7 @@ def main():
             html_body = html_body.replace("</h1>", "</h1>" + CHECK_BAR, 1) + MEMO + CHECK_JS
         paths.append(page(f"/guide/{p.stem}/", meta["title"], meta["description"], html_body, jsonld(sub)))
 
+    event_pages(paths, evs, checked)
     tokyo_pages(paths)
     meta, body = parse_md(ROOT / "content/legal.md")
     lb = render_md(body, evs).replace("</h1>", f"</h1><p class=\"checked\">最終確認日：{meta['checked']}</p>", 1)
@@ -444,6 +464,56 @@ def venue_jsonld(vs):
     return '<script type="application/ld+json">' + json.dumps(items, ensure_ascii=False) + "</script>" if items else ""
 
 
+HUBS = [  # 駅・繁華街の中心（緯度, 経度）と、店名に出てくる呼び方
+    ("shibuya", "渋谷", 35.6590, 139.7006, ["渋谷", "shibuya", "宇田川"]),
+    ("shinjuku", "新宿・歌舞伎町", 35.6930, 139.7020, ["新宿", "歌舞伎町", "shinjuku", "kabukicho"]),
+    ("ikebukuro", "池袋", 35.7295, 139.7109, ["池袋", "ikebukuro"]),
+    ("roppongi", "六本木", 35.6628, 139.7314, ["六本木", "roppongi"]),
+    ("akihabara", "秋葉原・神田", 35.6984, 139.7731, ["秋葉原", "アキバ", "akiba", "akihabara", "神田"]),
+    ("ueno", "上野・御徒町", 35.7110, 139.7745, ["上野", "御徒町", "湯島", "ueno"]),
+    ("shimbashi", "新橋・浜松町", 35.6640, 139.7570, ["新橋", "浜松町", "shimbashi"]),
+    ("ginza", "銀座・日本橋", 35.6760, 139.7680, ["銀座", "日本橋", "ginza"]),
+    ("takadanobaba", "高田馬場", 35.7128, 139.7038, ["高田馬場", "takadanobaba"]),
+    ("ebisu", "恵比寿・中目黒", 35.6467, 139.7050, ["恵比寿", "中目黒", "代官山", "ebisu", "nakameguro"]),
+    ("gotanda", "五反田・目黒", 35.6262, 139.7200, ["五反田", "目黒", "gotanda"]),
+    ("kamata", "蒲田", 35.5627, 139.7161, ["蒲田", "kamata"]),
+    ("akasaka", "赤坂", 35.6764, 139.7378, ["赤坂", "akasaka"]),
+    ("shimokitazawa", "下北沢", 35.6613, 139.6680, ["下北沢", "下北", "shimokita"]),
+    ("kinshicho", "錦糸町・亀戸", 35.6963, 139.8140, ["錦糸町", "亀戸", "kinshicho"]),
+    ("kitasenju", "北千住・竹ノ塚", 35.7497, 139.8049, ["北千住", "竹ノ塚", "竹の塚"]),
+    ("nakano", "中野・高円寺", 35.7058, 139.6657, ["中野", "高円寺", "nakano"]),
+]
+
+
+def hub_of(v):
+    import math
+    if v.get("lat"):
+        best = min(HUBS, key=lambda h: math.dist((h[2], h[3] * 0.81), (v["lat"], v["lng"] * 0.81)))
+        if math.dist((best[2], best[3] * 0.81), (v["lat"], v["lng"] * 0.81)) < 0.012:  # 約 1.3 km
+            return best
+    n = v["name"].lower()
+    for h in HUBS:
+        if any(k.lower() in n for k in h[4]): return h
+    return None
+
+
+def area_pages(paths, vs):
+    by = {}
+    for v in vs:
+        h = hub_of(v)
+        if h: by.setdefault(h[0], (h, []))[1].append(v)
+    links = []
+    for slug, (h, lst) in sorted(by.items(), key=lambda x: -len(x[1][1])):
+        if len(lst) < 3: continue
+        links.append(f'<a class="areachip" href="/tokyo/area/{slug}/">{h[1]}<span class="cnt">{len(lst)}</span></a>')
+        fi = {k: sum(1 for v in lst if k in v.get("features", [])) for k, _, _ in FEATS}
+        b = f"""<p class="crumb"><a href="/tokyo/">東京のポーカー店ガイド</a> › {h[1]}</p><h1>{h[1]}のポーカー店</h1>
+<p class="lead">{h[1]}駅の周辺にあるアミューズメントポーカーの店 {len(lst)} 店。初心者講習やトーナメントなどの特徴で絞り込めます。</p>
+{filter_ui(show_area=False, counts=fi)}<section class="group"><div class="vgrid">{"".join(venue_card(v) for v in lst)}</div></section>"""
+        paths.append(page(f"/tokyo/area/{slug}/", f"{h[1]}のポーカー店（{len(lst)}店）", f"{h[1]}周辺のアミューズメントポーカーの店 {len(lst)} 店。初心者講習、トーナメント、リングゲーム、飲み放題、禁煙などの特徴と場所。", b, venue_jsonld(lst)))
+    return '<div class="areachips">' + "".join(links) + "</div>"
+
+
 def tokyo_pages(paths):
     d = json.loads((ROOT / "data/tokyo_venues.json").read_text())
     vs = [v for v in d["venues"] if v["in_23wards"]]
@@ -458,10 +528,12 @@ def tokyo_pages(paths):
                      f'<div class="vgrid">{"".join(venue_card(v) for v in by_area[aid])}</div></section>' for aid, an, ws in AREAS if by_area[aid])
     lead_names = "、".join(html.escape(l["name"]) for l in d["leads"] if l.get("in_23wards"))
     fcounts = {k: sum(1 for v in vs if k in v.get("features", [])) for k, _, _ in FEATS}
+    area_links = area_pages(paths, vs)
     body = f"""<h1>東京のポーカー店ガイド</h1>
 <p class="lead">23 区の {len(vs)} 店を、講習・トーナメント・大会の予選など<strong>ポーカーならではの特徴</strong>で探せます。</p>
 <div class="stats"><div><b>{len(vs)}</b><span>店</span></div><div><b>{pro}</b><span>専門店</span></div><div><b>{fcounts["lesson"]}</b><span>講習あり</span></div><div><b>{fcounts["tournament"]}</b><span>大会あり</span></div></div>
 {ward_map(vs)}
+<h2 class="h-small">駅から探す</h2>{area_links}
 {filter_ui(counts=fcounts)}{groups}
 <p class="muted small note">確認日 {d['checked_on']}。来店前に店の公式情報を確認してください。<a href="/owners/">店主の方へ（掲載・訂正は無料）</a></p>"""
     paths.append(page("/tokyo/", "東京のポーカー店ガイド", f"東京 23 区のアミューズメントポーカーの店 {len(vs)} 店を、初心者講習、トーナメント、リングゲーム、大会の予選、飲み放題、禁煙などの特徴で探せます。", body))
@@ -475,8 +547,36 @@ def tokyo_pages(paths):
         paths.append(page(f"/tokyo/{WARDS[w]}/", f"{w}のポーカー店（{len(by[w])}店）", f"{w}のアミューズメントポーカーの店 {len(by[w])} 店。初心者講習、トーナメント、リングゲーム、飲み放題、禁煙などの特徴と場所。", b, venue_jsonld(by[w])))
 
 
+def event_pages(paths, evs, checked):
+    for e in evs:
+        label, cls = STATUS[e["status"]]
+        reg = region_of(e); cname = COUNTRY[e["country"]][0]
+        rows = [("日程", fmt_date(e)), ("場所", " / ".join(x for x in [cname, e.get("city"), e.get("venue")] if x)),
+                ("メインの参加費", e.get("main_buyin") or "未発表または未確認")]
+        dl = "".join(f"<dt>{k}</dt><dd>{html.escape(v)}</dd>" for k, v in rows)
+        memo = f'<p class="muted small">{html.escape(e["memo"])}</p>' if e.get("memo") else ""
+        brief = REGION_BRIEF.get(reg)
+        brief_html = ("<ul>" + "".join(f"<li>{html.escape(b)}</li>" for b in brief) + "</ul>") if brief else "<p>入国の条件は、外務省の海外安全ホームページと渡航先の政府の案内で確認してください。</p>"
+        guide = f'<a href="{guide_href(e)}">{REGIONS[reg][0] if reg else "共通"}のガイド</a>'
+        same = [x for x in evs if region_of(x) == reg and x is not e and reg] if reg else []
+        same_html = "".join(f'<li><a href="/events/{event_slug(x)}/">{html.escape(x["name"])}</a>（{fmt_date(x)}）</li>' for x in same[:8])
+        caution = {"official": "主催者の発表で確認した情報です。", "third_party": "第三者の一覧にだけ載っている情報です。参加を決める前に、主催者の発表を確認してください。",
+                   "expected": "まだ発表されていません。例年の時期から見込みを載せています。", "conflict": "情報源によって内容が食い違っています（中止の情報など）。主催者の発表を必ず確認してください。"}[e["status"]]
+        body = f"""<p class="crumb"><a href="/">世界の大会</a> › {html.escape(cname)}</p>
+<h1>{html.escape(e["name"])}</h1>
+<div class="evsum"><dl>{dl}</dl><p><span class="badge {cls}">{label}</span> <span class="muted small">{caution}出典：{html.escape(e.get("source_name", ""))}（{checked} 確認）</span></p>{memo}</div>
+<h2>この大会に行く前に</h2>{brief_html}
+<p>詳しくは{guide}と<a href="/guide/common/">共通チェックリスト</a>（印を付けて使えます）を見てください。</p>
+<p class="muted small">このサイトは、オンラインでの予選や、オンラインカジノ・オンラインポーカーを案内しません（<a href="/legal/">法律と掲載ルール</a>）。</p>
+{f"<h2>同じ地域のほかの大会</h2><ul>{same_html}</ul>" if same_html else ""}"""
+        desc = f'{e["name"]}（{fmt_date(e)}、{cname}{"・" + e["city"] if e.get("city") else ""}）の日程、会場、参加費と、日本から参加する前に確認すること。'
+        paths.append(page(f"/events/{event_slug(e)}/", f'{e["name"]}の日程・参加費・行く前の準備', desc, body, jsonld([e])))
+
+
 def guide_cards():
-    items = ['<li><a href="/guide/common/">共通チェックリスト</a><br><small>渡航前、お金、参加登録、入賞後、帰国後</small></li>']
+    items = ['<li><a href="/guide/first-time/">初めての海外ポーカー大会</a><br><small>行き先選びから帰国までの手順</small></li>',
+             '<li><a href="/guide/wsop/">WSOP に出るまでの手順</a><br><small>ESTA、ITIN、現金の申告、源泉徴収</small></li>',
+             '<li><a href="/guide/common/">共通チェックリスト</a><br><small>渡航前、お金、参加登録、入賞後、帰国後</small></li>']
     for code, (name, slug) in REGIONS.items():
         items.append(f'<li><a href="/guide/{slug}/">{name}</a><br><small>入国、会場、お金、今後の大会</small></li>')
     return f'<ul class="cards">{"".join(items)}</ul>'
