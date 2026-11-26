@@ -1,0 +1,10 @@
+{
+  // Cloudflare Workers の静的サイトとして公開する設定。build.py が site/ に出力する。
+  "name": "pokertabi",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./site",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}
