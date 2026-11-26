@@ -119,11 +119,11 @@ def page(path, title, desc, body, extra_head=""):
 <title>{html.escape(full)}</title><meta name="description" content="{html.escape(desc)}">
 <link rel="canonical" href="{BASE_URL}{path}">
 <meta property="og:title" content="{html.escape(full)}"><meta property="og:description" content="{html.escape(desc)}">
-<meta property="og:type" content="website"><style>{CSS}</style>{extra_head}</head><body>
+<meta property="og:type" content="website"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%E2%99%A0%3C/text%3E%3C/svg%3E"><style>{CSS}</style>{extra_head}</head><body>
 <header><a class="logo" href="/">{SITE_NAME}</a><nav><a href="/">海外の大会</a><a href="/guide/">遠征ガイド</a><a href="/tokyo/">東京の店</a><a href="/about/">編集方針</a></nav></header>
 <main>{body}</main>
 <footer>掲載内容は確認日時点のものです。参加や支払いの前に、必ず主催者と政府の公式情報を確認してください。
-このサイトはオンラインポーカー・オンラインカジノを案内しません。<br>© {SITE_NAME}</footer></body></html>"""
+このサイトはオンラインポーカー・オンラインカジノを案内しません。<a href="/owners/">店主の方へ</a><br>© {SITE_NAME}</footer></body></html>"""
     dest = OUT / path.strip("/") / "index.html" if path != "/" else OUT / "index.html"
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(doc)
@@ -172,9 +172,13 @@ def main():
         paths.append(page(f"/guide/{p.stem}/", meta["title"], meta["description"], html_body, jsonld(sub)))
 
     tokyo_pages(paths)
+    meta, body = parse_md(ROOT / "content/owners.md")
+    paths.append(page("/owners/", meta["title"], meta["description"], render_md(body, evs)))
     meta, body = parse_md(ROOT / "content/about.md")
     paths.append(page("/about/", meta["title"], meta["description"], render_md(body, evs)))
 
+    page("/404/", "ページが見つかりません", "ページが見つかりません。", '<h1>ページが見つかりません</h1><p><a href="/">トップへ戻る</a></p>')
+    (OUT / "404.html").write_text((OUT / "404/index.html").read_text())
     (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {BASE_URL}/sitemap.xml\n")
     urls = "".join(f"<url><loc>{BASE_URL}{p}</loc><lastmod>{checked}</lastmod></url>" for p in paths)
     (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>')
@@ -206,6 +210,13 @@ document.querySelectorAll('section.ward').forEach(w=>{w.style.display=[...w.quer
 [k,n,l].forEach(e=>e.addEventListener('change',f));document.addEventListener('DOMContentLoaded',f);})();</script>"""
 
 
+def venue_jsonld(vs):
+    items = [{"@context": "https://schema.org", "@type": "EntertainmentBusiness", "name": v["name"],
+              "address": {"@type": "PostalAddress", "streetAddress": v["address"], "addressRegion": "東京都", "addressCountry": "JP"}}
+             for v in vs if v.get("address")]
+    return '<script type="application/ld+json">' + json.dumps(items, ensure_ascii=False) + "</script>" if items else ""
+
+
 def tokyo_pages(paths):
     d = json.loads((ROOT / "data/tokyo_venues.json").read_text())
     vs = [v for v in d["venues"] if v["in_23wards"]]
@@ -218,7 +229,7 @@ def tokyo_pages(paths):
     lead_names = "、".join(html.escape(l["name"]) for l in d["leads"] if l.get("in_23wards"))
     body = f"""<h1>東京 23 区のポーカー店</h1>
 <p>アミューズメントポーカーの店を区ごとにまとめています。住所と営業時間は、店が自分で掲載している情報や記事で確認し、出典と確認日を付けています。来店前に、店の公式情報で最新の営業状況を確認してください。</p>
-<p class="checked">掲載 {len(vs)} 店（確認日：{d['checked_on']}）。店主の方は、掲載内容の訂正や追加を無料で受け付けます（準備中）。</p>
+<p class="checked">掲載 {len(vs)} 店（確認日：{d['checked_on']}）。<a href=\"/owners/\">店主の方は、掲載内容の訂正や追加を無料で受け付けます</a>。</p>
 <p>{links}</p>{FILTER_JS}{secs}
 <h2>確認中の店</h2><p class="checked">次の店は、名前を把握していますが、住所や営業状況をまだ確認できていません：{lead_names}</p>"""
     paths.append(page("/tokyo/", "東京 23 区のポーカー店一覧", f"東京 23 区のアミューズメントポーカーの店 {len(vs)} 店を区ごとに掲載。種類、全席禁煙、深夜営業で絞り込めます。出典と確認日付き。", body))
@@ -226,7 +237,7 @@ def tokyo_pages(paths):
         b = f"""<h1>{w}のポーカー店</h1><p class="checked">掲載 {len(by[w])} 店（確認日：{d['checked_on']}）</p>
 <p>{w}にあるアミューズメントポーカーの店です。住所と営業時間は出典付きで載せています。来店前に、店の公式情報で最新の営業状況を確認してください。</p>
 {FILTER_JS}<section class="ward">{"".join(venue_card(v) for v in by[w])}</section><p><a href="/tokyo/">東京 23 区の一覧へ戻る</a></p>"""
-        paths.append(page(f"/tokyo/{WARDS[w]}/", f"{w}のポーカー店一覧（{len(by[w])}店）", f"{w}のアミューズメントポーカーの店 {len(by[w])} 店。住所、行き方、営業時間、禁煙かどうかを出典付きで掲載。", b))
+        paths.append(page(f"/tokyo/{WARDS[w]}/", f"{w}のポーカー店一覧（{len(by[w])}店）", f"{w}のアミューズメントポーカーの店 {len(by[w])} 店。住所、行き方、営業時間、禁煙かどうかを出典付きで掲載。", b, venue_jsonld(by[w])))
 
 
 def guide_cards():
