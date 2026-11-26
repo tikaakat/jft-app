@@ -18,7 +18,7 @@ function wrap(s, n = 76) { return s.replace(new RegExp(`(.{${n}})`, "g"), "$1\r\
 
 function back(url, status, reason) {
   const u = new URL(`/contact/?sent=${status}`, url);
-  if (reason) u.searchParams.set("r", reason.slice(0, 120)); // 原因の切り分け用（一時的）
+  if (reason) console.error("contact form:", reason); // 原因は公開せず、Cloudflare のログにだけ残す
   return Response.redirect(u.toString(), 303);
 }
 
