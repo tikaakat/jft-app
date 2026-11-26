@@ -21,7 +21,10 @@
     "satellite",
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.66118,
+   "lng": 139.66798,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "PokerRoom P3 下北沢",
@@ -54,7 +57,10 @@
     "tournament",
     "women_student"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.66002,
+   "lng": 139.66739,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "Pool&Darts EDGE",
@@ -79,7 +85,10 @@
    "features": [
     "late_night",
     "nonsmoking"
-   ]
+   ],
+   "lat": 35.66868,
+   "lng": 139.65068,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "ポーカールームOJARUMARU おじゃる丸三軒茶屋店",
@@ -129,7 +138,10 @@
     "tournament"
    ],
    "min_price": 500,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.66917,
+   "lng": 139.75909,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "Darts Bar A's 日本橋茅場町店【ダーツ＆ポーカー】",
@@ -161,7 +173,10 @@
    "address": "東京都中央区日本橋室町1-5-5",
    "address_source": "official",
    "features": [],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.68613,
+   "lng": 139.77418,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "PokerPark 銀座東店",
@@ -221,7 +236,10 @@
     "satellite",
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.67129,
+   "lng": 139.76091,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "銀座ポーカーラウンジ/GINZA Poker Lounge",
@@ -299,7 +317,10 @@
    "google_status": "OPERATIONAL",
    "google_checked_on": "2026-11-26",
    "official": "https://twitter.com/TRIGGER_ML",
-   "features": []
+   "features": [],
+   "lat": 35.70347,
+   "lng": 139.6656,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "BLOW 八王子",
@@ -341,7 +362,10 @@
     "tournament"
    ],
    "min_price": 6000,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.78068,
+   "lng": 139.72353,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "THE CROWN",
@@ -371,7 +395,10 @@
     "ring",
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.77849,
+   "lng": 139.72205,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "starry eye",
@@ -400,7 +427,10 @@
     "tournament"
    ],
    "tables": 4,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.75942,
+   "lng": 139.72194,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "赤羽ポーカーハウス ASOBIBAR Le・coeur",
@@ -439,7 +469,10 @@
     "tournament"
    ],
    "min_price": 1000,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.66915,
+   "lng": 139.75835,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "SEED by じゃんけんポーカー",
@@ -462,7 +495,10 @@
     "tournament"
    ],
    "min_price": 2000,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.70155,
+   "lng": 139.752,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "【宴会×貸切】COZY DINING＆BAR（コージー ダイニング＆バー）",
@@ -481,7 +517,10 @@
    "source": "https://www.hotpepper.jp/strJ003984908/",
    "checked_on": "2026-11-26",
    "google_status": "NOT_IN_SEARCH",
-   "features": []
+   "features": [],
+   "lat": 35.69059,
+   "lng": 139.77371,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "【神田むさぽ】MUSASHI POKER ROOM 神田店 ポーカー",
@@ -558,7 +597,10 @@
     "tournament"
    ],
    "min_price": 3000,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.70106,
+   "lng": 139.77133,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "秋葉原・神田ポーカーレンタルスペースデュエル",
@@ -578,7 +620,10 @@
     "rental"
    ],
    "tables": 3,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.69534,
+   "lng": 139.77327,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "（有）ポーカー・フェイス",
@@ -615,7 +660,10 @@
     "tournament",
     "women_student"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.69742,
+   "lng": 139.78314,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "BLOW 上野",
@@ -638,7 +686,10 @@
    "google_checked_on": "2026-11-26",
    "official": "https://upright-wolf-79g6nh.mystrikingly.com/",
    "features": [],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.70859,
+   "lng": 139.77416,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "ガットショット 上野池之端店",
@@ -672,7 +723,10 @@
    "features": [
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.707,
+   "lng": 139.79211,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "ＡｇｒａｂａＲ",
@@ -700,7 +754,10 @@
     "ring",
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.71024,
+   "lng": 139.77504,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "635Lounge",
@@ -721,7 +778,10 @@
    "google_status": "NOT_IN_SEARCH",
    "features": [
     "late_night"
-   ]
+   ],
+   "lat": 35.6194,
+   "lng": 139.70287,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "CASUAL POKER ROOM EVERY 五反田（ポーカールーム）",
@@ -745,7 +805,10 @@
     "tournament"
    ],
    "tables": 4,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.62398,
+   "lng": 139.72304,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "Family Pot 目黒店",
@@ -768,7 +831,10 @@
    "google_checked_on": "2026-11-26",
    "official": "https://familypot.jp/locations",
    "features": [],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.63475,
+   "lng": 139.71649,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "PokerLeague五反田（ポーカーリーグ）",
@@ -803,7 +869,10 @@
     "tournament"
    ],
    "min_price": 1000,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.62715,
+   "lng": 139.72331,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "Double Pot (ダブルポット) 錦糸町",
@@ -855,7 +924,10 @@
     "ring",
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.69412,
+   "lng": 139.81372,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "錦糸町 PPOKER(ピーポーカー)",
@@ -891,7 +963,10 @@
    "google_status": "OPERATIONAL",
    "google_checked_on": "2026-11-26",
    "official": "https://lit.link/kamata_cheers",
-   "features": []
+   "features": [],
+   "lat": 35.56346,
+   "lng": 139.71344,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "BACKDOOR KAMATA",
@@ -912,7 +987,10 @@
     "satellite",
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.56333,
+   "lng": 139.71605,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "Giraffe poker Kamata",
@@ -940,7 +1018,10 @@
     "ring",
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.56319,
+   "lng": 139.71388,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "Nuts&Star 蒲田",
@@ -979,7 +1060,10 @@
    "features": [
     "late_night",
     "nonsmoking"
-   ]
+   ],
+   "lat": 35.56215,
+   "lng": 139.71718,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "ポーカーバーエミーオ(Emio)",
@@ -1010,7 +1094,10 @@
    "address": "東京都文京区本郷1丁目25-8",
    "address_source": "official",
    "features": [],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.70543,
+   "lng": 139.75594,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "アミューズメントカジノ＆ＢＡＲ Ｌｏｏｓｅ",
@@ -1065,7 +1152,10 @@
     "late_night",
     "nonsmoking"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.6979,
+   "lng": 139.70189,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "BLOW 歌舞伎町",
@@ -1093,7 +1183,10 @@
     "tournament"
    ],
    "min_price": 1000,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.69391,
+   "lng": 139.70169,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "Casino Live Tokyo 新宿 ポーカー",
@@ -1115,7 +1208,10 @@
     "ring",
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.69405,
+   "lng": 139.70103,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "D.D poker 高田馬場",
@@ -1145,7 +1241,10 @@
     "tournament",
     "women_student"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.71061,
+   "lng": 139.70441,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "Family Pot 四ツ谷店",
@@ -1200,7 +1299,10 @@
    "features": [
     "nonsmoking"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.69497,
+   "lng": 139.70128,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "GiGO POKER新宿西口",
@@ -1225,7 +1327,10 @@
    "features": [
     "nonsmoking"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.68978,
+   "lng": 139.69696,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "GoodGame Poker Live 新宿",
@@ -1247,7 +1352,10 @@
     "satellite",
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.69465,
+   "lng": 139.70047,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "JCSホールデム",
@@ -1269,7 +1377,10 @@
     "ring",
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.69252,
+   "lng": 139.70625,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "KKLIVE POKER SHINJUKU",
@@ -1286,7 +1397,10 @@
    "address": "東京都新宿区歌舞伎町1-23-15",
    "address_source": "official",
    "features": [],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.69405,
+   "lng": 139.70103,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "M☆SPACE エムスペース ポーカー貸卓",
@@ -1303,7 +1417,10 @@
    "address": "東京都新宿区歌舞伎町1-12-6",
    "address_source": "official",
    "features": [],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.69522,
+   "lng": 139.70242,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "NewbeePoker",
@@ -1356,7 +1473,10 @@
    "features": [
     "nonsmoking"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.71394,
+   "lng": 139.70509,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "PukuPukuNEON新宿店(プクプクネオン)Poker（ポーカー）",
@@ -1373,7 +1493,10 @@
    "address": "東京都新宿区歌舞伎町1-2-1",
    "address_source": "official",
    "features": [],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.69332,
+   "lng": 139.70364,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "RFID POKER ROOM",
@@ -1426,7 +1549,10 @@
     "tournament"
    ],
    "min_price": 2000,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.69474,
+   "lng": 139.70207,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "SPADE ポーカー&ダイニングバー 新宿歌舞伎町",
@@ -1525,7 +1651,10 @@
     "satellite",
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.69022,
+   "lng": 139.70265,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "カジノバー WARUPURU ワルプル 新宿歌舞伎町",
@@ -1544,7 +1673,10 @@
    "features": [
     "lesson"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.69359,
+   "lng": 139.70222,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "ガットショット 高田馬場店 ポーカー",
@@ -1565,7 +1697,10 @@
     "tournament"
    ],
    "min_price": 3500,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.71189,
+   "lng": 139.70425,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "バブル 歌舞伎店",
@@ -1616,7 +1751,10 @@
     "tournament",
     "women_student"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.68625,
+   "lng": 139.72774,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "新宿三丁目 Poker-LINE-",
@@ -1633,7 +1771,10 @@
    "address": "東京都新宿区新宿3-10-7",
    "address_source": "official",
    "features": [],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.69146,
+   "lng": 139.70647,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "QUEEN SEA｜阿佐ヶ谷ポーカー｜QUEENSEA",
@@ -1725,7 +1866,10 @@
    "checked_on": "2026-11-26",
    "note": "2026年8月11日開店のプレスリリース",
    "google_status": "NOT_IN_SEARCH",
-   "features": []
+   "features": [],
+   "lat": 35.7489,
+   "lng": 139.70317,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "Extreme Bar BACKDOOR 吉祥寺",
@@ -1798,7 +1942,10 @@
    "google_status": "NOT_IN_SEARCH",
    "features": [
     "late_night"
-   ]
+   ],
+   "lat": 35.73519,
+   "lng": 139.88271,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "K Poker & bar 小岩店",
@@ -1817,7 +1964,10 @@
    "features": [
     "lesson"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.73409,
+   "lng": 139.88356,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "Poker Room IN'PUSH 小岩【ポーカー】",
@@ -1838,7 +1988,10 @@
     "ring",
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.73537,
+   "lng": 139.88243,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "Poker&Cafe nami",
@@ -1860,7 +2013,10 @@
     "ring",
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.69531,
+   "lng": 139.8969,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "葛西アミューズメントカジノバー H3AL(ハル)",
@@ -1933,7 +2089,10 @@
    "google_status": "OPERATIONAL",
    "google_checked_on": "2026-11-26",
    "official": "https://lit.link/vertextokyo",
-   "features": []
+   "features": [],
+   "lat": 35.66173,
+   "lng": 139.70024,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "BUBBLE 恵比寿店",
@@ -1986,7 +2145,10 @@
    "google_checked_on": "2026-11-26",
    "features": [
     "late_night"
-   ]
+   ],
+   "lat": 35.67748,
+   "lng": 139.67699,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "KKLIVE POKER SHIBUYA 渋谷 ポーカー",
@@ -2033,7 +2195,10 @@
     "satellite",
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.64687,
+   "lng": 139.70317,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "QUEENS AMUSEMENT POKER BAR",
@@ -2057,7 +2222,10 @@
     "tournament"
    ],
    "min_price": 700,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.66075,
+   "lng": 139.69713,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "ROOTS SHIBUYA",
@@ -2078,7 +2246,10 @@
     "ring",
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.66163,
+   "lng": 139.69771,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "SOSPOKER",
@@ -2117,7 +2288,10 @@
    "features": [
     "late_night",
     "nonsmoking"
-   ]
+   ],
+   "lat": 35.66147,
+   "lng": 139.69817,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "casa渋谷｜アミューズメントポーカーバー",
@@ -2157,7 +2331,10 @@
    ],
    "tables": 8,
    "min_price": 1000,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.65561,
+   "lng": 139.7045,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "ポーカー&バー PHOME渋谷店",
@@ -2179,7 +2356,10 @@
     "rental"
    ],
    "tables": 2,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.66005,
+   "lng": 139.69601,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "ポーカールームGoodGame Poker Live【初心者歓迎×貸切卓あり】",
@@ -2204,7 +2384,10 @@
    "features": [
     "nonsmoking"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.66148,
+   "lng": 139.69798,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "渋谷POKER HOUSE OSKER",
@@ -2243,7 +2426,10 @@
    "official": "https://www.instagram.com/poker_charles?igsh=MTFpZG1nZXo0cXVwZQ%3D%3D&utm_source=qr",
    "features": [
     "late_night"
-   ]
+   ],
+   "lat": 35.66024,
+   "lng": 139.69646,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "BAR SlowPlay -tokyo-",
@@ -2264,7 +2450,10 @@
     "nonsmoking",
     "rental"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.66316,
+   "lng": 139.7329,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "BLOW 六本木 ゴールド",
@@ -2289,7 +2478,10 @@
    "features": [
     "late_night"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.66453,
+   "lng": 139.73151,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "BLOW三田",
@@ -2326,7 +2518,10 @@
     "tournament"
    ],
    "min_price": 1000,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.66316,
+   "lng": 139.7329,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "BUBBLE 赤坂店 アミューズメントカジノ&ポーカーバー",
@@ -2364,7 +2559,10 @@
    "official": "https://twitter.com/bubble_roppongi",
    "features": [
     "late_night"
-   ]
+   ],
+   "lat": 35.66412,
+   "lng": 139.72989,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "CASINO(カジノ)",
@@ -2408,7 +2606,10 @@
     "tournament"
    ],
    "min_price": 3000,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.66252,
+   "lng": 139.73567,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "FT TOKYO【FT東京】",
@@ -2444,7 +2645,10 @@
    "google_status": "NOT_IN_SEARCH",
    "features": [
     "nonsmoking"
-   ]
+   ],
+   "lat": 35.66356,
+   "lng": 139.73137,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "KOIKOI Poker Bar",
@@ -2492,7 +2696,10 @@
     "drink_free",
     "lesson"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.6737,
+   "lng": 139.73785,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "MUSASHI POKER ROOM 新橋店",
@@ -2517,7 +2724,10 @@
     "women_student"
    ],
    "tables": 4,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.66537,
+   "lng": 139.75488,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "NINE THREE（ナインスリー）",
@@ -2547,7 +2757,10 @@
     "satellite",
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.66245,
+   "lng": 139.73135,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "Poker Junkie Roppongi 【ポーカージャンキー】",
@@ -2591,7 +2804,10 @@
     "ring",
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.66623,
+   "lng": 139.75586,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "Poker Room UPs",
@@ -2656,7 +2872,10 @@
     "rental",
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.62906,
+   "lng": 139.77589,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "アミューズメントカジノバー BLOW 赤坂",
@@ -2683,7 +2902,10 @@
     "tournament"
    ],
    "min_price": 1000,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.6749,
+   "lng": 139.7377,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "ナインスリー 新橋",
@@ -2704,7 +2926,10 @@
     "lesson",
     "ring"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.66631,
+   "lng": 139.75493,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "パルプンテ 新橋ポーカーハウス",
@@ -2741,7 +2966,10 @@
     "tournament"
    ],
    "tables": 1,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.66641,
+   "lng": 139.75461,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "ポカベヤ ミタベヤ",
@@ -2780,7 +3008,10 @@
     "tournament"
    ],
    "min_price": 1000,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.66316,
+   "lng": 139.7329,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "ポーカー＆シーシャバー PHOME新橋店",
@@ -2803,7 +3034,10 @@
    ],
    "tables": 6,
    "min_price": 1500,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.66631,
+   "lng": 139.75493,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "新橋 FELLOWS（フェローズ） ポーカー 〜アミューズメントカジノ&バー〜",
@@ -2822,7 +3056,10 @@
    "features": [
     "lesson"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.66456,
+   "lng": 139.757,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "浜松町ポーカー&シーシャバー DOUBLE BELLY BUSTER",
@@ -2847,7 +3084,10 @@
    "features": [
     "late_night"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.6562,
+   "lng": 139.75433,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "煌Ｂａｒ＆Lounge",
@@ -2872,7 +3112,10 @@
    "features": [
     "late_night"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.64426,
+   "lng": 139.72574,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "西麻布POKER倶楽部 西麻布 ポーカー",
@@ -2961,7 +3204,10 @@
    "google_place_id": "ChIJu8V-z32LGGAR9To6B5iB0aM",
    "google_status": "OPERATIONAL",
    "google_checked_on": "2026-11-26",
-   "features": []
+   "features": [],
+   "lat": 35.64533,
+   "lng": 139.69902,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "m HOLD'EM 目黒",
@@ -2988,7 +3234,10 @@
     "ring",
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.63478,
+   "lng": 139.71367,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "ダブルバレル中目黒",
@@ -3009,7 +3258,10 @@
     "tournament"
    ],
    "min_price": 2000,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.64507,
+   "lng": 139.7003,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "Pool & Darts + Poker Bar side",
@@ -3034,7 +3286,10 @@
    "features": [
     "late_night"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.73909,
+   "lng": 139.66249,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "CASINO LOUNGE ESPOIR-カジノラウンジ エスポワール-(アミューズメントポーカーバー)",
@@ -3070,7 +3325,10 @@
     "women_student"
    ],
    "tables": 3,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.72858,
+   "lng": 139.77199,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "ポーカー&カラオケダーツBARがるぽ",
@@ -3105,7 +3363,10 @@
     "ring",
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.71784,
+   "lng": 139.86185,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "PokerBarAA+ 【ポーカーバーエーシーズプラス】",
@@ -3183,7 +3444,10 @@
     "tournament"
    ],
    "tables": 1,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.73441,
+   "lng": 139.73885,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "BLOW 池袋",
@@ -3212,7 +3476,10 @@
     "tournament"
    ],
    "min_price": 1000,
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.73077,
+   "lng": 139.715,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "Darts Bar A's 大塚店[ダーツ＆ポーカー]",
@@ -3231,7 +3498,10 @@
    "features": [
     "ring"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.73253,
+   "lng": 139.72778,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "Family Pot 池袋店",
@@ -3254,7 +3524,10 @@
    "google_checked_on": "2026-11-26",
    "official": "https://familypot.jp/locations",
    "features": [],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.73785,
+   "lng": 139.70631,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "Kitchen AJITO×ポーカーBAR RING GAME",
@@ -3276,7 +3549,10 @@
    "features": [
     "late_night",
     "nonsmoking"
-   ]
+   ],
+   "lat": 35.73274,
+   "lng": 139.71462,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "POKER FACE 池袋店",
@@ -3317,7 +3593,10 @@
    "features": [
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.73177,
+   "lng": 139.71387,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "Tem's Tokyo",
@@ -3338,7 +3617,10 @@
    "google_status": "NOT_IN_SEARCH",
    "features": [
     "nonsmoking"
-   ]
+   ],
+   "lat": 35.73001,
+   "lng": 139.7283,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "ZEAL AMUSMENT POKER BAR",
@@ -3369,7 +3651,10 @@
     "satellite",
     "tournament"
    ],
-   "features_checked_on": "2026-11-26"
+   "features_checked_on": "2026-11-26",
+   "lat": 35.73376,
+   "lng": 139.71008,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "アテナ池袋 アミューズメントポーカーバー",
@@ -3464,7 +3749,10 @@
    "google_checked_on": "2026-11-26",
    "features": [
     "late_night"
-   ]
+   ],
+   "lat": 35.79588,
+   "lng": 139.79279,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "Poker＆Shisha シーシャーズ",
@@ -3485,7 +3773,10 @@
    "google_status": "NOT_IN_SEARCH",
    "features": [
     "late_night"
-   ]
+   ],
+   "lat": 35.74776,
+   "lng": 139.80385,
+   "geo_source": "国土地理院 住所検索"
   },
   {
    "name": "アミューズメントカジノバー JACIN 綾瀬店",

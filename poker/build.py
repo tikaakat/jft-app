@@ -76,6 +76,20 @@ footer{margin-top:48px;padding-top:16px;padding-bottom:32px;border-top:1px solid
 .v-actions{display:flex;gap:8px;flex-wrap:wrap}.btn{font-size:13px;padding:5px 12px;border-radius:8px;border:1px solid var(--accent);color:var(--accent);text-decoration:none}
 details summary{cursor:pointer;font-size:13px;color:var(--muted)}details dl{display:grid;grid-template-columns:5.5em 1fr;gap:2px 8px;font-size:13px;margin:8px 0}details dt{color:var(--muted)}details dd{margin:0;overflow-wrap:anywhere}
 .note{margin-top:32px}
+.stats{grid-template-columns:repeat(4,1fr)}@media(max-width:520px){.stats{grid-template-columns:repeat(2,1fr)}}
+.map{margin:16px 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px}.map svg{width:100%;height:auto;display:block}
+.ward{fill-rule:evenodd;stroke:var(--bg);stroke-width:2;transition:opacity .15s}.ward:hover{opacity:.8}
+.l0{fill:var(--line)}.l1{fill:color-mix(in srgb,var(--accent) 18%,var(--card))}.l2{fill:color-mix(in srgb,var(--accent) 35%,var(--card))}.l3{fill:color-mix(in srgb,var(--accent) 55%,var(--card))}.l4{fill:color-mix(in srgb,var(--accent) 78%,var(--card))}
+.wl{font-size:17px;fill:var(--fg);text-anchor:middle;pointer-events:none;paint-order:stroke;stroke:var(--card);stroke-width:4px;opacity:.85}
+.dot{fill:var(--warn);stroke:var(--card);stroke-width:2;cursor:pointer}.dot.off{opacity:.12}
+.map figcaption{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;padding:6px 6px 2px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px}.legend span{display:inline-flex;align-items:center;gap:5px}.sw{display:inline-block;width:14px;height:10px;border-radius:2px}
+.sw.l1{background:color-mix(in srgb,var(--accent) 18%,var(--card))}.sw.l4{background:color-mix(in srgb,var(--accent) 78%,var(--card))}
+@media(max-width:640px){.pchips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}.pchip{flex:none}.wl{font-size:24px}}
+.dot-i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--warn)}
+.pchip .cnt{margin-left:6px;font-size:11px;opacity:.7;font-variant-numeric:tabular-nums}
+.v{scroll-margin-top:12px}.v:target{outline:2px solid var(--warn)}
+
 @media(min-width:900px){.finder{position:sticky;top:0;z-index:5}}
 ul.task{list-style:none;padding-left:0}ul.task li::before{content:"☐ ";color:var(--accent)}
 """
@@ -245,9 +259,9 @@ KIND_SHORT = {"ポーカー専門": "ポーカー専門店", "カジノバー（
 def venue_card(v):
     kind = KIND_SHORT.get(v["kind"], v["kind"])
     area = WARD_AREA.get(v["ward"], ("", v["ward"]))
-    loc = v.get("address") or f'{v["ward"]}（詳しい住所は地図で確認）'
+    loc = re.sub(r"^(〒\S+\s*)?東京都", "", v.get("address") or v["ward"])
     chips = "".join(f'<li>{FEAT_LABEL[f]}</li>' for f, _, _ in FEATS if f in v.get("features", []))
-    chips = f'<ul class="chips">{chips}</ul>' if chips else '<p class="muted small">特徴はまだ確認できていません</p>'
+    chips = f'<ul class="chips">{chips}</ul>' if chips else ""
     meta = []
     if v.get("hours"): meta.append(("営業時間", v["hours"]))
     if v.get("closed"): meta.append(("定休日", v["closed"]))
@@ -263,23 +277,26 @@ def venue_card(v):
     if v.get("note"): srcs.append(html.escape(v["note"]))
     dl = "".join(f"<dt>{k}</dt><dd>{html.escape(x)}</dd>" for k, x in meta)
     details = f'<details><summary>詳しい情報と出典</summary>{"<dl>" + dl + "</dl>" if dl else ""}<p class="muted small">{"<br>".join(srcs)}</p></details>'
-    return (f'<article class="v" data-kind="{html.escape(v["kind"])}" data-area="{area[0]}" data-f="{" ".join(v.get("features", []))}">'
+    vid = "v-" + (v.get("google_place_id") or re.sub(r"\W", "", v["name"]))[-16:]
+    return (f'<article class="v" id="{vid}" data-kind="{html.escape(v["kind"])}" data-area="{area[0]}" data-f="{" ".join(v.get("features", []))}">'
             f'<div class="v-head"><h3>{html.escape(v["name"])}</h3><span class="kind k-{"chk" if v["kind"] == "要確認" else "ok"}">{kind}</span></div>'
-            f'<p class="v-loc">{html.escape(area[1])}・{html.escape(loc)}</p>{chips}'
+            f'<p class="v-loc">{html.escape(loc)}</p>{chips}'
             f'<div class="v-actions">{"".join(btns)}</div>{details}</article>')
 
 
-def filter_ui(show_area=True):
-    chips = "".join(f'<button type="button" class="pchip" data-f="{k}" aria-pressed="false">{p}</button>' for k, _, p in FEATS)
+def filter_ui(show_area=True, counts=None):
+    counts = counts or {}
+    chips = "".join(f'<button type="button" class="pchip" data-f="{k}" aria-pressed="false">{p}<span class="cnt">{counts.get(k, "")}</span></button>' for k, _, p in FEATS)
     areas = "".join(f'<option value="{aid}">{an}</option>' for aid, an, _ in AREAS)
     area_sel = f'<select id="farea" aria-label="エリア"><option value="">すべてのエリア</option>{areas}</select>' if show_area else ""
-    return f"""<section class="finder" aria-label="店を探す"><h2 class="h-small">目的から探す</h2><div class="pchips">{chips}</div>
+    return f"""<section class="finder" aria-label="店を探す"><div class="pchips">{chips}</div>
 <div class="frow">{area_sel}<label class="tog"><input type="checkbox" id="fpro"> ポーカー専門店だけ</label><button type="button" id="freset" class="linkbtn">条件をクリア</button></div>
 <p class="fcount" id="fcount" aria-live="polite"></p></section>
 <script>(function(){{function f(){{const on=[...document.querySelectorAll('.pchip[aria-pressed=true]')].map(b=>b.dataset.f);
 const a=document.getElementById('farea'),pro=document.getElementById('fpro');let n=0;
 document.querySelectorAll('.v').forEach(v=>{{const fs=v.dataset.f.split(' ');const ok=on.every(x=>fs.includes(x))&&(!a||!a.value||v.dataset.area===a.value)&&(!pro.checked||v.dataset.kind==='ポーカー専門');v.hidden=!ok;if(ok)n++}});
 document.querySelectorAll('.group').forEach(g=>{{g.hidden=![...g.querySelectorAll('.v')].some(v=>!v.hidden)}});
+document.querySelectorAll('.dot').forEach(c=>{{const v=document.getElementById(c.dataset.v);c.classList.toggle('off',!v||v.hidden)}});
 document.getElementById('fcount').textContent=n+' 店が見つかりました'+(on.length?'（'+on.length+' つの条件）':'');}}
 document.querySelectorAll('.pchip').forEach(b=>b.addEventListener('click',()=>{{b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true');f()}}));
 const a=document.getElementById('farea');if(a)a.addEventListener('change',f);document.getElementById('fpro').addEventListener('change',f);
@@ -291,6 +308,25 @@ def bars(items, total):
     mx = max(n for _, n, _ in items) or 1
     rows = "".join(f'<li><span class="bl">{html.escape(l)}</span><span class="bt"><span class="bf" style="width:{n / mx * 100:.1f}%"></span></span><span class="bn">{n}</span></li>' for l, n, _ in items)
     return f'<ul class="bars">{rows}</ul>'
+
+
+def ward_map(vs):
+    m = json.loads((ROOT / "data/tokyo_wards_svg.json").read_text()); pr = m["proj"]
+    cnt = {}
+    for v in vs: cnt[v["ward"]] = cnt.get(v["ward"], 0) + 1
+    mx = max(cnt.values())
+    def lvl(n): return 0 if not n else min(4, 1 + int(n / mx * 4))
+    shapes = "".join(f'<a href="/tokyo/{WARDS[w]}/"><path class="ward l{lvl(cnt.get(w, 0))}" d="{g["d"]}"><title>{w}：{cnt.get(w, 0)} 店</title></path></a>' for w, g in m["wards"].items())
+    labels = "".join(f'<text class="wl" x="{g["cx"]}" y="{g["cy"]}">{w[:-1]}</text>' for w, g in m["wards"].items())
+    dots = ""
+    for v in vs:
+        if not v.get("lat"): continue
+        x = (v["lng"] - pr["lon0"]) * pr["k"] * pr["s"]; y = (pr["lat0"] - v["lat"]) * pr["s"]
+        vid = "v-" + (v.get("google_place_id") or re.sub(r"\W", "", v["name"]))[-16:]
+        dots += f'<a href="#{vid}"><circle class="dot" data-v="{vid}" cx="{x:.1f}" cy="{y:.1f}" r="6"><title>{html.escape(v["name"])}</title></circle></a>'
+    legend = '<div class="legend"><span><i class="sw l1"></i>少ない</span><span><i class="sw l4"></i>多い</span><span><i class="dot-i"></i>店の場所（住所を確認できた店）</span></div>'
+    return (f'<figure class="map"><svg viewBox="{m["viewBox"]}" role="img" aria-label="東京 23 区のポーカー店の分布">{shapes}{labels}{dots}</svg>'
+            f'<figcaption>{legend}<span class="muted small">区を押すと区のページへ。地図：{m["source"]}</span></figcaption></figure>')
 
 
 def venue_jsonld(vs):
@@ -310,24 +346,24 @@ def tokyo_pages(paths):
     area_items = sorted([(an, len(by_area[aid]), aid) for aid, an, _ in AREAS], key=lambda x: -x[1])
     feat_items = [(l, sum(1 for v in vs if k in v.get("features", [])), k) for k, l, _ in FEATS]
     groups = "".join(f'<section class="group" id="{aid}"><h2>{an}<span class="muted">（{len(by_area[aid])} 店）</span></h2>'
-                     f'<p class="muted small">{"・".join(f"<a href=\"/tokyo/{WARDS[w]}/\">{w}</a>" for w in ws if w in WARDS)}</p>'
+                     
                      f'<div class="vgrid">{"".join(venue_card(v) for v in by_area[aid])}</div></section>' for aid, an, ws in AREAS if by_area[aid])
     lead_names = "、".join(html.escape(l["name"]) for l in d["leads"] if l.get("in_23wards"))
+    fcounts = {k: sum(1 for v in vs if k in v.get("features", [])) for k, _, _ in FEATS}
     body = f"""<h1>東京のポーカー店ガイド</h1>
-<p class="lead">東京 23 区のアミューズメントポーカーの店を、<strong>ポーカーならではの特徴</strong>（初心者講習、トーナメントとリングゲーム、大きな大会の予選、飲み放題、禁煙）で探せるようにまとめました。特徴は各店の公式サイトの記載から確認しています。</p>
-<div class="stats"><div><b>{len(vs)}</b><span>掲載している店</span></div><div><b>{pro}</b><span>ポーカー専門店</span></div><div><b>{sum(1 for v in vs if v.get("features"))}</b><span>特徴を確認できた店</span></div></div>
-<div class="two"><section><h2 class="h-small">どこに集まっているか</h2>{bars(area_items, len(vs))}</section>
-<section><h2 class="h-small">特徴ごとの店の数</h2>{bars(feat_items, len(vs))}</section></div>
-{filter_ui()}{groups}
-<section class="note"><h2 class="h-small">このページについて</h2><p class="muted small">確認日：{d['checked_on']}。店の場所と営業状況は、店が掲載している情報、記事、Google マップで確認しています。来店前に、店の公式情報で最新の営業状況を確認してください。確認中の店：{lead_names}。<a href="/owners/">店主の方は、掲載内容の訂正や追加を無料で受け付けます</a>。</p></section>"""
+<p class="lead">23 区の {len(vs)} 店を、講習・トーナメント・大会の予選など<strong>ポーカーならではの特徴</strong>で探せます。</p>
+<div class="stats"><div><b>{len(vs)}</b><span>店</span></div><div><b>{pro}</b><span>専門店</span></div><div><b>{fcounts["lesson"]}</b><span>講習あり</span></div><div><b>{fcounts["tournament"]}</b><span>大会あり</span></div></div>
+{ward_map(vs)}
+{filter_ui(counts=fcounts)}{groups}
+<p class="muted small note">確認日 {d['checked_on']}。来店前に店の公式情報を確認してください。<a href="/owners/">店主の方へ（掲載・訂正は無料）</a></p>"""
     paths.append(page("/tokyo/", "東京のポーカー店ガイド", f"東京 23 区のアミューズメントポーカーの店 {len(vs)} 店を、初心者講習、トーナメント、リングゲーム、大会の予選、飲み放題、禁煙などの特徴で探せます。", body))
     by = {}
     for v in vs: by.setdefault(v["ward"], []).append(v)
     for w in [w for w in WARDS if w in by]:
         fi = [(l, sum(1 for v in by[w] if k in v.get("features", [])), k) for k, l, _ in FEATS]
         b = f"""<p class="crumb"><a href="/tokyo/">東京のポーカー店ガイド</a> › {w}</p><h1>{w}のポーカー店</h1>
-<p class="lead">{w}にあるアミューズメントポーカーの店 {len(by[w])} 店を、初心者講習やトーナメントなどの特徴で探せます。</p>
-{filter_ui(show_area=False)}<section class="group"><div class="vgrid">{"".join(venue_card(v) for v in by[w])}</div></section>"""
+<p class="lead">{len(by[w])} 店。特徴で絞り込めます。</p>
+{filter_ui(show_area=False, counts={k: sum(1 for v in by[w] if k in v.get("features", [])) for k, _, _ in FEATS})}<section class="group"><div class="vgrid">{"".join(venue_card(v) for v in by[w])}</div></section>"""
         paths.append(page(f"/tokyo/{WARDS[w]}/", f"{w}のポーカー店（{len(by[w])}店）", f"{w}のアミューズメントポーカーの店 {len(by[w])} 店。初心者講習、トーナメント、リングゲーム、飲み放題、禁煙などの特徴と場所。", b, venue_jsonld(by[w])))
 
 
