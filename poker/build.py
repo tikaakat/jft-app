@@ -187,23 +187,27 @@ def main():
 
 
 WARDS = {"千代田区":"chiyoda","中央区":"chuo","港区":"minato","新宿区":"shinjuku","文京区":"bunkyo","台東区":"taito","墨田区":"sumida","江東区":"koto","品川区":"shinagawa","目黒区":"meguro","大田区":"ota","世田谷区":"setagaya","渋谷区":"shibuya","中野区":"nakano","杉並区":"suginami","豊島区":"toshima","北区":"kita","荒川区":"arakawa","板橋区":"itabashi","練馬区":"nerima","足立区":"adachi","葛飾区":"katsushika","江戸川区":"edogawa"}
-VSTATUS = {"store_listing": "店舗の掲載情報で確認", "press": "記事などで確認（公式で要確認）"}
+VSTATUS = {"store_listing": "店舗の掲載情報で確認", "press": "記事などで確認（公式で要確認）", "google": "Google マップで営業中を確認（詳しい情報は確認中）"}
 
 
 def venue_card(v):
-    tags = [f'<span class="badge s-official">{html.escape(v["kind"])}</span>']
+    kind = "ポーカーの有無を確認中" if v["kind"] == "要確認" else v["kind"]
+    tags = [f'<span class="badge {"s-third" if v["kind"] == "要確認" else "s-official"}">{html.escape(kind)}</span>']
     if v.get("nonsmoking"): tags.append('<span class="badge s-expected">全席禁煙</span>')
     if v.get("late_night"): tags.append('<span class="badge s-third">深夜営業</span>')
     rows = [("場所", v.get("address")), ("行き方", v.get("access")), ("営業時間", v.get("hours")), ("定休日", v.get("closed")), ("たばこ", v.get("smoking"))]
     dl = "".join(f"<dt>{k}</dt><dd>{html.escape(val)}</dd>" for k, val in rows if val)
     note = f'<p class="checked">{html.escape(v["note"])}</p>' if v.get("note") else ""
-    off = f' <a href="{html.escape(v["official"])}" rel="noopener">公式サイト</a>' if v.get("official") else ""
-    src = f'<p class="checked">{VSTATUS[v["status"]]}（<a href="{html.escape(v["source"])}" rel="nofollow noopener">出典</a>、{v["checked_on"]}）{off}</p>'
+    NOLINK = ("ggpoker",)  # オンラインポーカーとの提携を公表している店の公式サイトにはリンクしない
+    off = f' <a href="{html.escape(v["official"])}" rel="noopener">公式サイト</a>' if v.get("official") and not any(k in v["official"].lower() for k in NOLINK) else ""
+    gm = f' <a href="https://www.google.com/maps/place/?q=place_id:{v["google_place_id"]}" rel="nofollow noopener">Google マップで場所を見る</a>' if v.get("google_place_id") else ""
+    srclink = "" if v["status"] == "google" else f'（<a href="{html.escape(v["source"])}" rel="nofollow noopener">出典</a>、{v["checked_on"]}）'
+    src = f'<p class="checked">{VSTATUS[v["status"]]}{srclink}{off}{gm}</p>'
     return (f'<article class="venue" data-kind="{html.escape(v["kind"])}" data-ns="{int(bool(v.get("nonsmoking")))}" data-late="{int(bool(v.get("late_night")))}">'
             f'<h3>{html.escape(v["name"])}</h3><div class="tags">{"".join(tags)}</div><dl>{dl}</dl>{note}{src}</article>')
 
 
-FILTER_JS = """<div class="filters"><select id="fk"><option value="">すべての種類</option><option>ポーカー専門</option><option>カジノバー（ポーカーを含む）</option><option>ポーカーも遊べるバー</option><option>レンタルスペース</option></select>
+FILTER_JS = """<div class="filters"><select id="fk"><option value="">すべての種類</option><option>ポーカー専門</option><option>カジノバー（ポーカーを含む）</option><option>ポーカーも遊べるバー</option><option>レンタルスペース</option><option value="要確認">ポーカーの有無を確認中</option></select>
 <label><input type="checkbox" id="fns"> 全席禁煙</label><label><input type="checkbox" id="flate"> 深夜営業（翌1時以降）</label></div><p class="checked" id="fcount"></p>
 <script>(function(){const k=document.getElementById('fk'),n=document.getElementById('fns'),l=document.getElementById('flate'),c=document.getElementById('fcount');
 function f(){let s=0;document.querySelectorAll('.venue').forEach(v=>{const ok=(!k.value||v.dataset.kind===k.value)&&(!n.checked||v.dataset.ns==='1')&&(!l.checked||v.dataset.late==='1');v.style.display=ok?'':'none';if(ok)s++});c.textContent=s+' 店を表示中';
@@ -222,14 +226,14 @@ def tokyo_pages(paths):
     d = json.loads((ROOT / "data/tokyo_venues.json").read_text())
     vs = [v for v in d["venues"] if v["in_23wards"]]
     by = {}
-    KORDER = {"ポーカー専門": 0, "カジノバー（ポーカーを含む）": 1, "ポーカーも遊べるバー": 2, "レンタルスペース": 3}
+    KORDER = {"ポーカー専門": 0, "カジノバー（ポーカーを含む）": 1, "ポーカーも遊べるバー": 2, "レンタルスペース": 3, "要確認": 4}
     for v in sorted(vs, key=lambda v: (KORDER.get(v["kind"], 9), v["name"])): by.setdefault(v["ward"], []).append(v)
     order = [w for w in WARDS if w in by]
     links = " ".join(f'<a href="/tokyo/{WARDS[w]}/">{w}（{len(by[w])}）</a>' for w in order)
     secs = "".join(f'<section class="ward"><h2><a href="/tokyo/{WARDS[w]}/">{w}</a></h2>{"".join(venue_card(v) for v in by[w])}</section>' for w in order)
     lead_names = "、".join(html.escape(l["name"]) for l in d["leads"] if l.get("in_23wards"))
     body = f"""<h1>東京 23 区のポーカー店</h1>
-<p>アミューズメントポーカーの店を区ごとにまとめています。住所と営業時間は、店が自分で掲載している情報や記事で確認し、出典と確認日を付けています。来店前に、店の公式情報で最新の営業状況を確認してください。</p>
+<p>アミューズメントポーカーの店を区ごとにまとめています。住所と営業時間は、店が自分で掲載している情報や記事で確認し、出典と確認日を付けています。住所をまだ載せていない店は、Google マップで営業中であることを確認済みで、場所は地図のリンクから見られます。来店前に、店の公式情報で最新の営業状況を確認してください。</p>
 <p class="checked">掲載 {len(vs)} 店（確認日：{d['checked_on']}）。<a href=\"/owners/\">店主の方は、掲載内容の訂正や追加を無料で受け付けます</a>。</p>
 <p>{links}</p>{FILTER_JS}{secs}
 <h2>確認中の店</h2><p class="checked">次の店は、名前を把握していますが、住所や営業状況をまだ確認できていません：{lead_names}</p>"""

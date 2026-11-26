@@ -1,7 +1,20 @@
 {
  "checked_on": "2026-11-26",
- "note": "status: store_listing = 店がホットペッパーに載せた情報で、住所と営業時間を確認 / lead = 手がかりのみ（未確認） / press = 報道や紹介記事、他サイトの掲載情報で確認（公式で要確認）",
+ "note": "status: store_listing = 店がホットペッパーに載せた情報で、住所と営業時間を確認 / lead = 手がかりのみ（未確認） / press = 報道や紹介記事、他サイトの掲載情報で確認（公式で要確認） / google = Google マップで営業中を確認（住所などは店の公式情報で確認中）",
  "venues": [
+  {
+   "name": "BACKDOOR SHIMOKITA",
+   "kind": "要確認",
+   "ward": "世田谷区",
+   "in_23wards": true,
+   "google_place_id": "ChIJoVNW0UrzGGAR1j7KqFeUCvY",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://shimokita.backdoor.casino/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJoVNW0UrzGGAR1j7KqFeUCvY"
+  },
   {
    "name": "PokerRoom P3 下北沢",
    "kind": "ポーカー専門",
@@ -17,7 +30,11 @@
    "seats": "30席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ004089667/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_status": "OPERATIONAL",
+   "google_place_id": "ChIJnVGxmrzzGGARLr-Yk_B-7Sw",
+   "google_checked_on": "2026-11-26",
+   "official": "https://p3-shimokita.com/"
   },
   {
    "name": "Pool&Darts EDGE",
@@ -34,7 +51,180 @@
    "seats": "42席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ004660379/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJWTidjgfzGGARzz6FogFoIXM",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://twitter.com/edgemeidaimae"
+  },
+  {
+   "name": "ポーカールームOJARUMARU おじゃる丸三軒茶屋店",
+   "kind": "ポーカー専門",
+   "ward": "世田谷区",
+   "in_23wards": true,
+   "google_place_id": "ChIJJY4xVrGJGGARlFU2Bv4Bvs8",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJJY4xVrGJGGARlFU2Bv4Bvs8"
+  },
+  {
+   "name": "メンサポーカー",
+   "kind": "ポーカー専門",
+   "ward": "世田谷区",
+   "in_23wards": true,
+   "google_place_id": "ChIJnemyx2vzGGARLW8aWQu5Wx8",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJnemyx2vzGGARLW8aWQu5Wx8"
+  },
+  {
+   "name": "BACKDOOR GINZA",
+   "kind": "要確認",
+   "ward": "中央区",
+   "in_23wards": true,
+   "google_place_id": "ChIJodZj8oiLGGAR1bu06NLLaKg",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://ginza.backdoor.casino/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJodZj8oiLGGAR1bu06NLLaKg"
+  },
+  {
+   "name": "Darts Bar A's 日本橋茅場町店【ダーツ＆ポーカー】",
+   "kind": "ポーカー専門",
+   "ward": "中央区",
+   "in_23wards": true,
+   "google_place_id": "ChIJCWp0ZtGJGGARcM1vw4QjYco",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "http://dart-ace.com/nihonbashi-kayabacho/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJCWp0ZtGJGGARcM1vw4QjYco"
+  },
+  {
+   "name": "POKER FACE TOKYO TRADITION",
+   "kind": "ポーカー専門",
+   "ward": "中央区",
+   "in_23wards": true,
+   "google_place_id": "ChIJ92c8x1WJGGARmGNLBPjpY5Y",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://www.pokerface-web.com/shop_list/pokerfacetokyotradition/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJ92c8x1WJGGARmGNLBPjpY5Y"
+  },
+  {
+   "name": "PokerPark 銀座東店",
+   "kind": "ポーカー専門",
+   "ward": "中央区",
+   "in_23wards": true,
+   "google_place_id": "ChIJU1mMj2SLGGARoCkMNKCr4j4",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://poker-park.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJU1mMj2SLGGARoCkMNKCr4j4"
+  },
+  {
+   "name": "Ri:Vera(リベラ)人形町 アミューズメントポーカー・バー",
+   "kind": "ポーカー専門",
+   "ward": "中央区",
+   "in_23wards": true,
+   "google_place_id": "ChIJF0mpCROJGGARtMMm0uwCwB4",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://rivera-bar.net/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJF0mpCROJGGARtMMm0uwCwB4"
+  },
+  {
+   "name": "ポーカーファンズ株式会社",
+   "kind": "ポーカー専門",
+   "ward": "中央区",
+   "in_23wards": true,
+   "google_place_id": "ChIJ5QO6mU2JGGARt8ZjOursRUs",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "http://pokerfans.co.jp/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJ5QO6mU2JGGARt8ZjOursRUs"
+  },
+  {
+   "name": "銀座ビバリーヒルズ(BEVERLY HILLS) アミューズメントカジノバー",
+   "kind": "カジノバー（ポーカーを含む）",
+   "ward": "中央区",
+   "in_23wards": true,
+   "google_place_id": "ChIJvwOJ_92LGGARkOdRiYpGMxk",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://ginzabeverlyhills.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJvwOJ_92LGGARkOdRiYpGMxk"
+  },
+  {
+   "name": "銀座ポーカーラウンジ/GINZA Poker Lounge",
+   "kind": "ポーカー専門",
+   "ward": "中央区",
+   "in_23wards": true,
+   "google_place_id": "ChIJb5OZ2XaJGGARSojDxRIppOI",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://www.ginzapokerlounge.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJb5OZ2XaJGGARSojDxRIppOI"
+  },
+  {
+   "name": "DDPT 中野P-labo.第3会議室 ポーカーアミューズメント",
+   "kind": "ポーカー専門",
+   "ward": "中野区",
+   "in_23wards": true,
+   "google_place_id": "ChIJ9egiylDzGGAR3NfeTbQFhjg",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://x.com/nakanoplabo",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJ9egiylDzGGAR3NfeTbQFhjg"
+  },
+  {
+   "name": "Fratz中野店",
+   "kind": "要確認",
+   "ward": "中野区",
+   "in_23wards": true,
+   "google_place_id": "ChIJAQBpuJbyGGARiFqEkagVcyo",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://x.com/fratznakano",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJAQBpuJbyGGARiFqEkagVcyo"
+  },
+  {
+   "name": "アミューズメント・カジノ 3BET",
+   "kind": "カジノバー（ポーカーを含む）",
+   "ward": "中野区",
+   "in_23wards": true,
+   "google_place_id": "ChIJVVWRc8nyGGAR0DSTl6dvqQI",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJVVWRc8nyGGAR0DSTl6dvqQI"
   },
   {
    "name": "中野シーシャ酒場｜トリガー",
@@ -51,7 +241,11 @@
    "seats": "10席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003736911/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJXQLoNMPzGGARMe9MB8vRmXs",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://twitter.com/TRIGGER_ML"
   },
   {
    "name": "BLOW 八王子",
@@ -71,6 +265,19 @@
    "checked_on": "2026-11-26"
   },
   {
+   "name": "C.S.T.P AKABANE アミューズメントポーカーバー",
+   "kind": "ポーカー専門",
+   "ward": "北区",
+   "in_23wards": true,
+   "google_place_id": "ChIJgXI3PpKTGGARshiTIOssNDY",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://c-s-t-p.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJgXI3PpKTGGARshiTIOssNDY"
+  },
+  {
    "name": "THE CROWN",
    "kind": "ポーカー専門",
    "ward": "北区",
@@ -85,7 +292,11 @@
    "seats": "50席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ004536793/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJUVt7IQCTGGAR0RE6L8WTG7U",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://thecrown.co.jp/"
   },
   {
    "name": "starry eye",
@@ -102,7 +313,50 @@
    "seats": "70席(カウンター、テーブル、ソファーなど)",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ001117301/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJMxYwWI2SGGAR8euI8FGD8ns",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://starry-eye.com/"
+  },
+  {
+   "name": "赤羽ポーカーハウス ASOBIBAR Le・coeur",
+   "kind": "ポーカー専門",
+   "ward": "北区",
+   "in_23wards": true,
+   "google_place_id": "ChIJMb-7Ov2SGGARWjYL2tHGzO4",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://www.asobibar-lecoeur.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJMb-7Ov2SGGARWjYL2tHGzO4"
+  },
+  {
+   "name": "BLOW銀座裏コリドー店",
+   "kind": "要確認",
+   "ward": "千代田区",
+   "in_23wards": true,
+   "google_place_id": "ChIJw4LkG1WLGGARMcT6OA3yZeM",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://blow-casino.com/shop/detail.html?id=323",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJw4LkG1WLGGARMcT6OA3yZeM"
+  },
+  {
+   "name": "SEED by じゃんけんポーカー",
+   "kind": "ポーカー専門",
+   "ward": "千代田区",
+   "in_23wards": true,
+   "google_place_id": "ChIJbzw6aW-NGGAR5FLIOm4Mju4",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://seed-poker.jp/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJbzw6aW-NGGAR5FLIOm4Mju4"
   },
   {
    "name": "【宴会×貸切】COZY DINING＆BAR（コージー ダイニング＆バー）",
@@ -119,7 +373,125 @@
    "seats": "42席(（カウンター16席、テーブル26席）)",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003984908/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_status": "NOT_IN_SEARCH"
+  },
+  {
+   "name": "【神田むさぽ】MUSASHI POKER ROOM 神田店 ポーカー",
+   "kind": "ポーカー専門",
+   "ward": "千代田区",
+   "in_23wards": true,
+   "google_place_id": "ChIJhR8KFBqNGGARyPPKh2bDfkQ",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://634poker-kanda.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJhR8KFBqNGGARyPPKh2bDfkQ"
+  },
+  {
+   "name": "アキバギルド 秋葉原 ポーカー",
+   "kind": "ポーカー専門",
+   "ward": "千代田区",
+   "in_23wards": true,
+   "google_place_id": "ChIJnzbBpx2MGGARMf5ijm7SB54",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://amusementnavi.com/akibaguild-ad/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJnzbBpx2MGGARMf5ijm7SB54"
+  },
+  {
+   "name": "ポカベヤ アキバベヤ",
+   "kind": "要確認",
+   "ward": "千代田区",
+   "in_23wards": true,
+   "google_place_id": "ChIJZ2HtEleNGGARDRVMjY0iRfQ",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://www.poker-bear.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJZ2HtEleNGGARDRVMjY0iRfQ"
+  },
+  {
+   "name": "ポーカーギルド株式会社",
+   "kind": "ポーカー専門",
+   "ward": "千代田区",
+   "in_23wards": true,
+   "google_place_id": "ChIJefMi0XyNGGARGP_7mxBxjIg",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://pokerguild.jp/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJefMi0XyNGGARGP_7mxBxjIg"
+  },
+  {
+   "name": "ポーカー・フェイス・コンサルティング株式会社",
+   "kind": "ポーカー専門",
+   "ward": "千代田区",
+   "in_23wards": true,
+   "google_place_id": "ChIJXxjrfASMGGARmYp-IUHfir0",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://www.pokerface.jp/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJXxjrfASMGGARmYp-IUHfir0"
+  },
+  {
+   "name": "秋葉原カジノクエスト 秋葉原 ポーカー",
+   "kind": "ポーカー専門",
+   "ward": "千代田区",
+   "in_23wards": true,
+   "google_place_id": "ChIJjUV2xB2MGGARXMK7R2uKlVw",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://akiba-casino.jp/lp/akiba_casino/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJjUV2xB2MGGARXMK7R2uKlVw"
+  },
+  {
+   "name": "秋葉原・神田ポーカーレンタルスペースデュエル",
+   "kind": "ポーカー専門",
+   "ward": "千代田区",
+   "in_23wards": true,
+   "google_place_id": "ChIJvdnrLW-PGGARXrmoclqpnzA",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://www.pokerduel.jp/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJvdnrLW-PGGARXrmoclqpnzA"
+  },
+  {
+   "name": "（有）ポーカー・フェイス",
+   "kind": "ポーカー専門",
+   "ward": "千代田区",
+   "in_23wards": true,
+   "google_place_id": "ChIJPTk-NEOMGGARtnhDPwH5fyY",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "http://www.pokerface.co.jp/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJPTk-NEOMGGARtnhDPwH5fyY"
+  },
+  {
+   "name": "BACKDOOR ASAKUSABASHI",
+   "kind": "要確認",
+   "ward": "台東区",
+   "in_23wards": true,
+   "google_place_id": "ChIJX8irPdSPGGAR1CZyZ8XbgDc",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://asakusabashi.backdoor.casino/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJX8irPdSPGGAR1CZyZ8XbgDc"
   },
   {
    "name": "BLOW 上野",
@@ -136,7 +508,50 @@
    "seats": "40席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003916539/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJpwkFMACPGGARZmunQhH-tKo",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://upright-wolf-79g6nh.mystrikingly.com/"
+  },
+  {
+   "name": "ガットショット 上野池之端店",
+   "kind": "要確認",
+   "ward": "台東区",
+   "in_23wards": true,
+   "google_place_id": "ChIJh6RtDC6NGGAR1wuu-rVrVcE",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "http://gutshot.group/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJh6RtDC6NGGAR1wuu-rVrVcE"
+  },
+  {
+   "name": "コーナーポケット",
+   "kind": "要確認",
+   "ward": "台東区",
+   "in_23wards": true,
+   "google_place_id": "ChIJyecSUbiOGGARBtnaI0XLpn8",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://conapoke.sunvy.jp/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJyecSUbiOGGARBtnaI0XLpn8"
+  },
+  {
+   "name": "日本ポーカー協会",
+   "kind": "ポーカー専門",
+   "ward": "台東区",
+   "in_23wards": true,
+   "google_place_id": "ChIJdesFUbiOGGARkCRu1eK2Y2U",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "http://www.poker.or.jp/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJdesFUbiOGGARkCRu1eK2Y2U"
   },
   {
    "name": "ＡｇｒａｂａＲ",
@@ -153,7 +568,11 @@
    "seats": "50席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ001284758/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJsSMfsDuPGGARg4B7Qr4J-7M",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://ueno-agrabar.shopinfo.jp/"
   },
   {
    "name": "635Lounge",
@@ -170,7 +589,21 @@
    "seats": "23席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003872429/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_status": "NOT_IN_SEARCH"
+  },
+  {
+   "name": "CASUAL POKER ROOM EVERY 五反田（ポーカールーム）",
+   "kind": "ポーカー専門",
+   "ward": "品川区",
+   "in_23wards": true,
+   "google_place_id": "ChIJB0bxbxuLGGARbT_EPKcJUSo",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://casual-poker-room-every.jp/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJB0bxbxuLGGARbT_EPKcJUSo"
   },
   {
    "name": "Family Pot 目黒店",
@@ -187,7 +620,89 @@
    "seats": "11席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ004576831/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJYwXupKKLGGARQ4F9hUfPbAY",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://familypot.jp/locations"
+  },
+  {
+   "name": "PokerLeague五反田（ポーカーリーグ）",
+   "kind": "ポーカー専門",
+   "ward": "品川区",
+   "in_23wards": true,
+   "google_place_id": "ChIJqQEzaO2LGGARUNkGeTDilXs",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://twitter.com/PokerLeagueJPN",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJqQEzaO2LGGARUNkGeTDilXs"
+  },
+  {
+   "name": "アミューズメントカジノバーBLOW五反田",
+   "kind": "カジノバー（ポーカーを含む）",
+   "ward": "品川区",
+   "in_23wards": true,
+   "google_place_id": "ChIJXz24RTCLGGAREA6Zs8Hxq-0",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://blow-casino.com/shop/detail.html?id=460",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJXz24RTCLGGAREA6Zs8Hxq-0"
+  },
+  {
+   "name": "Double Pot (ダブルポット) 錦糸町",
+   "kind": "要確認",
+   "ward": "墨田区",
+   "in_23wards": true,
+   "google_place_id": "ChIJm9f7zrqJGGARDhmLL9KGsJg",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "http://d-pot.jp/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJm9f7zrqJGGARDhmLL9KGsJg"
+  },
+  {
+   "name": "KingFour Poker Bar",
+   "kind": "ポーカー専門",
+   "ward": "墨田区",
+   "in_23wards": true,
+   "google_place_id": "ChIJf4dhh8OJGGARRqxK96AZCwA",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://x.com/kingfour_kinshi?s=21",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJf4dhh8OJGGARRqxK96AZCwA"
+  },
+  {
+   "name": "No Limit Poker bar",
+   "kind": "ポーカー専門",
+   "ward": "墨田区",
+   "in_23wards": true,
+   "google_place_id": "ChIJqe4YeCGJGGARbEwgdpIyhgI",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://www.nl-poker.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJqe4YeCGJGGARbEwgdpIyhgI"
+  },
+  {
+   "name": "錦糸町 PPOKER(ピーポーカー)",
+   "kind": "ポーカー専門",
+   "ward": "墨田区",
+   "in_23wards": true,
+   "google_place_id": "ChIJ5XJUMKuJGGARcVQFLsfVojc",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://x.com/PPOKERaa",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJ5XJUMKuJGGARcVQFLsfVojc"
   },
   {
    "name": "Amusement cafe&bar Cheers 蒲田",
@@ -204,7 +719,24 @@
    "seats": "15席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003959008/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJj2bYBSlhGGARoFG22nGevv8",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://lit.link/kamata_cheers"
+  },
+  {
+   "name": "BACKDOOR KAMATA",
+   "kind": "要確認",
+   "ward": "大田区",
+   "in_23wards": true,
+   "google_place_id": "ChIJx_04DuhhGGARg0WVqfBxUj4",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://kamata.backdoor.casino/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJx_04DuhhGGARg0WVqfBxUj4"
   },
   {
    "name": "Giraffe poker Kamata",
@@ -221,7 +753,24 @@
    "seats": "27席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ004536283/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJbTWjbUFhGGAR5ZTr6YiqHM8",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://giraffe-poker.com/"
+  },
+  {
+   "name": "Nuts&Star 蒲田",
+   "kind": "要確認",
+   "ward": "大田区",
+   "in_23wards": true,
+   "google_place_id": "ChIJo5MYqk5hGGAR3PHyliOkTuU",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJo5MYqk5hGGAR3PHyliOkTuU"
   },
   {
    "name": "Poker Bar Unknown",
@@ -238,7 +787,63 @@
    "seats": "27席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ004536239/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJfYCpfRZhGGAR1TIoD_2pmBo",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://twitter.com/pokerBARUnknown"
+  },
+  {
+   "name": "ポーカーバーエミーオ(Emio)",
+   "kind": "ポーカー専門",
+   "ward": "大田区",
+   "in_23wards": true,
+   "google_place_id": "ChIJxyXC911hGGAR0lVRIZ1qOZg",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJxyXC911hGGAR0lVRIZ1qOZg"
+  },
+  {
+   "name": "POKER BAR TURAN",
+   "kind": "ポーカー専門",
+   "ward": "文京区",
+   "in_23wards": true,
+   "google_place_id": "ChIJtXFPVwCNGGARs6RCvOl3itY",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://pokerturan.jp/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJtXFPVwCNGGARs6RCvOl3itY"
+  },
+  {
+   "name": "アミューズメントカジノ＆ＢＡＲ Ｌｏｏｓｅ",
+   "kind": "カジノバー（ポーカーを含む）",
+   "ward": "文京区",
+   "in_23wards": true,
+   "google_place_id": "ChIJIz4ei3uNGGARi8e3Xr_mv1M",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJIz4ei3uNGGARi8e3Xr_mv1M"
+  },
+  {
+   "name": "ガットショット 上野湯島本店",
+   "kind": "要確認",
+   "ward": "文京区",
+   "in_23wards": true,
+   "google_place_id": "ChIJAQAMayCMGGAR9nNGiYZAOWE",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "http://gutshot.tokyo/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJAQAMayCMGGAR9nNGiYZAOWE"
   },
   {
    "name": "ALL IN POKER CLUB",
@@ -255,7 +860,11 @@
    "seats": "50席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003828641/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJAWosAbuNGGARQdQIFl2lN04",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "http://allinpokerclub.jp/allin/"
   },
   {
    "name": "BLOW 歌舞伎町",
@@ -272,7 +881,24 @@
    "seats": "60席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003365073/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJFxii6OiNGGARs9XMBKJuSAQ",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://blow-casino.com/shop/detail.html?id=209"
+  },
+  {
+   "name": "Casino Live Tokyo 新宿 ポーカー",
+   "kind": "ポーカー専門",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJW6SJu0eNGGARz4HKFbK_k0o",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://casino-live-tokyo.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJW6SJu0eNGGARz4HKFbK_k0o"
   },
   {
    "name": "D.D poker 高田馬場",
@@ -289,7 +915,37 @@
    "seats": "44席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003784079/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJ44-uRXCNGGARHql3GPv5XSE",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://www.dd-poker.com/"
+  },
+  {
+   "name": "Family Pot 四ツ谷店",
+   "kind": "要確認",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJdXS8Ng-NGGARMPut3LTVo9g",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://familypot.jp/locations",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJdXS8Ng-NGGARMPut3LTVo9g"
+  },
+  {
+   "name": "Family Pot 飯田橋店",
+   "kind": "要確認",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJ2zfnyGGNGGAR5QENsjdPOKE",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://familypot.jp/locations",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJ2zfnyGGNGGAR5QENsjdPOKE"
   },
   {
    "name": "GiGO POKER新宿",
@@ -307,7 +963,10 @@
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ004402639/",
    "checked_on": "2026-11-26",
-   "official": "https://contents.gendagigo.jp/poker/shop/shinjuku"
+   "official": "https://contents.gendagigo.jp/poker/shop/shinjuku",
+   "google_place_id": "ChIJ9TTddQCNGGARjHUCWSeWYlw",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26"
   },
   {
    "name": "GiGO POKER新宿西口",
@@ -325,7 +984,101 @@
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ004576724/",
    "checked_on": "2026-11-26",
-   "official": "https://contents.gendagigo.jp/poker/shop/shinjuku-nishiguchi"
+   "official": "https://contents.gendagigo.jp/poker/shop/shinjuku-nishiguchi",
+   "google_place_id": "ChIJG1SkwieNGGARrOz9EllFayY",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26"
+  },
+  {
+   "name": "GoodGame Poker Live 新宿",
+   "kind": "ポーカー専門",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJqwznfiqNGGARS-8wy3rCRJg",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://ggpokerlive.jp/shinjuku/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJqwznfiqNGGARS-8wy3rCRJg"
+  },
+  {
+   "name": "JCSホールデム",
+   "kind": "ポーカー専門",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJF0t2ke2MGGARtwD-CCksBq8",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://jcsh.jp/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJF0t2ke2MGGARtwD-CCksBq8"
+  },
+  {
+   "name": "Japan Open Poker Tour / JOPT",
+   "kind": "ポーカー専門",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJBcd5LxyMGGARKMDKszCWDRQ",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "http://japanopenpoker.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJBcd5LxyMGGARKMDKszCWDRQ"
+  },
+  {
+   "name": "KKLIVE POKER SHINJUKU",
+   "kind": "ポーカー専門",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJgziTWCONGGAR84WcszAjUyI",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://kklivepoker.com/shinjuku",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJgziTWCONGGAR84WcszAjUyI"
+  },
+  {
+   "name": "M☆SPACE エムスペース ポーカー貸卓",
+   "kind": "ポーカー専門",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJvVfr3siNGGARuuok7kj1ezo",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://www.mspace23457.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJvVfr3siNGGARuuok7kj1ezo"
+  },
+  {
+   "name": "NewbeePoker",
+   "kind": "ポーカー専門",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJgSLjJ9KNGGARwfa6Ju2-sWQ",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://x.com/Newbee2024?t=MJApgfVu2wTqRe6TkNDFqQ&s=09",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJgSLjJ9KNGGARwfa6Ju2-sWQ"
+  },
+  {
+   "name": "POKER JUNKIE SHINJUKU",
+   "kind": "ポーカー専門",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJaeElDgCNGGARI4O2OaTpFgA",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://x.com/JUNKIE_SHINJUKU",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJaeElDgCNGGARI4O2OaTpFgA"
   },
   {
    "name": "Poker Bar Fratz",
@@ -342,7 +1095,284 @@
    "seats": "35席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003715741/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJ7VtmW-WNGGARt26vqQ7JeHo",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://fratz-poker.com/?utm_source=GBP&utm_medium=GBP&utm_term=GBP&utm_content=GBP&utm_campaign=GBP"
+  },
+  {
+   "name": "PukuPukuNEON新宿店(プクプクネオン)Poker（ポーカー）",
+   "kind": "ポーカー専門",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJl3bk2N6NGGARgl59JnRQIbk",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://shisha-pukupuku.com/tokyo/kabukicho/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJl3bk2N6NGGARgl59JnRQIbk"
+  },
+  {
+   "name": "RFID POKER ROOM",
+   "kind": "ポーカー専門",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJKQn35S6NGGARXG0tBgUx24M",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJKQn35S6NGGARXG0tBgUx24M"
+  },
+  {
+   "name": "RICGAMES SHINJUKU | 新宿歌舞伎町ポーカー",
+   "kind": "ポーカー専門",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJHyYAO3SNGGARmef9VJnrgro",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://ricgames.jp/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJHyYAO3SNGGARmef9VJnrgro"
+  },
+  {
+   "name": "Rabbit Hold'em 歌舞伎町 ポーカー",
+   "kind": "ポーカー専門",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJxen6DFGNGGAR7HjdI8jIE3Q",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://rabbitholdem.simdif.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJxen6DFGNGGAR7HjdI8jIE3Q"
+  },
+  {
+   "name": "SPADE ポーカー&ダイニングバー 新宿歌舞伎町",
+   "kind": "ポーカー専門",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJDwUTlCeNGGARNQgmYCY7RoU",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://www.instagram.com/spade_0106/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJDwUTlCeNGGARNQgmYCY7RoU"
+  },
+  {
+   "name": "XCASINO",
+   "kind": "カジノバー（ポーカーを含む）",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJwybItv6NGGAR0rXQOBHR8RY",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://xplace.tokyo/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJwybItv6NGGAR0rXQOBHR8RY"
+  },
+  {
+   "name": "【ポーカースタジアム】BIG BOSS JAPAN",
+   "kind": "ポーカー専門",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJM6jhfrKNGGARYxf_8zA-XXs",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://bigboss-poker.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJM6jhfrKNGGARYxf_8zA-XXs"
+  },
+  {
+   "name": "ぽかふぇ(火曜日のポーカーサークル)",
+   "kind": "ポーカー専門",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJNe8RzamNGGARJEpGXxGPYYc",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://lit.link/_pocafe_",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJNe8RzamNGGARJEpGXxGPYYc"
+  },
+  {
+   "name": "アミューズメントカジノバー 新宿 ビッグバン",
+   "kind": "カジノバー（ポーカーを含む）",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJ9dpHRdiMGGARrdn6G8z34Pc",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "http://bar-bigbang.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJ9dpHRdiMGGARrdn6G8z34Pc"
+  },
+  {
+   "name": "カジスタ東京",
+   "kind": "要確認",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJn9ShTNaMGGARID3_AtQ591Y",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://casi-sta.com/?utm_source=google&utm_medium=google_map&utm_campaign=t_map_01",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJn9ShTNaMGGARID3_AtQ591Y"
+  },
+  {
+   "name": "カジノバー WARUPURU ワルプル 新宿歌舞伎町",
+   "kind": "カジノバー（ポーカーを含む）",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJK6D2T9-NGGAR7hS8yFz6pNg",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://warupuru.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJK6D2T9-NGGAR7hS8yFz6pNg"
+  },
+  {
+   "name": "ガットショット 高田馬場店 ポーカー",
+   "kind": "ポーカー専門",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJX4w0zPqNGGARpYkIykYQwuc",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://takadanobaba.gutshot.group/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJX4w0zPqNGGARpYkIykYQwuc"
+  },
+  {
+   "name": "バブル 歌舞伎店",
+   "kind": "要確認",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJ3SetXlONGGARADwASNuuci8",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJ3SetXlONGGARADwASNuuci8"
+  },
+  {
+   "name": "ポカスペ高田馬場（多目的レンタルスペース）",
+   "kind": "要確認",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJQ06kwcWNGGARkVOMP8WUDbs",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://line.me/R/ti/p/@832vyjjf",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJQ06kwcWNGGARkVOMP8WUDbs"
+  },
+  {
+   "name": "四谷ポーカールーム シュガーラッシュ",
+   "kind": "ポーカー専門",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJA7w2zeKNGGARxp5FuJzZr6I",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://sugarrush-yotsuya.jp/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJA7w2zeKNGGARxp5FuJzZr6I"
+  },
+  {
+   "name": "新宿三丁目 Poker-LINE-",
+   "kind": "ポーカー専門",
+   "ward": "新宿区",
+   "in_23wards": true,
+   "google_place_id": "ChIJXYpD6mONGGARdqGVe2kZK0o",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://poker-line.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJXYpD6mONGGARdqGVe2kZK0o"
+  },
+  {
+   "name": "QUEEN SEA｜阿佐ヶ谷ポーカー｜QUEENSEA",
+   "kind": "ポーカー専門",
+   "ward": "杉並区",
+   "in_23wards": true,
+   "google_place_id": "ChIJCXV-UgDzGGARCt_N1dbaCeU",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://x.com/queensea_asg?s=21&t=Jg0TPiL-cmr6oh7FurSK_A",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJCXV-UgDzGGARCt_N1dbaCeU"
+  },
+  {
+   "name": "poker room GRAVITY",
+   "kind": "ポーカー専門",
+   "ward": "杉並区",
+   "in_23wards": true,
+   "google_place_id": "ChIJxbXFpLXlGGARQa6tvSmhlEs",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://gravity-poker.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJxbXFpLXlGGARQa6tvSmhlEs"
+  },
+  {
+   "name": "raid=gig",
+   "kind": "要確認",
+   "ward": "杉並区",
+   "in_23wards": true,
+   "google_place_id": "ChIJ-QhxoIjyGGAR4aWlEr9yu1U",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "http://raidgig.net/bar_raidgig/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJ-QhxoIjyGGAR4aWlEr9yu1U"
+  },
+  {
+   "name": "ポーカー",
+   "kind": "ポーカー専門",
+   "ward": "杉並区",
+   "in_23wards": true,
+   "google_place_id": "ChIJ_cHTOSTzGGARrk1a8HU0laY",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJ_cHTOSTzGGARrk1a8HU0laY"
+  },
+  {
+   "name": "アミューズメントバー RAISE",
+   "kind": "要確認",
+   "ward": "板橋区",
+   "in_23wards": true,
+   "google_place_id": "ChIJwfc6QzTtGGAROamKEln5Qt0",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://x.com/barraise_at?s=21&t=56q6WcqsNwUSVd75y7WfQA",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJwfc6QzTtGGAROamKEln5Qt0"
   },
   {
    "name": "ベルバードポーカー 板橋大山店",
@@ -360,7 +1390,8 @@
    "status": "press",
    "source": "https://www.inside-games.jp/release/prtimes/20260810/301326.html",
    "checked_on": "2026-11-26",
-   "note": "2026年8月11日開店のプレスリリース"
+   "note": "2026年8月11日開店のプレスリリース",
+   "google_status": "NOT_IN_SEARCH"
   },
   {
    "name": "Extreme Bar BACKDOOR 吉祥寺",
@@ -397,6 +1428,19 @@
    "checked_on": "2026-11-26"
   },
   {
+   "name": "72【SEVEN DEUCE】",
+   "kind": "要確認",
+   "ward": "江戸川区",
+   "in_23wards": true,
+   "google_place_id": "ChIJ2xE-XKuJGGARpkND1mXCzpA",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://www.instagram.com/72sevendeuce_hirai?igsh=MWwwcGRjMzl1MGJ5YQ==&utm_source=qr",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJ2xE-XKuJGGARpkND1mXCzpA"
+  },
+  {
    "name": "Darts&Amusement Bar LIBERTY",
    "kind": "ポーカーも遊べるバー",
    "ward": "江戸川区",
@@ -411,7 +1455,86 @@
    "seats": "28席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ004090143/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_status": "NOT_IN_SEARCH"
+  },
+  {
+   "name": "K Poker & bar 小岩店",
+   "kind": "ポーカー専門",
+   "ward": "江戸川区",
+   "in_23wards": true,
+   "google_place_id": "ChIJscRSSYOFGGARr3KT-iOpzgY",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://www.tomo-international.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJscRSSYOFGGARr3KT-iOpzgY"
+  },
+  {
+   "name": "Poker Room IN'PUSH 小岩【ポーカー】",
+   "kind": "ポーカー専門",
+   "ward": "江戸川区",
+   "in_23wards": true,
+   "google_place_id": "ChIJi0cvSxCFGGAR9ICpl1P5rx4",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://www.inpush-poker.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJi0cvSxCFGGAR9ICpl1P5rx4"
+  },
+  {
+   "name": "Poker&Cafe nami",
+   "kind": "ポーカー専門",
+   "ward": "江戸川区",
+   "in_23wards": true,
+   "google_place_id": "ChIJb6ES1CKHGGARV5taCmKZpAU",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://pokercafe.jp/nami/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJb6ES1CKHGGARV5taCmKZpAU"
+  },
+  {
+   "name": "葛西アミューズメントカジノバー H3AL(ハル)",
+   "kind": "カジノバー（ポーカーを含む）",
+   "ward": "江戸川区",
+   "in_23wards": true,
+   "google_place_id": "ChIJAS-i7O2HGGARhacqtHB3Qyc",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "http://www.triple-h-al.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJAS-i7O2HGGARhacqtHB3Qyc"
+  },
+  {
+   "name": "BLOW 亀戸ミリオン",
+   "kind": "要確認",
+   "ward": "江東区",
+   "in_23wards": true,
+   "google_place_id": "ChIJ6Xzz6MSIGGARaljc8s9wQ4E",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://ity-casino.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJ6Xzz6MSIGGARaljc8s9wQ4E"
+  },
+  {
+   "name": "BLOW 渋谷カジノ&ポーカー",
+   "kind": "ポーカー専門",
+   "ward": "渋谷区",
+   "in_23wards": true,
+   "google_place_id": "ChIJieI7xl6NGGARdqF_VbdoNzs",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://blow-casino.com/shop/detail.html?id=278",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJieI7xl6NGGARdqF_VbdoNzs"
   },
   {
    "name": "BLOW 渋谷店",
@@ -428,7 +1551,37 @@
    "seats": "54席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ004421884/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJM3mQDgCNGGAR7nv9Gd_4mdg",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://lit.link/vertextokyo"
+  },
+  {
+   "name": "BUBBLE 恵比寿店",
+   "kind": "要確認",
+   "ward": "渋谷区",
+   "in_23wards": true,
+   "google_place_id": "ChIJwUinBmKLGGAR8EUp0sE9kGM",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://bubblepoker.net/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJwUinBmKLGGAR8EUp0sE9kGM"
+  },
+  {
+   "name": "CASINO BLOW 恵比寿",
+   "kind": "カジノバー（ポーカーを含む）",
+   "ward": "渋谷区",
+   "in_23wards": true,
+   "google_place_id": "ChIJ08HsBjGLGGARueqVQiVcyLc",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "http://blow-casino.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJ08HsBjGLGGARueqVQiVcyLc"
   },
   {
    "name": "HATAGAYA BAR EGG",
@@ -445,7 +1598,23 @@
    "seats": "20席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003806779/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_status": "OPERATIONAL",
+   "google_place_id": "ChIJuyQUWMjzGGARPEQ8eRCOc_M",
+   "google_checked_on": "2026-11-26"
+  },
+  {
+   "name": "KKLIVE POKER SHIBUYA 渋谷 ポーカー",
+   "kind": "ポーカー専門",
+   "ward": "渋谷区",
+   "in_23wards": true,
+   "google_place_id": "ChIJqb-qbwCNGGARhYJiVIRHwTM",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://amusementnavi.com/shibuya-lp/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJqb-qbwCNGGARhYJiVIRHwTM"
   },
   {
    "name": "PokerRoom P3",
@@ -462,7 +1631,50 @@
    "seats": "30席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ001264051/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJn476-SSLGGARfb53iVAKyvA",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://p3-poker.com/?utm_source=googlemap"
+  },
+  {
+   "name": "QUEENS AMUSEMENT POKER BAR",
+   "kind": "ポーカー専門",
+   "ward": "渋谷区",
+   "in_23wards": true,
+   "google_place_id": "ChIJ7TRdphKNGGARo-PRxmrUVX8",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://bar-queens.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJ7TRdphKNGGARo-PRxmrUVX8"
+  },
+  {
+   "name": "ROOTS SHIBUYA",
+   "kind": "要確認",
+   "ward": "渋谷区",
+   "in_23wards": true,
+   "google_place_id": "ChIJfWM9LVeNGGARfWdPMyWhApA",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://roots-poker.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJfWM9LVeNGGARfWdPMyWhApA"
+  },
+  {
+   "name": "SOSPOKER",
+   "kind": "ポーカー専門",
+   "ward": "渋谷区",
+   "in_23wards": true,
+   "google_place_id": "ChIJyai-ZlmLGGAREIGQwc4B_W8",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "http://www.sospoker.jp/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJyai-ZlmLGGAREIGQwc4B_W8"
   },
   {
    "name": "Shibuya de Poker",
@@ -479,7 +1691,49 @@
    "seats": "30席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ004469356/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_status": "OPERATIONAL",
+   "google_place_id": "ChIJVUqbOp-NGGARzKznOUUGKQE",
+   "google_checked_on": "2026-11-26"
+  },
+  {
+   "name": "casa渋谷｜アミューズメントポーカーバー",
+   "kind": "ポーカー専門",
+   "ward": "渋谷区",
+   "in_23wards": true,
+   "google_place_id": "ChIJP3mXQQCNGGARVGROCdWA8ck",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJP3mXQQCNGGARVGROCdWA8ck"
+  },
+  {
+   "name": "【渋谷むさぽ】MUSASHI POKER ROOM 渋谷店",
+   "kind": "ポーカー専門",
+   "ward": "渋谷区",
+   "in_23wards": true,
+   "google_place_id": "ChIJD-58VTyLGGARhQbHWhDnFWk",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://web.pokerroom634.com/shibuya/?utm_source=google&utm_medium=organic&utm_campaign=gbp_shibuya",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJD-58VTyLGGARhQbHWhDnFWk"
+  },
+  {
+   "name": "ポーカー&バー PHOME渋谷店",
+   "kind": "ポーカー専門",
+   "ward": "渋谷区",
+   "in_23wards": true,
+   "google_place_id": "ChIJw02gWl2NGGAR8TlXYFs1syY",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://phome-shibuya.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJw02gWl2NGGAR8TlXYFs1syY"
   },
   {
    "name": "ポーカールームGoodGame Poker Live【初心者歓迎×貸切卓あり】",
@@ -496,7 +1750,24 @@
    "seats": "80席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003829349/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJP31Be0yNGGARe1p2cFLEgmc",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://amusementnavi.com/shibuya-lp/"
+  },
+  {
+   "name": "渋谷POKER HOUSE OSKER",
+   "kind": "ポーカー専門",
+   "ward": "渋谷区",
+   "in_23wards": true,
+   "google_place_id": "ChIJpd2C2qmNGGARzZRVs-hmmn8",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "http://shibuyapoker-osker.tokyo/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJpd2C2qmNGGARzZRVs-hmmn8"
   },
   {
    "name": "渋谷×Poker シャルル",
@@ -513,7 +1784,24 @@
    "seats": "30席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003829434/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJcY9OUEGNGGARb_5FbrjCRk4",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://www.instagram.com/poker_charles?igsh=MTFpZG1nZXo0cXVwZQ%3D%3D&utm_source=qr"
+  },
+  {
+   "name": "BAR SlowPlay -tokyo-",
+   "kind": "要確認",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJJ89wTJ2LGGARP3AxVw-FxlY",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://slowplay.black/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJJ89wTJ2LGGARP3AxVw-FxlY"
   },
   {
    "name": "BLOW 六本木 ゴールド",
@@ -530,7 +1818,50 @@
    "seats": "40席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003851470/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJgajKy6yLGGARAtxe0Ara8PE",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://maroon-crab-79g6n6.mystrikingly.com/"
+  },
+  {
+   "name": "BLOW三田",
+   "kind": "要確認",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJBysHGeiLGGARO3OcCDAtKOE",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://mobile.twitter.com/blow_mita",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJBysHGeiLGGARO3OcCDAtKOE"
+  },
+  {
+   "name": "BLOW六本木ドラゴン",
+   "kind": "要確認",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJ3ScFo16LGGAREX-l3bfbGIQ",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://blow-casino.com/shop/detail.html?id=338",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJ3ScFo16LGGAREX-l3bfbGIQ"
+  },
+  {
+   "name": "BUBBLE 赤坂店 アミューズメントカジノ&ポーカーバー",
+   "kind": "ポーカー専門",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJLcQ7hE-NGGARHJXIBe4pXbE",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://x.com/bubble_akasaka?s=21&t=-iiwmjGSZR9cncNn1wOI4g",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJLcQ7hE-NGGARHJXIBe4pXbE"
   },
   {
    "name": "BUBBLE六本木",
@@ -547,7 +1878,24 @@
    "seats": "40席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003887000/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJ2WXMBe-LGGARGZtqZSYWocU",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://twitter.com/bubble_roppongi"
+  },
+  {
+   "name": "CASINO(カジノ)",
+   "kind": "カジノバー（ポーカーを含む）",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJI8NADRmLGGARs6IcDoljzGw",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "http://casinohair.tokyo/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJI8NADRmLGGARs6IcDoljzGw"
   },
   {
    "name": "Extreme Bar BACKDOOR 六本木",
@@ -564,7 +1912,24 @@
    "seats": "59席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003365343/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJ8Quw8ZyLGGAR2h2x2WazMQE",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://roppongi.backdoor.casino/"
+  },
+  {
+   "name": "FT TOKYO【FT東京】",
+   "kind": "要確認",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJaTiL1jyLGGARCH8Ap8wVoSA",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJaTiL1jyLGGARCH8Ap8wVoSA"
   },
   {
    "name": "GiGO POKER 六本木",
@@ -582,7 +1947,60 @@
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ004492282/",
    "checked_on": "2026-11-26",
-   "note": "GiGO POKER 公式サイトの店舗一覧に載っていない（2026-11-26）。閉店や休止の可能性があるため要確認"
+   "note": "GiGO POKER 公式サイトの店舗一覧に載っていない（2026-11-26）。閉店や休止の可能性があるため要確認",
+   "google_status": "NOT_IN_SEARCH"
+  },
+  {
+   "name": "KOIKOI Poker Bar",
+   "kind": "ポーカー専門",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJLwzwxfaLGGARrEIbz4ThD-0",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJLwzwxfaLGGARrEIbz4ThD-0"
+  },
+  {
+   "name": "Luck Spider 六本木ラックスパイダー",
+   "kind": "要確認",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJuzqnZgCLGGARWWSGw5IOShU",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://x.com/luckspider_rpg?s=21&t=fGz4pEGsysQ09rReIvig8Q",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJuzqnZgCLGGARWWSGw5IOShU"
+  },
+  {
+   "name": "LuckRaise(ラックレイズ) ポーカー",
+   "kind": "ポーカー専門",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJu5LoPoeLGGARWxcRDOgmqIM",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://www.luckraise.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJu5LoPoeLGGARWxcRDOgmqIM"
+  },
+  {
+   "name": "MUSASHI POKER ROOM 新橋店",
+   "kind": "ポーカー専門",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJfwqanmyLGGAR2pVt_Uq2j74",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://web.pokerroom634.com/shinbashi/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJfwqanmyLGGAR2pVt_Uq2j74"
   },
   {
    "name": "NINE THREE（ナインスリー）",
@@ -599,7 +2017,24 @@
    "seats": "40席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003432222/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJjRPc4rmLGGAR8hwfcJb_aCY",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://ninethree.jp/"
+  },
+  {
+   "name": "Poker Junkie Roppongi 【ポーカージャンキー】",
+   "kind": "ポーカー専門",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJSUBaGuGLGGARy6-dAO1hL5M",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://x.com/pj_roppongi",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJSUBaGuGLGGARy6-dAO1hL5M"
   },
   {
    "name": "Poker Room Crazy Time",
@@ -616,7 +2051,63 @@
    "seats": "20席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ004444087/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJI7Pn-6CLGGARXbzvGdxnr94",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://poker-crazytime.jp/"
+  },
+  {
+   "name": "Poker Room UPs",
+   "kind": "ポーカー専門",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJ_Z-a2jSLGGARtWKORG-v4vg",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://poker-ups.jp/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJ_Z-a2jSLGGARtWKORG-v4vg"
+  },
+  {
+   "name": "Raftel Casino 六本木",
+   "kind": "カジノバー（ポーカーを含む）",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJ77BqcWGLGGARzjXi5rOb4d4",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://www.instagram.com/raftelcasino_roppongi?igsh=MmttNG42aWlvNjBo&utm_source=qr",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJ77BqcWGLGGARzjXi5rOb4d4"
+  },
+  {
+   "name": "いわし 赤坂 アミューズメントカジノ&ポーカーバー",
+   "kind": "ポーカー専門",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJnRXKpgiNGGARjpUMJt4NBJk",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJnRXKpgiNGGARjpUMJt4NBJk"
+  },
+  {
+   "name": "お台場カジノヴィーナス",
+   "kind": "カジノバー（ポーカーを含む）",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJTaqqjfaJGGARl2pRMSmNOBg",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://casinocafe.jp/casinovenus/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJTaqqjfaJGGARl2pRMSmNOBg"
   },
   {
    "name": "アミューズメントカジノバー BLOW 赤坂",
@@ -633,7 +2124,102 @@
    "seats": "45席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003365072/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJk8CCkkqNGGARKtVGyFww4_U",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://blow-casino.com/shop/detail.html?id=208"
+  },
+  {
+   "name": "ナインスリー 新橋",
+   "kind": "要確認",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJK9sH4_WLGGAR3_CoMBnCk7I",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://ninethree.jp/shinbashi/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJK9sH4_WLGGAR3_CoMBnCk7I"
+  },
+  {
+   "name": "パルプンテ 新橋ポーカーハウス",
+   "kind": "ポーカー専門",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJgREvZvuLGGAR-H2hRoo8X_U",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJgREvZvuLGGAR-H2hRoo8X_U"
+  },
+  {
+   "name": "ベルバードポーカー新橋店",
+   "kind": "ポーカー専門",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJec3JSYeLGGARSeE_lIGV9E4",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://bellbird-poker.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJec3JSYeLGGARSeE_lIGV9E4"
+  },
+  {
+   "name": "ポカベヤ ミタベヤ",
+   "kind": "要確認",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJ2aWDKQOLGGARjt9bXGjuyAs",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://www.poker-bear.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJ2aWDKQOLGGARjt9bXGjuyAs"
+  },
+  {
+   "name": "ポーカー&シーシャバー RPG 六本木店",
+   "kind": "ポーカー専門",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJT4mjCbGLGGARDiAvg4TvQp8",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://rpg.poker/?utm_source=gbp&utm_medium=referral",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJT4mjCbGLGGARDiAvg4TvQp8"
+  },
+  {
+   "name": "ポーカー＆シーシャバー PHOME新橋店",
+   "kind": "ポーカー専門",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJvcYnb6aLGGARbP18b_Xc5Cc",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://phome-shinbashi.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJvcYnb6aLGGARbP18b_Xc5Cc"
+  },
+  {
+   "name": "新橋 FELLOWS（フェローズ） ポーカー 〜アミューズメントカジノ&バー〜",
+   "kind": "ポーカー専門",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJtesNgyaLGGAR4QHdrQHZj2A",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://fellows-poker.com/index.html",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJtesNgyaLGGAR4QHdrQHZj2A"
   },
   {
    "name": "浜松町ポーカー&シーシャバー DOUBLE BELLY BUSTER",
@@ -650,7 +2236,11 @@
    "seats": "30席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003762770/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJAfSLxeaLGGARYdd4zmnQaMI",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://dbb-tokyo.com/"
   },
   {
    "name": "煌Ｂａｒ＆Lounge",
@@ -667,7 +2257,37 @@
    "seats": "30席(カウンター8席、テーブル2名×1卓、4名×1卓、ソファー席×1卓)",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ001036491/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJib1fHw-LGGARektpRNvCPKA",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "http://www.bar-tsuya-kira.com/"
+  },
+  {
+   "name": "西麻布POKER倶楽部 西麻布 ポーカー",
+   "kind": "ポーカー専門",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJiywtj4CLGGARDS4SfGhT_MM",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://x.com/poker20241001?s=21&t=zbjOlCAK-Tv9PkwwQduvlg",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJiywtj4CLGGARDS4SfGhT_MM"
+  },
+  {
+   "name": "西麻布ポーカーバーBluff/港区",
+   "kind": "ポーカー専門",
+   "ward": "港区",
+   "in_23wards": true,
+   "google_place_id": "ChIJXd9Xc4CLGGARNVWxw9-uQEI",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://twitter.com/bluff_hms?s=21",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJXd9Xc4CLGGARNVWxw9-uQEI"
   },
   {
    "name": "ENPOKER町田",
@@ -687,6 +2307,19 @@
    "checked_on": "2026-11-26"
   },
   {
+   "name": "BACKDOOR NAKAMEGURO",
+   "kind": "要確認",
+   "ward": "目黒区",
+   "in_23wards": true,
+   "google_place_id": "ChIJywg5tI2LGGARo-Uc5pFIKz8",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://nakameguro.backdoor.casino/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJywg5tI2LGGARo-Uc5pFIKz8"
+  },
+  {
    "name": "OJARUMARU 中目黒店",
    "kind": "ポーカー専門",
    "ward": "目黒区",
@@ -701,7 +2334,10 @@
    "seats": "50席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ004492068/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJu8V-z32LGGAR9To6B5iB0aM",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26"
   },
   {
    "name": "m HOLD'EM 目黒",
@@ -719,7 +2355,24 @@
    "status": "press",
    "source": "https://www.timeout.jp/tokyo/ja/%E3%82%A2%E3%83%88%E3%83%A9%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3/m-holdem-meguro",
    "checked_on": "2026-11-26",
-   "note": "情報は開店時（2021年）の記事。公式（mpj-portal.jp）で要確認"
+   "note": "情報は開店時（2021年）の記事。公式（mpj-portal.jp）で要確認",
+   "google_place_id": "ChIJu50h-W-LGGARACLkmmVJq8s",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://mpj-portal.jp/"
+  },
+  {
+   "name": "ダブルバレル中目黒",
+   "kind": "要確認",
+   "ward": "目黒区",
+   "in_23wards": true,
+   "google_place_id": "ChIJJxoOZPKLGGARC2MOKIUDzPE",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://doublebarrel.jp/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJJxoOZPKLGGARC2MOKIUDzPE"
   },
   {
    "name": "Pool & Darts + Poker Bar side",
@@ -736,7 +2389,102 @@
    "seats": "50席(カウンターも有り。お一人様も喜んで！)",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ001118874/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJg2dfTxLtGGAR8GVIinWy47M",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "http://www.pool-and-darts-side.com/"
+  },
+  {
+   "name": "CASINO LOUNGE ESPOIR-カジノラウンジ エスポワール-(アミューズメントポーカーバー)",
+   "kind": "ポーカー専門",
+   "ward": "荒川区",
+   "in_23wards": true,
+   "google_place_id": "ChIJNaJt46uNGGARbMkkLNMQcC8",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://x.com/espoir_nippori?s=21&t=clTxsR60m4TRUUY2KDnyaQ",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJNaJt46uNGGARbMkkLNMQcC8"
+  },
+  {
+   "name": "テンデュース日暮里 ポーカールーム",
+   "kind": "ポーカー専門",
+   "ward": "荒川区",
+   "in_23wards": true,
+   "google_place_id": "ChIJH0nMJl-NGGARRFVF7hkD0yE",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://poker102.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJH0nMJl-NGGARRFVF7hkD0yE"
+  },
+  {
+   "name": "ポーカー&カラオケダーツBARがるぽ",
+   "kind": "ポーカー専門",
+   "ward": "荒川区",
+   "in_23wards": true,
+   "google_place_id": "ChIJz5PVhL6NGGAROBafPUUkp_o",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJz5PVhL6NGGAROBafPUUkp_o"
+  },
+  {
+   "name": "PokerBarAA 新小岩【ポーカー バー エーシーズ】",
+   "kind": "ポーカー専門",
+   "ward": "葛飾区",
+   "in_23wards": true,
+   "google_place_id": "ChIJXYyFrKOHGGARAPHhoiwxsy4",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://www.pokerbaraa.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJXYyFrKOHGGARAPHhoiwxsy4"
+  },
+  {
+   "name": "PokerBarAA+ 【ポーカーバーエーシーズプラス】",
+   "kind": "ポーカー専門",
+   "ward": "葛飾区",
+   "in_23wards": true,
+   "google_place_id": "ChIJg2AqlKOHGGAR_ArAGd9Lxdw",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://www.pokerbaraa.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJg2AqlKOHGGAR_ArAGd9Lxdw"
+  },
+  {
+   "name": "ポーカールーム KEROP ケロップ 金町店",
+   "kind": "ポーカー専門",
+   "ward": "葛飾区",
+   "in_23wards": true,
+   "google_place_id": "ChIJS3biGk2FGGARxqUyEZmA32Y",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://x.com/kerop_poker",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJS3biGk2FGGARxqUyEZmA32Y"
+  },
+  {
+   "name": "(池袋 ポーカーバー) Under Dog Poker",
+   "kind": "ポーカー専門",
+   "ward": "豊島区",
+   "in_23wards": true,
+   "google_place_id": "ChIJsRvcSbGNGGARpO1fG7Vi9CU",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://under-dog-poker.studio.site/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJsRvcSbGNGGARpO1fG7Vi9CU"
   },
   {
    "name": "ARIES アミューズメントカジノバー",
@@ -753,7 +2501,11 @@
    "seats": "40席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ004089043/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJ0WCLdvONGGARJbEHYFymroc",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://ariessugamo.net/"
   },
   {
    "name": "BLOW 池袋",
@@ -770,7 +2522,24 @@
    "seats": "40席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003340654/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJEWDhXXuNGGARJo1Gjj0h-GY",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://blow-casino.com/shop/detail.html?id=210"
+  },
+  {
+   "name": "Darts Bar A's 大塚店[ダーツ＆ポーカー]",
+   "kind": "ポーカー専門",
+   "ward": "豊島区",
+   "in_23wards": true,
+   "google_place_id": "ChIJDwY2eyKNGGARiJEWiKM-X0k",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://dart-ace.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJDwY2eyKNGGARiJEWiKM-X0k"
   },
   {
    "name": "Family Pot 池袋店",
@@ -787,7 +2556,11 @@
    "seats": "16席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003806506/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJqds6E_KTGGAR2jbjRZhW4_s",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://familypot.jp/locations"
   },
   {
    "name": "Kitchen AJITO×ポーカーBAR RING GAME",
@@ -804,7 +2577,21 @@
    "seats": "34席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003784699/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_status": "NOT_IN_SEARCH"
+  },
+  {
+   "name": "POKER FACE 池袋店",
+   "kind": "ポーカー専門",
+   "ward": "豊島区",
+   "in_23wards": true,
+   "google_place_id": "ChIJZePlm2eNGGAR7u4hApgSQR0",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://www.pokerface-web.com/shop_list/ikebukuro/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJZePlm2eNGGAR7u4hApgSQR0"
   },
   {
    "name": "RERAISE",
@@ -822,7 +2609,11 @@
    "status": "press",
    "source": "https://ssl.tabelog.com/en/tokyo/A1305/A130501/13255950/",
    "checked_on": "2026-11-26",
-   "note": "食べログの掲載情報。営業時間は未確認"
+   "note": "食べログの掲載情報。営業時間は未確認",
+   "google_place_id": "ChIJwZm3TJmNGGARKjv0kUERINk",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://reraise-japan.com/"
   },
   {
    "name": "Tem's Tokyo",
@@ -839,7 +2630,8 @@
    "seats": "30席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003388340/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_status": "NOT_IN_SEARCH"
   },
   {
    "name": "ZEAL AMUSMENT POKER BAR",
@@ -856,7 +2648,76 @@
    "seats": "60席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003806982/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJ-xhwAgCNGGARa6TG9BLq63U",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://pokerfans.jp/clubs/3265"
+  },
+  {
+   "name": "アテナ池袋 アミューズメントポーカーバー",
+   "kind": "ポーカー専門",
+   "ward": "豊島区",
+   "in_23wards": true,
+   "google_place_id": "ChIJHYIDmQ2NGGARsljUhfTdpSA",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://athenaqq.jp/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJHYIDmQ2NGGARsljUhfTdpSA"
+  },
+  {
+   "name": "イケブクロギルド 池袋 ポーカー",
+   "kind": "ポーカー専門",
+   "ward": "豊島区",
+   "in_23wards": true,
+   "google_place_id": "ChIJ-RTiomiNGGARrgNOjkO05cM",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://ikebukurokk.com/lp/ikebukuro_guild",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJ-RTiomiNGGARrgNOjkO05cM"
+  },
+  {
+   "name": "ポーカーアリーナ池袋 / Poker Arena Ikebukuro",
+   "kind": "ポーカー専門",
+   "ward": "豊島区",
+   "in_23wards": true,
+   "google_place_id": "ChIJH8K3fRONGGARZiQDKKb9InM",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://x.com/arena_ikebukuro",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJH8K3fRONGGARZiQDKKb9InM"
+  },
+  {
+   "name": "ポーカーバー 【OWL 池袋】- アウル 池袋",
+   "kind": "ポーカー専門",
+   "ward": "豊島区",
+   "in_23wards": true,
+   "google_place_id": "ChIJNUIiNyGNGGARhC2O-xOHroc",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJNUIiNyGNGGARhC2O-xOHroc"
+  },
+  {
+   "name": "池袋IWGP（池袋ウエストゲートポーカー）",
+   "kind": "ポーカー専門",
+   "ward": "豊島区",
+   "in_23wards": true,
+   "google_place_id": "ChIJl3b_Q6CNGGAREZ5IgIrB0s4",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://twitter.com/IWGP_POKER",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJl3b_Q6CNGGAREZ5IgIrB0s4"
   },
   {
    "name": "POKER BAR BLUCKY",
@@ -873,7 +2734,10 @@
    "seats": "24席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ004090031/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_place_id": "ChIJ55XufAORGGARV1T6FlQcxWA",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26"
   },
   {
    "name": "Poker＆Shisha シーシャーズ",
@@ -890,142 +2754,28 @@
    "seats": "40席",
    "status": "store_listing",
    "source": "https://www.hotpepper.jp/strJ003410706/",
-   "checked_on": "2026-11-26"
+   "checked_on": "2026-11-26",
+   "google_status": "NOT_IN_SEARCH"
+  },
+  {
+   "name": "アミューズメントカジノバー JACIN 綾瀬店",
+   "kind": "カジノバー（ポーカーを含む）",
+   "ward": "足立区",
+   "in_23wards": true,
+   "google_place_id": "ChIJS2TiqO6PGGARjl8-d_eIaQw",
+   "google_status": "OPERATIONAL",
+   "google_checked_on": "2026-11-26",
+   "official": "https://jacin-ayase.com/",
+   "status": "google",
+   "checked_on": "2026-11-26",
+   "source": "https://www.google.com/maps/place/?q=place_id:ChIJS2TiqO6PGGARjl8-d_eIaQw"
   }
  ],
  "leads": [
   {
-   "name": "KKLIVE POKER（KKLP）渋谷",
-   "ward": "渋谷区",
-   "area": "渋谷",
-   "in_23wards": true,
-   "status": "lead",
-   "note": "手がかり"
-  },
-  {
-   "name": "KKLIVE POKER SHINJUKU",
-   "ward": "新宿区",
-   "area": "新宿",
-   "in_23wards": true,
-   "status": "lead",
-   "note": "手がかり"
-  },
-  {
-   "name": "恵比寿BUBBLE",
-   "ward": "渋谷区",
-   "area": "恵比寿",
-   "in_23wards": true,
-   "status": "lead",
-   "note": "手がかり"
-  },
-  {
    "name": "RED° TOKYO TOWER",
    "ward": "港区",
    "area": "芝公園",
-   "in_23wards": true,
-   "status": "lead",
-   "note": "手がかり"
-  },
-  {
-   "name": "ベルバードポーカー 新橋",
-   "ward": "港区",
-   "area": "新橋",
-   "in_23wards": true,
-   "status": "lead",
-   "note": "手がかり"
-  },
-  {
-   "name": "Queen Pocket",
-   "ward": "品川区",
-   "area": "五反田",
-   "in_23wards": true,
-   "status": "lead",
-   "note": "手がかり"
-  },
-  {
-   "name": "アキバギルド",
-   "ward": "千代田区",
-   "area": "秋葉原",
-   "in_23wards": true,
-   "status": "lead",
-   "note": "手がかり"
-  },
-  {
-   "name": "カジノクエスト",
-   "ward": "千代田区",
-   "area": "秋葉原",
-   "in_23wards": true,
-   "status": "lead",
-   "note": "手がかり"
-  },
-  {
-   "name": "じゃんけんポーカー 水道橋店",
-   "ward": "千代田区",
-   "area": "水道橋",
-   "in_23wards": true,
-   "status": "lead",
-   "note": "手がかり"
-  },
-  {
-   "name": "GUTSHOT",
-   "ward": "文京区",
-   "area": "湯島",
-   "in_23wards": true,
-   "status": "lead",
-   "note": "手がかり"
-  },
-  {
-   "name": "ガットショット 上野池之端店",
-   "ward": "台東区",
-   "area": "上野",
-   "in_23wards": true,
-   "status": "lead",
-   "note": "手がかり"
-  },
-  {
-   "name": "コーナーポケット",
-   "ward": "台東区",
-   "area": "蔵前",
-   "in_23wards": true,
-   "status": "lead",
-   "note": "手がかり"
-  },
-  {
-   "name": "Pokerface",
-   "ward": "中野区",
-   "area": "中野",
-   "in_23wards": true,
-   "status": "lead",
-   "note": "手がかり"
-  },
-  {
-   "name": "poker room GRAVITY",
-   "ward": "杉並区",
-   "area": "阿佐ヶ谷",
-   "in_23wards": true,
-   "status": "lead",
-   "note": "手がかり"
-  },
-  {
-   "name": "錦糸町Double Pot",
-   "ward": "墨田区",
-   "area": "錦糸町",
-   "in_23wards": true,
-   "status": "lead",
-   "note": "手がかり"
-  },
-  {
-   "name": "BLOW 亀戸",
-   "ward": "江東区",
-   "area": "亀戸",
-   "in_23wards": true,
-   "status": "lead",
-   "note": "手がかり"
-  },
-  {
-   "name": "H3AL",
-   "ward": "江戸川区",
-   "area": "葛西",
    "in_23wards": true,
    "status": "lead",
    "note": "手がかり"
@@ -1040,62 +2790,6 @@
   },
   {
    "name": "Mホールデム（他店舗）",
-   "ward": "",
-   "area": "",
-   "in_23wards": false,
-   "status": "lead",
-   "note": "手がかり（場所未確認）"
-  },
-  {
-   "name": "PukuPuku NEON",
-   "ward": "",
-   "area": "",
-   "in_23wards": false,
-   "status": "lead",
-   "note": "手がかり（場所未確認）"
-  },
-  {
-   "name": "ROOTS",
-   "ward": "",
-   "area": "",
-   "in_23wards": false,
-   "status": "lead",
-   "note": "手がかり（場所未確認）"
-  },
-  {
-   "name": "raid=gig",
-   "ward": "",
-   "area": "",
-   "in_23wards": false,
-   "status": "lead",
-   "note": "手がかり（場所未確認）"
-  },
-  {
-   "name": "LuckRaise",
-   "ward": "",
-   "area": "",
-   "in_23wards": false,
-   "status": "lead",
-   "note": "手がかり（場所未確認）"
-  },
-  {
-   "name": "Nuts＆Star",
-   "ward": "",
-   "area": "",
-   "in_23wards": false,
-   "status": "lead",
-   "note": "手がかり（場所未確認）"
-  },
-  {
-   "name": "Double Cherry",
-   "ward": "",
-   "area": "",
-   "in_23wards": false,
-   "status": "lead",
-   "note": "手がかり（場所未確認）"
-  },
-  {
-   "name": "M☆SPACE",
    "ward": "",
    "area": "",
    "in_23wards": false,
