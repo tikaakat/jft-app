@@ -224,7 +224,7 @@ def page(path, title, desc, body, extra_head="", hero=""):
 <link rel="canonical" href="{BASE_URL}{path}">
 <meta property="og:title" content="{html.escape(full)}"><meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:type" content="website"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&display=swap"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%E2%99%A0%3C/text%3E%3C/svg%3E"><style>{CSS}</style>{extra_head}</head><body>
-<div class="topbar"><header><a class="logo" href="/"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="var(--felt)"/><circle cx="16" cy="16" r="12" fill="none" stroke="var(--gold)" stroke-width="1.2" stroke-dasharray="3 2.2"/><path d="M16 8c-3 3.6-6 5.6-6 8.4a3.2 3.2 0 0 0 5.2 2.5L14.4 23h3.2l-.8-4.1a3.2 3.2 0 0 0 5.2-2.5C22 13.6 19 11.6 16 8z" fill="var(--onfelt)"/></svg>{SITE_NAME}</a><nav><a href="/">世界の大会</a><a href="/guide/">遠征ガイド</a><a href="/tokyo/">日本の店</a><a href="/legal/">法律と掲載ルール</a></nav></header></div>{hero}
+<div class="topbar"><header><a class="logo" href="/"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="var(--felt)"/><circle cx="16" cy="16" r="12" fill="none" stroke="var(--gold)" stroke-width="1.2" stroke-dasharray="3 2.2"/><path d="M16 8c-3 3.6-6 5.6-6 8.4a3.2 3.2 0 0 0 5.2 2.5L14.4 23h3.2l-.8-4.1a3.2 3.2 0 0 0 5.2-2.5C22 13.6 19 11.6 16 8z" fill="var(--onfelt)"/></svg>{SITE_NAME}</a><nav><a href="/">世界の大会</a><a href="/guide/">遠征ガイド</a><a href="/japan/">日本の店</a><a href="/legal/">法律と掲載ルール</a></nav></header></div>{hero}
 <main>{body}</main>
 <footer>掲載内容は確認日時点のものです。参加や支払いの前に、必ず主催者と政府の公式情報を確認してください。
 このサイトはオンラインポーカー・オンラインカジノを案内しません（<a href="/legal/">法律と掲載ルール</a>）。<a href="/about/">編集方針</a>・<a href="/owners/">店主の方へ</a>・<a href="/contact/">お問い合わせ・通報</a>・<a href="/privacy/">個人情報の扱い</a><br>© {SITE_NAME}</footer></body></html>"""
@@ -304,7 +304,8 @@ def main():
                 f'<p><span class="ctag">{COUNTRY[e["country"]][0]}</span>{html.escape(e.get("city") or "")}{"・〜" + str(int(e["end"][5:7])) + "/" + str(int(e["end"][8:10])) if e.get("end") and len(e["end"]) == 10 else ""}</p><p><span class="badge {cls}">{label}</span></p></div></a>')
     dests = "".join(f'<a class="dest" href="/guide/{slug}/"><b>{name}</b><span>大会 {sum(1 for e in upcoming if region_of(e) == code)} 件・入国とお金</span></a>' for code, (name, slug) in REGIONS.items())
     tokyo_n = len([v for v in json.loads((ROOT / "data/tokyo_venues.json").read_text())["venues"] if v["in_23wards"]])
-    dests += f'<a class="dest jp" href="/tokyo/"><b>日本</b><span>東京の店 {tokyo_n} 店</span></a>'
+    osaka_cnt = len(json.loads((ROOT / "data/osaka_venues.json").read_text())["venues"])
+    dests += f'<a class="dest jp" href="/japan/"><b>日本</b><span>東京 {tokyo_n} 店・大阪 {osaka_cnt} 店</span></a>'
     hero = f"""<section class="hero"><div class="hero-in"><span class="eyebrow">WORLD POKER TRAVEL GUIDE</span>
 <h1>世界のポーカー大会へ、<br>損をしない旅を。</h1>
 <p>アジアとラスベガスの大会日程と、入国・お金・税金の手順。すべて公式情報の出典と確認日付きです。</p>
@@ -335,6 +336,8 @@ def main():
 
     event_pages(paths, evs, checked)
     tokyo_pages(paths)
+    osaka_n = osaka_pages(paths)
+    japan_page(paths, tokyo_n, osaka_n)
     meta, body = parse_md(ROOT / "content/legal.md")
     lb = render_md(body, evs).replace("</h1>", f"</h1><p class=\"checked\">最終確認日：{meta['checked']}</p>", 1)
     paths.append(page("/legal/", meta["title"], meta["description"], lb))
@@ -414,7 +417,7 @@ def venue_card(v):
 
 def filter_ui(show_area=True, counts=None):
     counts = counts or {}
-    chips = "".join(f'<button type="button" class="pchip" data-f="{k}" aria-pressed="false">{p}<span class="cnt">{counts.get(k, "")}</span></button>' for k, _, p in FEATS)
+    chips = "".join(f'<button type="button" class="pchip" data-f="{k}" aria-pressed="false">{p}<span class="cnt">{counts.get(k, "")}</span></button>' for k, _, p in FEATS if not counts or counts.get(k))
     areas = "".join(f'<option value="{aid}">{an}</option>' for aid, an, _ in AREAS)
     area_sel = f'<select id="farea" aria-label="エリア"><option value="">すべてのエリア</option>{areas}</select>' if show_area else ""
     return f"""<section class="finder" aria-label="店を探す"><div class="pchips">{chips}</div>
@@ -438,13 +441,14 @@ def bars(items, total):
     return f'<ul class="bars">{rows}</ul>'
 
 
-def ward_map(vs):
-    m = json.loads((ROOT / "data/tokyo_wards_svg.json").read_text()); pr = m["proj"]
+def ward_map(vs, svgfile="data/tokyo_wards_svg.json", slugs=None, prefix="/tokyo/", label="東京 23 区"):
+    slugs = slugs or WARDS
+    m = json.loads((ROOT / svgfile).read_text()); pr = m["proj"]
     cnt = {}
     for v in vs: cnt[v["ward"]] = cnt.get(v["ward"], 0) + 1
     mx = max(cnt.values())
     def lvl(n): return 0 if not n else min(4, 1 + int(n / mx * 4))
-    shapes = "".join(f'<a href="/tokyo/{WARDS[w]}/"><path class="ward l{lvl(cnt.get(w, 0))}" d="{g["d"]}"><title>{w}：{cnt.get(w, 0)} 店</title></path></a>' for w, g in m["wards"].items())
+    shapes = "".join(f'<a href="{prefix}{slugs[w]}/"><path class="ward l{lvl(cnt.get(w, 0))}" d="{g["d"]}"><title>{w}：{cnt.get(w, 0)} 店</title></path></a>' for w, g in m["wards"].items())
     labels = "".join(f'<text class="wl" x="{g["cx"]}" y="{g["cy"]}">{w[:-1]}</text>' for w, g in m["wards"].items())
     dots = ""
     for v in vs:
@@ -453,7 +457,7 @@ def ward_map(vs):
         vid = "v-" + (v.get("google_place_id") or re.sub(r"\W", "", v["name"]))[-16:]
         dots += f'<a href="#{vid}"><circle class="dot" data-v="{vid}" cx="{x:.1f}" cy="{y:.1f}" r="6"><title>{html.escape(v["name"])}</title></circle></a>'
     legend = '<div class="legend"><span><i class="sw l1"></i>少ない</span><span><i class="sw l4"></i>多い</span><span><i class="dot-i"></i>店の場所（住所を確認できた店）</span></div>'
-    return (f'<figure class="map"><svg viewBox="{m["viewBox"]}" role="img" aria-label="東京 23 区のポーカー店の分布">{shapes}{labels}{dots}</svg>'
+    return (f'<figure class="map"><svg viewBox="{m["viewBox"]}" role="img" aria-label="{label}のポーカー店の分布">{shapes}{labels}{dots}</svg>'
             f'<figcaption>{legend}<span class="muted small">区を押すと区のページへ。地図：{m["source"]}</span></figcaption></figure>')
 
 
@@ -571,6 +575,74 @@ def event_pages(paths, evs, checked):
 {f"<h2>同じ地域のほかの大会</h2><ul>{same_html}</ul>" if same_html else ""}"""
         desc = f'{e["name"]}（{fmt_date(e)}、{cname}{"・" + e["city"] if e.get("city") else ""}）の日程、会場、参加費と、日本から参加する前に確認すること。'
         paths.append(page(f"/events/{event_slug(e)}/", f'{e["name"]}の日程・参加費・行く前の準備', desc, body, jsonld([e])))
+
+
+OSAKA_WARDS = {"北区": "kita", "都島区": "miyakojima", "福島区": "fukushima", "此花区": "konohana", "中央区": "chuo", "西区": "nishi", "港区": "minato",
+    "大正区": "taisho", "天王寺区": "tennoji", "浪速区": "naniwa", "西淀川区": "nishiyodogawa", "淀川区": "yodogawa", "東淀川区": "higashiyodogawa",
+    "東成区": "higashinari", "生野区": "ikuno", "旭区": "asahi", "城東区": "joto", "鶴見区": "tsurumi", "阿倍野区": "abeno", "住之江区": "suminoe",
+    "住吉区": "sumiyoshi", "東住吉区": "higashisumiyoshi", "平野区": "hirano", "西成区": "nishinari"}
+OSAKA_HUBS = [
+    ("umeda", "梅田・北新地", 34.7025, 135.4959, ["梅田", "北新地", "曽根崎", "umeda"]),
+    ("namba", "難波・心斎橋", 34.6687, 135.5013, ["難波", "なんば", "心斎橋", "周防町", "日本橋", "namba", "shinsaibashi"]),
+    ("tennoji", "天王寺・阿倍野", 34.6466, 135.5133, ["天王寺", "阿倍野", "あべの"]),
+    ("kyobashi", "京橋", 34.6967, 135.5340, ["京橋"]),
+    ("juso", "十三", 34.7213, 135.4851, ["十三", "juso"]),
+    ("fukushima", "福島", 34.6973, 135.4848, ["福島"]),
+]
+
+
+def osaka_pages(paths):
+    import math
+    d = json.loads((ROOT / "data/osaka_venues.json").read_text())
+    KORDER = {"ポーカー専門": 0, "カジノバー（ポーカーを含む）": 1, "ポーカーも遊べるバー": 2, "レンタルスペース": 3, "要確認": 4}
+    vs = sorted(d["venues"], key=lambda v: (KORDER.get(v["kind"], 9), -len(v.get("features", [])), v["name"]))
+    def hub(v):
+        if v.get("lat"):
+            b = min(OSAKA_HUBS, key=lambda h: math.dist((h[2], h[3] * 0.82), (v["lat"], v["lng"] * 0.82)))
+            if math.dist((b[2], b[3] * 0.82), (v["lat"], v["lng"] * 0.82)) < 0.012: return b
+        n = v["name"].lower()
+        return next((h for h in OSAKA_HUBS if any(k.lower() in n for k in h[4])), None)
+    byhub = {}
+    for v in vs:
+        h = hub(v)
+        if h: byhub.setdefault(h[0], (h, []))[1].append(v)
+    chips = []
+    for slug, (h, lst) in sorted(byhub.items(), key=lambda x: -len(x[1][1])):
+        if len(lst) < 3: continue
+        chips.append(f'<a class="areachip" href="/osaka/area/{slug}/">{h[1]}<span class="cnt">{len(lst)}</span></a>')
+        fi = {k: sum(1 for v in lst if k in v.get("features", [])) for k, _, _ in FEATS}
+        b = f"""<p class="crumb"><a href="/osaka/">大阪のポーカー店ガイド</a> › {h[1]}</p><h1>{h[1]}のポーカー店</h1>
+<p class="lead">{h[1]}の周辺にあるアミューズメントポーカーの店 {len(lst)} 店。</p>
+{filter_ui(show_area=False, counts=fi)}<section class="group"><div class="vgrid">{"".join(venue_card(v) for v in lst)}</div></section>"""
+        paths.append(page(f"/osaka/area/{slug}/", f"{h[1]}のポーカー店（{len(lst)}店）", f"大阪・{h[1]}周辺のアミューズメントポーカーの店 {len(lst)} 店。初心者講習、トーナメント、リングゲームなどの特徴と場所。", b, venue_jsonld(lst)))
+    byw = {}
+    for v in vs: byw.setdefault(v["ward"], []).append(v)
+    for w, lst in byw.items():
+        if w not in OSAKA_WARDS: continue
+        fi = {k: sum(1 for v in lst if k in v.get("features", [])) for k, _, _ in FEATS}
+        b = f"""<p class="crumb"><a href="/osaka/">大阪のポーカー店ガイド</a> › {w}</p><h1>大阪市{w}のポーカー店</h1><p class="lead">{len(lst)} 店。特徴で絞り込めます。</p>
+{filter_ui(show_area=False, counts=fi)}<section class="group"><div class="vgrid">{"".join(venue_card(v) for v in lst)}</div></section>"""
+        paths.append(page(f"/osaka/{OSAKA_WARDS[w]}/", f"大阪市{w}のポーカー店（{len(lst)}店）", f"大阪市{w}のアミューズメントポーカーの店 {len(lst)} 店。特徴と場所。", b, venue_jsonld(lst)))
+    fc = {k: sum(1 for v in vs if k in v.get("features", [])) for k, _, _ in FEATS}
+    groups = "".join(f'<section class="group"><h2><a href="/osaka/{OSAKA_WARDS[w]}/">{w}</a><span class="muted">（{len(byw[w])} 店）</span></h2><div class="vgrid">{"".join(venue_card(v) for v in byw[w])}</div></section>'
+                     for w in sorted(byw, key=lambda w: -len(byw[w])) if w in OSAKA_WARDS)
+    pro = sum(1 for v in vs if v["kind"] == "ポーカー専門")
+    body = f"""<p class="crumb"><a href="/japan/">日本の店</a> › 大阪</p><h1>大阪のポーカー店ガイド</h1>
+<p class="lead">大阪市の {len(vs)} 店を、講習・トーナメント・大会の予選など<strong>ポーカーならではの特徴</strong>で探せます。</p>
+<div class="stats"><div><b>{len(vs)}</b><span>店</span></div><div><b>{pro}</b><span>専門店</span></div><div><b>{fc["lesson"]}</b><span>講習あり</span></div><div><b>{fc["tournament"]}</b><span>大会あり</span></div></div>
+{ward_map(vs, "data/osaka_wards_svg.json", OSAKA_WARDS, "/osaka/", "大阪市")}
+<h2 class="h-small">駅から探す</h2><div class="areachips">{"".join(chips)}</div>
+{filter_ui(show_area=False, counts=fc)}{groups}
+<p class="muted small note">確認日 {d['checked_on']}。来店前に店の公式情報を確認してください。<a href="/owners/">店主の方へ（掲載・訂正は無料）</a></p>"""
+    paths.append(page("/osaka/", "大阪のポーカー店ガイド", f"大阪市のアミューズメントポーカーの店 {len(vs)} 店を、初心者講習、トーナメント、リングゲーム、大会の予選、飲み放題、禁煙などの特徴で探せます。", body))
+    return len(vs)
+
+
+def japan_page(paths, tokyo_n, osaka_n):
+    body = f"""<h1>日本のポーカー店</h1><p class="lead">国内のアミューズメントポーカーの店を、地域ごとに特徴で探せます。</p>
+<div class="dests"><a class="dest jp" href="/tokyo/"><b>東京</b><span>23 区の {tokyo_n} 店</span></a><a class="dest jp" href="/osaka/"><b>大阪</b><span>大阪市の {osaka_n} 店</span></a></div>
+<p class="muted small">国内では、換金や、参加費をもとに現金の賞金が出る大会は扱いません（<a href="/legal/">法律と掲載ルール</a>）。</p>"""
+    paths.append(page("/japan/", "日本のポーカー店（東京・大阪）", "東京と大阪のアミューズメントポーカーの店を、初心者講習やトーナメントなどの特徴で探せるガイド。", body))
 
 
 def guide_cards():
