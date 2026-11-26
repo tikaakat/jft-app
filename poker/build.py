@@ -45,6 +45,11 @@ th{color:var(--muted);font-weight:600;white-space:nowrap}
 .cards li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
 .cards a{text-decoration:none;font-weight:600}
 footer{margin-top:48px;padding-top:16px;padding-bottom:32px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.venue{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:10px 0}
+.venue h3{margin:0 0 4px;font-size:1.05rem}.venue dl{display:grid;grid-template-columns:5.5em 1fr;gap:2px 8px;margin:6px 0 0;font-size:14px}
+.venue dt{color:var(--muted)}.venue dd{margin:0}.tags{display:flex;gap:6px;flex-wrap:wrap}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.filters label{font-size:14px;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--card)}
+.filters select{font:inherit;font-size:14px;padding:4px 8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--fg)}
 ul.task{list-style:none;padding-left:0}ul.task li::before{content:"☐ ";color:var(--accent)}
 """
 
@@ -115,7 +120,7 @@ def page(path, title, desc, body, extra_head=""):
 <link rel="canonical" href="{BASE_URL}{path}">
 <meta property="og:title" content="{html.escape(full)}"><meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:type" content="website"><style>{CSS}</style>{extra_head}</head><body>
-<header><a class="logo" href="/">{SITE_NAME}</a><nav><a href="/">大会日程</a><a href="/guide/">遠征ガイド</a><a href="/about/">編集方針</a></nav></header>
+<header><a class="logo" href="/">{SITE_NAME}</a><nav><a href="/">海外の大会</a><a href="/guide/">遠征ガイド</a><a href="/tokyo/">東京の店</a><a href="/about/">編集方針</a></nav></header>
 <main>{body}</main>
 <footer>掲載内容は確認日時点のものです。参加や支払いの前に、必ず主催者と政府の公式情報を確認してください。
 このサイトはオンラインポーカー・オンラインカジノを案内しません。<br>© {SITE_NAME}</footer></body></html>"""
@@ -166,6 +171,7 @@ def main():
             html_body = html_body.replace("</h1>", f"</h1><p class=\"checked\">最終確認日：{meta['checked']}</p>", 1)
         paths.append(page(f"/guide/{p.stem}/", meta["title"], meta["description"], html_body, jsonld(sub)))
 
+    tokyo_pages(paths)
     meta, body = parse_md(ROOT / "content/about.md")
     paths.append(page("/about/", meta["title"], meta["description"], render_md(body, evs)))
 
@@ -173,6 +179,54 @@ def main():
     urls = "".join(f"<url><loc>{BASE_URL}{p}</loc><lastmod>{checked}</lastmod></url>" for p in paths)
     (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>')
     print(f"built {len(paths)} pages -> {OUT}")
+
+
+WARDS = {"千代田区":"chiyoda","中央区":"chuo","港区":"minato","新宿区":"shinjuku","文京区":"bunkyo","台東区":"taito","墨田区":"sumida","江東区":"koto","品川区":"shinagawa","目黒区":"meguro","大田区":"ota","世田谷区":"setagaya","渋谷区":"shibuya","中野区":"nakano","杉並区":"suginami","豊島区":"toshima","北区":"kita","荒川区":"arakawa","板橋区":"itabashi","練馬区":"nerima","足立区":"adachi","葛飾区":"katsushika","江戸川区":"edogawa"}
+VSTATUS = {"store_listing": "店舗の掲載情報で確認", "press": "記事などで確認（公式で要確認）"}
+
+
+def venue_card(v):
+    tags = [f'<span class="badge s-official">{html.escape(v["kind"])}</span>']
+    if v.get("nonsmoking"): tags.append('<span class="badge s-expected">全席禁煙</span>')
+    if v.get("late_night"): tags.append('<span class="badge s-third">深夜営業</span>')
+    rows = [("場所", v.get("address")), ("行き方", v.get("access")), ("営業時間", v.get("hours")), ("定休日", v.get("closed")), ("たばこ", v.get("smoking"))]
+    dl = "".join(f"<dt>{k}</dt><dd>{html.escape(val)}</dd>" for k, val in rows if val)
+    note = f'<p class="checked">{html.escape(v["note"])}</p>' if v.get("note") else ""
+    off = f' <a href="{html.escape(v["official"])}" rel="noopener">公式サイト</a>' if v.get("official") else ""
+    src = f'<p class="checked">{VSTATUS[v["status"]]}（<a href="{html.escape(v["source"])}" rel="nofollow noopener">出典</a>、{v["checked_on"]}）{off}</p>'
+    return (f'<article class="venue" data-kind="{html.escape(v["kind"])}" data-ns="{int(bool(v.get("nonsmoking")))}" data-late="{int(bool(v.get("late_night")))}">'
+            f'<h3>{html.escape(v["name"])}</h3><div class="tags">{"".join(tags)}</div><dl>{dl}</dl>{note}{src}</article>')
+
+
+FILTER_JS = """<div class="filters"><select id="fk"><option value="">すべての種類</option><option>ポーカー専門</option><option>カジノバー（ポーカーを含む）</option><option>ポーカーも遊べるバー</option><option>レンタルスペース</option></select>
+<label><input type="checkbox" id="fns"> 全席禁煙</label><label><input type="checkbox" id="flate"> 深夜営業（翌1時以降）</label></div><p class="checked" id="fcount"></p>
+<script>(function(){const k=document.getElementById('fk'),n=document.getElementById('fns'),l=document.getElementById('flate'),c=document.getElementById('fcount');
+function f(){let s=0;document.querySelectorAll('.venue').forEach(v=>{const ok=(!k.value||v.dataset.kind===k.value)&&(!n.checked||v.dataset.ns==='1')&&(!l.checked||v.dataset.late==='1');v.style.display=ok?'':'none';if(ok)s++});c.textContent=s+' 店を表示中';
+document.querySelectorAll('section.ward').forEach(w=>{w.style.display=[...w.querySelectorAll('.venue')].some(v=>v.style.display!=='none')?'':'none'})}
+[k,n,l].forEach(e=>e.addEventListener('change',f));document.addEventListener('DOMContentLoaded',f);})();</script>"""
+
+
+def tokyo_pages(paths):
+    d = json.loads((ROOT / "data/tokyo_venues.json").read_text())
+    vs = [v for v in d["venues"] if v["in_23wards"]]
+    by = {}
+    KORDER = {"ポーカー専門": 0, "カジノバー（ポーカーを含む）": 1, "ポーカーも遊べるバー": 2, "レンタルスペース": 3}
+    for v in sorted(vs, key=lambda v: (KORDER.get(v["kind"], 9), v["name"])): by.setdefault(v["ward"], []).append(v)
+    order = [w for w in WARDS if w in by]
+    links = " ".join(f'<a href="/tokyo/{WARDS[w]}/">{w}（{len(by[w])}）</a>' for w in order)
+    secs = "".join(f'<section class="ward"><h2><a href="/tokyo/{WARDS[w]}/">{w}</a></h2>{"".join(venue_card(v) for v in by[w])}</section>' for w in order)
+    lead_names = "、".join(html.escape(l["name"]) for l in d["leads"] if l.get("in_23wards"))
+    body = f"""<h1>東京 23 区のポーカー店</h1>
+<p>アミューズメントポーカーの店を区ごとにまとめています。住所と営業時間は、店が自分で掲載している情報や記事で確認し、出典と確認日を付けています。来店前に、店の公式情報で最新の営業状況を確認してください。</p>
+<p class="checked">掲載 {len(vs)} 店（確認日：{d['checked_on']}）。店主の方は、掲載内容の訂正や追加を無料で受け付けます（準備中）。</p>
+<p>{links}</p>{FILTER_JS}{secs}
+<h2>確認中の店</h2><p class="checked">次の店は、名前を把握していますが、住所や営業状況をまだ確認できていません：{lead_names}</p>"""
+    paths.append(page("/tokyo/", "東京 23 区のポーカー店一覧", f"東京 23 区のアミューズメントポーカーの店 {len(vs)} 店を区ごとに掲載。種類、全席禁煙、深夜営業で絞り込めます。出典と確認日付き。", body))
+    for w in order:
+        b = f"""<h1>{w}のポーカー店</h1><p class="checked">掲載 {len(by[w])} 店（確認日：{d['checked_on']}）</p>
+<p>{w}にあるアミューズメントポーカーの店です。住所と営業時間は出典付きで載せています。来店前に、店の公式情報で最新の営業状況を確認してください。</p>
+{FILTER_JS}<section class="ward">{"".join(venue_card(v) for v in by[w])}</section><p><a href="/tokyo/">東京 23 区の一覧へ戻る</a></p>"""
+        paths.append(page(f"/tokyo/{WARDS[w]}/", f"{w}のポーカー店一覧（{len(by[w])}店）", f"{w}のアミューズメントポーカーの店 {len(by[w])} 店。住所、行き方、営業時間、禁煙かどうかを出典付きで掲載。", b))
 
 
 def guide_cards():
