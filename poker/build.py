@@ -26,7 +26,8 @@ CSS = """
 :root{--bg:#fbfaf7;--fg:#1d1d1f;--muted:#6b6b70;--line:#e3e1dc;--card:#fff;--accent:#0b6e4f;
 --ok:#0b6e4f;--warn:#9a6700;--info:#3b5bdb}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141416;--fg:#ececee;--muted:#a1a1a8;
---line:#2c2c30;--card:#1c1c1f;--accent:#4fd1a5;--ok:#4fd1a5;--warn:#e3b341;--info:#8da2fb}}
+--line:#2c2c30;--card:#1c1c1f;--accent:#4fd1a5;--ok:#4fd1a5;--warn:#e3b341;--info:#8da2fb;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#141416;--fg:#ececee;--muted:#a1a1a8;--line:#2c2c30;--card:#1c1c1f;--accent:#4fd1a5;--ok:#4fd1a5;--warn:#e3b341;--info:#8da2fb;color-scheme:dark}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
 font:16px/1.75 system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif}
 header,main,footer{max-width:820px;margin:0 auto;padding:0 16px}
